@@ -1,0 +1,142 @@
+
+#upperbuy {
+    padding-top: 10em;
+    background-image: url("/images/landscape/boudha.jpg");
+    background-size: 150%;
+    background-repeat: no-repeat;
+    width: 80%;
+    padding: 5em;
+    box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
+    margin: auto;
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+
+#innerbuy {
+    background-color: white;
+    width: 50%;
+    padding: 5%;
+    text-align: center;
+    margin: auto;
+    box-shadow: 0px 0.1em 1em 0px rgb(90, 90, 90);
+
+}
+
+#innerbuy h1 {
+    font-size: 3vw;
+    margin-bottom: 0px;
+    margin: 0px;
+}
+#innerbuy h3 {
+    font-size: 1.5vw;
+    margin: 0px;
+    color: rgb(94, 94, 94);
+    border-bottom: 2px solid rgb(197, 197, 197);
+    padding-bottom: 1em;
+}
+
+
+#innerbuy #images {
+    margin: auto;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns:75%;
+    overflow-x: auto;
+    padding: 0px;
+    gap: 2px;
+    scroll-snap-type: x;
+    scroll-padding-inline: 24px;
+    scroll-behavior: smooth;
+    scroll-behavior: none;
+    width: 65%;
+    overflow-y: auto;
+    margin-top: 5em;
+    gap: 24px;
+    
+}
+#innerbuy #images::-webkit-scrollbar  {
+    display: none;
+}
+#innerbuy #images.grab {
+    cursor: grabbing;
+    user-select: none;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+#innerbuy #images .image {
+
+    scroll-snap-align: start;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 8px 8px 24px rgba(0, 0, 0, .1);
+    margin: 0px;
+    padding-left: 0px;
+    margin: 0px;
+    scroll-snap-align: start;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 8px 8px 24px rgba(0, 0, 0, .1);
+}
+#innerbuy #images .image img {
+    object-fit:cover;
+    width: 50%;
+    margin: 0px;
+
+}
+
+#innerbuy #outerform {
+    width: 50%;
+    margin: auto;
+    margin-top: 4em;
+    border: 1px solid black;
+    padding: 3em;
+}
+
+#innerbuy #outerform form {
+    display: flex;
+    flex-direction: column;
+}
+#innerbuy #outerform form input{
+    background-color: rgba(0, 0, 0, 0);
+    margin: auto;
+    width: 100%;
+    font-size: 1vw;
+    border: 0px;
+    margin-top: 1em;
+    border-bottom: 0.1em solid black;
+    outline: none;
+    margin-top: 1em;
+}
+#innerbuy #outerform form select{
+    border: 0px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1vw;
+    width: 50%;
+    border-bottom: 1px solid rgb(175, 175, 175);
+    margin-bottom: 0em;
+    padding: 0px;
+    margin-top: 1em;
+    text-align: center;
+}
+
+#innerbuy #outerform form p {
+    font-size: 1.3vw;
+    font-weight: 1000;
+    margin-top: 2em;
+    border: 1px solid rgb(165, 165, 165);
+}
+
+#innerbuy #outerform form button {
+    background-color: rgba(255, 0, 0, 0);
+    border: 0px;
+    border: 1px solid rgb(255, 255, 255);
+    border-bottom: 0px;
+    font-size: 1vw;
+    font-weight: 1000;
+    padding: 0.5em;
+    background-color: black;
+    color: white;
+    width: 50%;
+    margin: auto;
+}

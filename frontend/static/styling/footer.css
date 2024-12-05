@@ -1,0 +1,60 @@
+
+
+#footer {
+    background-color: rgb(0, 0, 0);
+    padding: 1rem;
+
+}
+
+#footer #topfooter {
+
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    font-style: normal;
+    font-family: "Archio";
+    font-size: 2vw;
+    letter-spacing: 0.3em;
+    margin-bottom: 0px;
+}
+
+#footer #middlefooter  {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+#footer #middlefooter img  {
+    width:50%;
+    margin: auto;
+}
+
+#footer #bottomfooter {
+    display: flex;
+    margin: auto;
+    padding: 1em;
+}
+#footer #bottomfooter div {
+    width: 50%;
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+}
+#footer #bottomfooter div a  {
+    width: 50%;
+    font-size: 2vw;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.3em;
+    font-family: "Archio";
+    text-decoration: underline;
+    font-weight: 400;
+}
+#footer #bottomfooter #left   {
+    text-align: left;
+}
+#footer #bottomfooter #right {
+    
+    text-align: right;
+}
+

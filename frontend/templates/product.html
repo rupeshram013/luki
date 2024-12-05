@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="/styling/product.css">
+</head>
+<body>
+
+    <div id="navbar">
+    </div>
+
+    <div id="upperproduct" >
+        <div id="outerproduct">
+
+            <div id="innerproduct">
+                    <div id="left">
+
+                        <div id="images">
+                            <div class="image">
+                                <img src="/images/product/kurta1.jpeg" alt="" srcset="">
+
+                            </div>
+                            <div class="image">
+                                <img src="/images/product/kurta2.jpg" alt="" srcset="">
+
+                            </div>
+                            <div class="image">
+                                <img src="/images/product/kurta2.jpg" alt="" srcset="">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="right">
+
+                    </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+
+
+    <script>
+
+        const pagelocation = location.search
+
+        const category = pagelocation.split("category=")[1].split("?id")[0]
+        const id = pagelocation.split("category=")[1].split("?id=")[1] 
+        console.log(category)
+        console.log(id)
+
+        if (category == "women" || category == "men"){
+            fetch(category)
+            .then (response => response.json())
+            .then (product => {
+                console.log(product)
+                for(i in product){
+
+
+                    if(product[i]["productid"] == id){
+                        // console.log(product[i]["name"])
+                        // console.log(product[i]["path"])
+    
+                        let rightside = document.getElementById("right")
+                        console.log(id)
+                        
+                        rightside.innerHTML =
+                        `
+                        <h1 id="producttitle">
+                            
+                        </h1>
+                        <input type="hidden" name="name" id="name"  value=""> 
+                        
+                        <p id="price"></p>
+                        
+                        <form  id="buyform" method="post" onsubmit=" return loginvalidation()">
+                            
+                            <div id="sizesbox">
+                            <input type="radio" id="m" name="sizes" value="m" class="sizesbutton" checked="true">
+                            <label for="m">M</label><br>
+                            <input type="radio" id="l" name="sizes" value="l" class="sizesbutton">
+                            <label for="l">L</label><br>
+                            <input type="radio" id="xl" name="sizes" value="xl" class="sizesbutton">
+                            <label for="xl">XL</label><br> 
+                            <input type="hidden" value="${id}" name="id" id="id">
+                            <input type="hidden" value="${category}" name="category" id="category">
+                            </div>
+
+                            <div id="quantity">
+
+                            <p>Quantity:</p>
+                            <input type="number" min="1" max="${product[i]["productquantity"]}" name="quantity" id="quantity" value="1">
+                            </div>
+                            <button type="submit">Submit</button>
+                        </form>
+                        <p id="loginerror" > </p>
+                        <div id="desc" ></div>
+                                `
+                        let price = document.getElementById("price")
+                        let title = document.getElementById("producttitle")
+                        let imagebox = document.getElementById("images")
+                        let name = document.getElementById("name")
+                        let desc = document.getElementById("desc")
+                        
+                        console.log(title.innerHTML )
+                        title.innerHTML = `${product[i]["productname"]}`
+                        name.value = `${product[i]["productname"]}`
+                        price.innerHTML = `Rs.${product[i]["productprice"]}`
+                        desc.innerHTML = `${product[i]["description"]}`
+                                
+                                
+                                
+                        let imagespath = ''
+                        let imagedir = "/"+product[i]["path"].split("../frontend/static/")[1]+"/"
+                        console.log(imagedir , product[i]["imagenumber"] )
+                        for(let j = 1 ; j < product[i]["imagenumber"] ; j++){
+                            images = j+".png"
+                            console.log("image and number" ,images , j)
+                            console.log(images)
+                            imagespath += `                        
+                            
+                            <div class="image">
+                                <img src="${imagedir}/${images}" alt="" srcset="">
+
+                            </div>`
+                        }
+
+                        imagebox.innerHTML = imagespath
+                        
+                    }
+
+                }
+            })
+        }else if (category == "gym"){
+            fetch(category)
+            .then (response => response.json())
+            .then (product => {
+                console.log(product)
+                for(i in product){
+
+
+                    if(product[i]["productid"] == id){
+                        // console.log(product[i]["name"])
+                        // console.log(product[i]["path"])
+    
+                        let rightside = document.getElementById("right")
+                        console.log(id)
+                        
+                        rightside.innerHTML =
+                        `
+                        <h1 id="producttitle">
+                            
+                        </h1>
+                        <input type="hidden" name="name" id="name"  value=""> 
+                        
+                        <p id="price"></p>
+                        
+                        <form  id="buyform" method="post" onsubmit=" return loginvalidation()">
+                            
+                            <input type="hidden" value="${id}" name="id" id="id">
+                            <input type="hidden" value="${category}" name="category" id="category">
+                            
+                            <div id="quantity">
+
+                            <p>Quantity:</p>
+                            <input type="number" min="1" max="${product[i]["productquantity"]}" name="quantity" id="quantity" value="1">
+                            </div>
+                            <button type="submit">Submit</button>
+                        </form>
+                        <p id="loginerror" > </p>
+                        <div id="desc" ></div>
+                                `
+                        let price = document.getElementById("price")
+                        let title = document.getElementById("producttitle")
+                        let imagebox = document.getElementById("images")
+                        let name = document.getElementById("name")
+                        let desc = document.getElementById("desc")
+                        
+                        console.log(title.innerHTML )
+                        title.innerHTML = `${product[i]["productname"]}`
+                        name.value = `${product[i]["productname"]}`
+                        price.innerHTML = `Rs.${product[i]["productprice"]}`
+                        desc.innerHTML = `${product[i]["description"]}`
+                        
+                                
+                                
+                                
+                        let imagespath = ''
+                        let imagedir = "/"+product[i]["path"].split("../frontend/static/")[1]+"/"
+                        console.log(imagedir , product[i]["imagenumber"] )
+                        for(let j = 1 ; j < product[i]["imagenumber"] ; j++){
+                            images = j+".png"
+                            console.log("image and number" ,images , j)
+                            console.log(images)
+                            imagespath += `                        
+                            
+                            <div class="image">
+                                <img src="${imagedir}/${images}" alt="" srcset="">
+
+                            </div>`
+                        }
+
+                        imagebox.innerHTML = imagespath
+                        
+                    }
+
+                }
+            })
+
+        }
+        else {
+            
+            document.getElementById("upperproduct").innerHTML = `Page not Found`
+        }
+
+
+        console.log("The page location" , pagelocation)
+    </script>
+    <script src="scripts/formcheck.js"></script>
+    <script src="/scripts/navbar.js"></script>
+    <script src="/scripts/footer.js"></script>
+
+</body>
+
+</html>

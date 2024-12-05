@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="/styling/buy.css">
+</head>
+<body>
+
+    <div id="navbar">
+    </div>
+
+    <div id="upperbuy" >
+        
+
+        <div id="innerbuy">
+            <h1>CheckOut</h1>
+            <h3 id="producttitle">ProductName</h3>
+            <div id="images">
+
+            </div>
+            <div id="outerform">
+
+                <form method="post">
+                    <input type="hidden" id="id" name="id" value="" required>
+                    <input type="text" name="name" id="name" placeholder="Full Name" required>
+                    <input type="email" name="email" id="email" placeholder="Email Address" required>
+                    <input type="number" name="number" id="number" placeholder="Phone Number" required>
+                    <select name="city" id="" required>
+                        <option value="kathmandu">Kathmandu</option>
+                        <option value="lalitpur">Lalitpur</option>
+                        <option value="bharatpur">Bharatpur</option>
+                        <option value="pokhara">Pokhara</option>
+                    <option value="janakpur">Janakpur</option>
+                    <option value="dharan">Dharan</option>
+                    <option value="dhangadi">Dhangadhi</option>
+                    <option value="biratnagar">Biratnagar</option>
+                    </select>
+                    <select name="method" id="" required>
+                        <option value="cash">Cash On delivery</option>
+                        <option value="esewa" disabled>Esewa</option>
+                    </select>
+                    <input type="text" name="address" id="address" placeholder="Full Address" required>
+                    <p id="pricetext">Total:Rs</p>
+                    <input type="hidden" id="token" name="token" value="0">
+                    <input type="hidden" id="quantity" name="quantity" value="1">
+                    <input type="hidden" id="price" name="price" value="" required>
+                    <input type="hidden" id="categoryform" name="categoryform" value="">
+                    <input type="hidden" id="size" name="size" value="">
+                    <button>Buy</button>
+                </form>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const pagelocation = location.search
+
+        const id = pagelocation.split("id=")[1].split("&")[0]
+        const category = pagelocation.split("category=")[1]
+        const quantity = pagelocation.split("quantity=")[1].split("&")[0]
+        const sizevalue = pagelocation.split("sizes=")[1].split("&")[0]
+        console.log(id)
+        console.log(sizevalue)
+        console.log(quantity)
+        console.log("category" , category)
+        
+        if (category == "women" || category == "men" || category == "gym"){
+            fetch(category)
+            .then (response => response.json())
+            .then (product => {
+                console.log(product)
+                for(i in product){
+                    console.log(i)
+                    if(product[i]["productid"] == id){
+
+
+                        let finalprice = product[i]["productprice"] * quantity
+                        let productid = document.getElementById("id")
+                        let price = document.getElementById("price")
+                        let pricetext = document.getElementById("pricetext")
+                        let title = document.getElementById("producttitle")
+                        let imagebox = document.getElementById("images")
+                        let token = document.getElementById("token")
+                        let categoryform = document.getElementById("categoryform")
+                        let size = document.getElementById("size")
+                        let productquantity = document.getElementById("quantity")
+                        token.value = document.cookie.split(";")[0].split("=")[1]
+                        
+
+                        console.log(finalprice , product[i]["productname"])
+                        title.innerHTML = `${product[i]["productname"]}`
+                        productid.value = id 
+                        price.value = `${finalprice}`
+                        pricetext.innerHTML = `Total :Rs.${finalprice}`
+                        console.log("category:" , category)
+                        console.log("category form:" , categoryform.value)
+                        categoryform.value = `${category}`
+                        size.value = `${sizevalue}`
+                        console.log("category form:" , categoryform.value)
+                        productquantity.value = quantity
+
+                        let imagespath = ''
+                        let imagedir = "/"+product[i]["path"].split("../frontend/static/")[1]+"/"
+                        console.log(imagedir , product[i]["imagenumber"] )
+                        for(let j = 1 ; j < product[i]["imagenumber"] ; j++){
+                            images = j+".png"
+                            console.log("image and number" ,images , j)
+                            console.log(images)
+                            imagespath += `                        
+                            
+                            <div class="image">
+                                <img src="${imagedir}/${images}" alt="" srcset="">
+
+                            </div>`
+                        }
+
+                        imagebox.innerHTML = imagespath
+                    }
+                }
+            })
+        }
+        else {
+            
+            document.getElementById("upperproduct").innerHTML = `Page not Found`
+        }
+    </script>
+
+    <script src="/scripts/navbar.js"></script>
+</body>
+</html>

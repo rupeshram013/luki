@@ -1,0 +1,169 @@
+
+
+#uppercategory {
+    padding-top: 2em;
+    background-image: url("/images/landscape/mustand.jpg");
+    padding: 7%;
+    width: 80%;
+    margin: auto;
+    margin-top: 5em;
+    box-shadow: 0px 0.1em 1em 0px rgb(158, 158, 158);
+    margin-bottom: 5em;
+}
+
+#uppercategory #innercategory {
+    width: 80%;
+    background-color: white;
+    margin: auto;
+    padding: 5%;
+    border-radius: 2em;
+    box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
+}
+
+#uppercategory #innercategory h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 4vw;
+    margin: 0px;
+    width: 50%;
+    margin: auto;
+    border-bottom: 3px solid rgb(218, 218, 218);
+    padding-bottom: 0.3em;
+}
+
+#products {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3em;
+    padding: 5em;
+
+}
+
+
+#uppercategory #sorting {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    margin-top: 1em;
+    padding: 1em;
+ 
+   
+}
+#uppercategory #sorting h3{
+    font-size: 1.3vw;
+    margin: 0px;
+    width: 50%;
+    text-align: right;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#uppercategory #sorting #select{
+
+    margin-left: 1em;
+
+    
+}
+#uppercategory #sorting #select select{
+    /* margin: auto;
+    margin-top: auto;
+    width: 50%; */
+    padding: 0.5em;
+    font-size: 1.5em;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0);
+    border: 2px solid rgb(168, 168, 168);
+    border-radius: 0.5em;
+    text-align: center;
+}
+
+
+#products .indiproduct {
+    
+    padding: 2em;
+    background-color: rgb(250, 250, 250);
+   
+    box-shadow: 0px 0.1em 1em 0px rgb(172, 172, 172) ;
+
+    border-bottom: 2px solid black;
+    width: 25%;
+
+
+
+}
+#products .indiproduct:hover  { 
+    box-shadow: 0px 0.1em 1em 0px rgb(3, 3, 3) ;
+}
+
+#products .indiproduct #imagebox {
+    height: 25em;
+    margin-bottom: 0.5em;
+}
+
+#products .indiproduct #imagebox img {
+    width: 100%;
+    height: 25em;
+    object-fit: cover;
+}
+
+
+#products .indiproduct #des {
+    margin-top: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    padding-top: 1em;
+    border: 0px solid rgb(121, 121, 121);
+    border-bottom: 2px solid rgb(121, 121, 121);
+    border-top: 2px solid rgb(121, 121, 121);
+    text-align: left;
+    padding-left: 1em;
+    height: 50%;
+}
+
+/* #products .indiproduct #des:hover{
+    font-size: 1.2em;
+} */
+#products .indiproduct #des h1 {
+    font-size: 1vw;
+    margin: 0px;
+    font-weight: 500;
+    color: rgb(114, 114, 114);
+    text-align: left;
+    width: 100%;
+    border: 0px;
+}
+#products .indiproduct #des p {
+    overflow: hidden ;
+    color: rgb(20, 20, 20);
+    font-size: 1.5vw;
+    text-align: left;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+#products .indiproduct #des button {
+    width: 50%;
+    overflow: hidden ;
+    margin-left:25%;
+    margin-right: 0px;
+
+    background-color: rgb(14, 13, 13);
+    font-size: 1.2em;
+    color: white;
+    border: none;
+    font-weight: 1000;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    padding:0.5em;
+    text-align: center;
+    margin-top: 2em;
+}
+
+#products .indiproduct #des button:hover {
+    color: black;
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid black;
+    border-bottom: 0px solid rgb(192, 192, 192);
+    font-weight: 1000;
+}
+

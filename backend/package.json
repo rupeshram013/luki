@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend for the website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rupeshram013/jsmk.git"
+  },
+  "author": "Rupesh Ram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rupeshram013/jsmk/issues"
+  },
+  "homepage": "https://github.com/rupeshram013/jsmk#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "expressjs": "^1.0.1",
+    "mariadb": "^3.3.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.9.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}

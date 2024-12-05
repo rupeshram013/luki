@@ -1,0 +1,392 @@
+
+#upperdash {
+    padding: 5em;
+    margin-top: 1em;
+    width: 80%;
+    background-image: url("/images/landscape/bridge.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: auto;
+    margin-top: 5em;
+    box-shadow: 0px 0.1em 1em 0px rgb(158, 158, 158);
+    margin-bottom: 5em;
+}
+
+#upperdash #section {
+    margin: auto;
+    width: auto;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    margin-top: 2em;
+    justify-content: center;
+    padding: 1em;
+    width: 70%;
+    box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
+}
+
+#upperdash #section button {
+    background-color: rgba(206, 0, 0, 0);
+    border: 0px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-bottom: 2px solid rgb(194, 194, 194);
+    font-size: 1.2em;
+    font-weight: 1000;
+    padding: 0.5em;
+    
+    color: rgb(14, 13, 13);
+    font-size: 1vw;
+}
+#upperdash #section button:hover {
+    border-bottom: 2px solid rgb(12, 12, 12);
+
+
+}
+
+#outerform {
+    width: 35%;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 4em;
+    margin-top: auto;
+    border-radius: 2em;
+    box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
+}
+
+#outerform h1 {
+    text-align: center;
+    font-size: 3vw;
+    margin: 0px;
+    margin-bottom: 0.5em;
+ 
+    padding: 0.5em;
+    padding-top: 0px;
+}
+#outerform p{
+    text-align: center;
+    font-size: 2em;
+}
+
+#outerform form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+}
+
+#outerform #numbers {
+    display: flex;
+    width: 50%;
+    margin: auto;
+    gap: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#outerform form input {
+    width: 70%;
+    margin: auto;
+    font-size: 1vw;
+    font-weight: 700;
+    color: black;
+    background-color: rgba(255, 0, 0, 0);
+    border: 0px;
+    border-bottom:0.1em solid rgba(0, 0, 0, 0.301);
+    margin-bottom: 1em;
+    padding: 0.3em;
+    outline: none;
+    
+}
+
+
+
+
+#outerform form input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+#outerform form input::placeholder {
+    color: black;
+    opacity: 0.5;
+    font-size: 0.8em;
+}
+
+#outerform form #category {
+    width: 50%;
+    margin: auto;
+    display: flex;
+
+
+}
+
+#outerform form #category h6 {
+    margin: 0px;
+    font-size: 1.3vw;
+    width: 50%;
+    text-align: right;
+    padding: 0px;
+    color: rgb(17, 16, 16);
+    opacity: 1;
+}
+#outerform form #category select {
+    border: 0px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1vw;
+    width: 30%;
+    border-bottom: 1px solid rgb(175, 175, 175);
+    margin-bottom: 1em;
+    padding: 0px;
+    
+    text-align: center;
+}
+#outerform form #category option {
+    border: 0px ;
+    background-color: white;
+}
+#outerform form #category select:hover {
+    cursor: pointer;
+}
+
+
+#outerform form #outerdesc {
+    margin: auto;
+    width: 80%;
+    background-color: rgba(255, 0, 0, 0);
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+
+}
+#outerform form #outerdesc #buttons {
+    margin: auto;
+    background-color: rgba(255, 0, 0, 0);
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1em;
+    margin: auto;
+    margin-bottom: 0px;
+    width: 100%;
+    padding: 1em;
+    padding-bottom: 0px;
+}
+#outerform form #outerdesc #buttons button {
+    background-color: rgba(255, 0, 0, 0);
+    border: 0px;
+    border: 1px solid rgb(255, 255, 255);
+    border-bottom: 0px;
+    font-size: 1vw;
+    font-weight: 1000;
+    padding: 0.5em;
+    background-color: black;
+    color: white;
+    width: 100%;
+    
+}
+
+#outerform form #outerdesc #buttons button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-bottom: 0px;
+}
+
+
+
+#outerform form #outerdesc textarea {
+    margin-top: 0px;
+    width: 100%;
+    background-color: rgba(255, 0, 0, 0);
+    border: 1px solid black;
+    resize: none;
+    text-indent: 1em;
+    padding: 1em;
+    outline: none;
+
+}
+
+
+#outerform form #productimages {
+    border: 0px solid black;
+    margin-top: 1em;
+    text-align: left;
+    width: 40%;
+}
+
+#outerform form #productimages::file-selector-button {
+    border: 1px solid black;
+    font-size: 0.7em;
+    padding: 0.5em;
+    background-color: rgba(255, 255, 255, 0);
+}
+#outerform form #productimages::file-selector-button:hover {
+    border: 1px solid black;
+    font-size: 0.7em;
+    padding: 0.5em;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    cursor: pointer;
+}
+
+
+#outerform form #submit{
+    width: 30%;
+    font-size: 1vw;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid black;
+    padding: 0.5em;
+    margin: auto;
+    margin-top: 1em;
+    font-weight: 1000;
+    background-color: black;
+    color: white;
+}
+#outerform form #submit:hover{
+
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(5, 5, 5);
+}
+
+
+
+
+#upperdash #dashproducts {
+    background-color: white;
+    padding: 5%;
+    width: 90%;
+    box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
+}
+
+#upperdash #dashproducts h1 {
+    text-align: center;
+    font-size: 4vw;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1em;
+    border-bottom: 2px solid rgb(179, 179, 179);
+    padding-bottom: 0.5em;
+}
+
+#upperdash #dashproducts table ,td ,th {
+    margin: auto;
+    
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 1em;
+}
+
+#upperdash #dashproducts table th {
+    font-size: 1.3vw;
+    padding: 0.5em;
+    width: 5em;
+    background-color: black;
+    color: white;
+    padding: 1em;
+    text-transform: uppercase;
+}
+
+#upperdash #dashproducts table td {
+    font-size: 1vw;
+    padding: 0.5em;
+    text-align: center;
+}
+#upperdash #dashproducts table td a {
+    text-decoration: none;
+    color: rgb(131, 131, 131);
+}
+#upperdash #dashproducts table td a:hover {
+    text-decoration: underline;
+    color: rgb(15, 15, 15);
+}
+
+#upperdash #dashproducts table td button{
+    background-color: rgba(255, 0, 0, 0);
+    border: 0px;
+
+    border-bottom: 2px solid rgb(136, 136, 136);
+    font-size: 1vw;
+    font-weight: 1000;
+    padding: 0.5em;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(20, 19, 19);
+    width: 100%;
+
+}
+#upperdash #dashproducts table td button:hover{
+    border-bottom: 2px solid  rgb(15, 15, 15);
+
+}
+
+
+
+
+
+
+
+#upperdash #orders {
+    background-color: white;
+    padding: 5%;
+    width: 90%;
+    box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
+}
+
+#upperdash #orders h1 {
+    text-align: center;
+    font-size: 4vw;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1em;
+    border-bottom: 2px solid rgb(179, 179, 179);
+    padding-bottom: 0.5em;
+}
+
+#upperdash #orders table ,td ,th {
+    margin: auto;
+    
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 0.5em;
+}
+
+#upperdash #orders table th {
+    font-size: 0.6vw;
+    padding: 0em;
+    width: 5em;
+    background-color: black;
+    color: white;
+    padding: 1em;
+    text-transform: uppercase;
+}
+
+#upperdash #orders table td {
+    font-size: 0.8vw;
+    padding: 0.5em;
+    text-align: center;
+}
+#upperdash #orders table td a {
+    text-decoration: none;
+    color: rgb(131, 131, 131);
+}
+#upperdash #orders table td a:hover {
+    text-decoration: underline;
+    color: rgb(15, 15, 15);
+}
+
+#upperdash #orders table td button{
+    background-color: rgba(255, 0, 0, 0);
+    border: 0px;
+
+    border-bottom: 2px solid rgb(136, 136, 136);
+    font-size: 0.9vw;
+    font-weight: 1000;
+    padding: 0.5em;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(20, 19, 19);
+    width: 100%;
+
+}
+#upperdash #orders table td button:hover{
+    border-bottom: 2px solid  rgb(15, 15, 15);
+
+}

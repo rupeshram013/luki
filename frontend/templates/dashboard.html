@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="/styling/dashboard.css">
+</head>
+<body>
+
+    <div id="navbar">
+    </div>
+
+    <div id="upperdash" >
+        <div id="dashproducts">
+            <h1>Products</h1>
+            
+            <div id="products" >
+                
+                <table id="producttable">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>View</th>
+
+
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                
+    
+            </div>
+
+
+        </div>
+
+        <div id="orders" style="display: none;">
+            <h1>Order</h1>
+            <div id="orders" >
+                
+                <table id="ordertable">
+                    <tr>
+                        <th>ID</th>
+                        <th>CustomerName</th>
+                        <th>CustomerEmail</th>
+                        <th>Phone</th>
+                        <th>City</th>
+                        <th>Address</th>
+                        <th>Product</th>
+                        <th>Size</th>
+                        <th>Quantity</th>
+                        <th>Payment</th>
+                        <th>Total</th>
+                        <th>View</th>
+                        <th>Delete</th>
+
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                
+    
+            </div>
+
+        </div>
+
+        <div id="upload" style="display: none;" >
+
+            <div id="outerform">
+                <h1>Product-Upload</h1>
+                <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="return formcheck()">
+                    <input name="section" type="hidden" value="upload">
+                    <input type="text" name="productname" id="productname" placeholder="Name" required>
+                    <div id="numbers">
+                        
+                        <input type="number" name="productprice" id="productprice" min="1" max="99999999999999" placeholder="Price" required>
+                        <input type="number" name="productquantity" id="productquantity"  min="1" max="9999999999" placeholder="Quantity" required>
+                        
+                    </div>
+                    <div id="category">
+                        <h6>Category :</h6>
+                        <select name="productcategory" id="product?category" required>
+                            <option value="women">Women</option>
+                            <option value="men">Men</option>
+                            <option value="gym">Gym</option>
+                        </select>
+                    </div>
+
+                    <div id="outerdesc">
+                        
+                        <div id="buttons">
+                            
+                            <button onclick="format(`<h3>   </h3>`)">Heading</button>
+                            <button onclick="format(`<br>`)">LineBreak</button>
+                            <button onclick="format(`<li>  </li>`)">List</button>
+                            <button onclick="format(`<b>   </b>`)">bold</button>
+                        </div>
+                        <textarea name="productdesc" id="productdesc" cols="30" rows="10" placeholder="Description" required></textarea>
+                    </div>
+                    <input type="file" name="productimages" id="productimages" multiple required placeholder="Select Images">
+                    <!-- <label for="productimages">Upload Images</label> -->
+                    <button id="submit" type="submit">
+                    Upload
+                    </button>
+                
+                </form>
+            </div>
+        </div>
+
+        
+
+        <div id="section">
+            <button type="button" onclick="section('products')">Products</button>
+            <button type="button" onclick="section('orders')">Orders</button>
+            <button type="button" onclick="section('upload')">Upload</button>
+        </div>
+        
+        
+    </div>
+
+    <script>
+        function formcheck(){
+
+            let textareavalue = document.getElementById("productdesc").value
+            let result = textareavalue.replace(/["']/g, "\n")
+            textareavalue.value = result
+            console.log("textareavalue" ,textareavalue.value)
+            return true
+        }
+        function format(tag){
+
+            document.getElementById("productdesc").value += tag
+        }
+
+
+
+        // let category = document.querySelector('input[name="category"]:checked').value
+        // console.log(category)
+        fetch("order")
+            .then (response => response.json())
+            .then (product => {
+                let tabledata = ``
+                let producttable = ``
+                console.log(product)
+                for(i in product){
+                    // console.log( product[i])
+                    let imagedir = "/"+product[i]["path"].split("../frontend/static/")[1]+"/"
+                    console.log(imagedir)
+
+                    tabledata += 
+                    `
+                    <tr>
+                        <td>${product[i]["productid"]}</td>
+                        <td>${product[i]["customername"]}</td>
+                        <td>${product[i]["email"]}</td>
+                        <td>${product[i]["phonenum"]}</td>
+                        <td>${product[i]["city"]}</td>
+                        <td>${product[i]["address"]}</td>
+                        <td>${product[i]["productname"]}</td>
+                        <td>${product[i]["size"]}</td>
+                        <td>${product[i]["quantity"]}</td>
+                        <td>${product[i]["payment"]}</td>
+                        <td>${product[i]["total"]}</td>
+                        <td><a href="/product?category=${product[i]["productcategory"]}?id=${product[i]["productid"]}">View</a></td>
+                        <td><form method="post" action="/deleteorder">
+                            <input name="productid" type="hidden" value="${product[i]["productid"]}">
+                            <button type="submit">Yes</button>
+                            </form>
+                        </td>
+                    </tr>
+                    `
+                    producttable = `
+
+                    <tr>
+                        <th>ID</th>
+                        <th>CustomerName</th>
+                        <th>CustomerEmail</th>
+                        <th>Phone</th>
+                        <th>City</th>
+                        <th>Address</th>
+                        <th>Product</th>
+                        <th>Size</th>
+                        <th>Quantity</th>
+                        <th>Payment</th>
+                        <th>Total</th>
+                        <th>View</th>
+                        <th>Delete</th>
+                    </tr>
+
+                    ${tabledata}
+                    
+
+                    `
+                    
+                    // console.log(document.getElementById("categorytitle"))
+                    
+
+                        
+
+                }
+
+            document.getElementById("ordertable").innerHTML = producttable
+        })
+        
+
+        fetch("products")
+            .then (response => response.json())
+            .then (product => {
+                let tabledata = ``
+                let producttable = ``
+                console.log(product)
+                for(i in product){
+                    // console.log( product[i])
+                    let imagedir = "/"+product[i]["path"].split("../frontend/static/")[1]+"/"
+                    console.log(imagedir)
+
+                    tabledata += 
+                    `
+                    <tr>
+                        <td>${product[i]["productid"]}</td>
+                        <td>${product[i]["productname"]}</td>
+                        <td>${product[i]["productprice"]}</td>
+                        <td>${product[i]["productquantity"]}</td>
+                        <td><a href="/product?category=${product[i]["productcategory"]}?id=${product[i]["productid"]}">View</a></td>
+                        <td><form method="post" action="/deleteproduct">
+                            <input name="productid" type="hidden" value="${product[i]["productid"]}">
+                            <button type="submit">Yes</button>
+                            </form>
+                        </td>
+                    </tr>
+                    `
+                    producttable = `
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Page</th>
+                        <th>Delete</th>
+                    </tr>
+
+                    ${tabledata}
+                    
+
+                    `
+                    
+                    // console.log(document.getElementById("categorytitle"))
+                    
+
+                        
+
+                }
+
+            document.getElementById("producttable").innerHTML = producttable
+        })
+        
+
+
+        function section(section){
+
+            let products = document.getElementById("dashproducts")
+            let orders = document.getElementById("orders")
+            let upload = document.getElementById("upload")
+            
+            if (section == "products"){
+        
+                products.style.display = 'block'
+                orders.style.display = "none"
+                upload.style.display = "none"
+            }
+            else if (section == "orders"){
+                products.style.display = 'none'
+                orders.style.display = "block"
+                upload.style.display = "none"
+            }
+            else if (section == "upload"){
+                products.style.display = 'none'
+                orders.style.display = "none"
+                upload.style.display = "block"
+            }
+
+        }    
+
+
+    </script>
+
+    
+    <script src="/scripts/navbar.js"></script>
+</body>
+
+</html>

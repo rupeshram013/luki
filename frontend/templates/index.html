@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NK Store</title>
+    <link rel="stylesheet" href="/styling/index_style.css">
+    <link rel="icon" href="/images/logo/nklogo.png" >
+    <!-- <link rel="stylesheet" href="/styling/index_style.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+    </style>
+</head>
+<body>
+    
+    <div id="navbar">
+    </div>
+<!--     
+    <div id="uppersite" >
+        <div id="top">
+            <video autoplay loop muted preload="auto" id="landscape">
+                <source src="/videos/himalaya.mp4" type="video/mp4">
+            </video>
+             <video autoplay loop muted preload="auto" id="landscape">
+                <source src="/videos/himalaya.mp4" type="video/mp4">
+            </video> 
+            <div id="highlights">
+                <div id="left">
+                    <img src="/images/product/highlights/3.png" alt="" srcset="">
+                </div>
+                <div id="right">
+                    <h1>13% OFF</h1>
+                    <h6>At First Purchase</h6>
+                    <a href="/category?name=women">See More</a>
+                </div>
+
+            </div>
+        </div>
+        <p id="time"></p>
+
+        <div id="middle">
+            
+                <h3>MORE-PRODUCTS</h3>
+                <h6>Look More Below!</h6>
+                <div id="outerproducts">
+                    <div class="indiproduct" id="product1">
+                        <img src="/images/product/highlights/1.png" alt="" />
+                       
+                        <div id="des">
+                            <h6>Whey Protein</h6>
+                            <p>Rs 1900</p>
+                            <button> Place Order</button>
+                        </div>
+
+                    </div>
+
+                    <div class="indiproduct" id="product2">
+                        
+                        <img src="/images/product/highlights/2.png" alt="" />
+                        
+                        <div id="des">
+                            <h6>Jeans Jacket</h6>
+                            <p>Rs 5900</p>
+                            <button>Place Order</button>
+                        </div>
+                    </div>
+
+                    <div class="indiproduct" id="product3">
+
+                        <img src="/images/product/highlights/4.png" alt="" />
+                        
+                        <div id="des">
+                            <h6>Iconic Protein</h6>
+                            <p>Rs 2900</p>
+                            <button> Place Order</button>
+                        </div>
+                        
+                    </div>
+
+                    <div class="indiproduct" id="product4">
+
+                        <img src="/images/product/highlights/5.png" alt="" />
+                        
+                        <div id="des">
+                            <h6>Jeans Men</h6>
+                            <p>Rs 5900</p>
+                            <button> Place Order</button>
+                            
+                        </div>
+                        
+                    </div>
+
+                    <div class="indiproduct" id="product5">
+                        
+                        <img src="/images/product/highlights/7.png" alt="" />
+                        <div id="des">
+                            <h6>Jeans Women</h6>
+                            <p>Rs 6900</p>
+                            <button> Place Order</button>
+                        </div>
+                        
+                    </div>
+                    <div class="indiproduct" id="product5">
+                        
+                        <img src="/images/product/highlights/6.png" alt="" />
+                        <div id="des">
+                            <h6>Jacket Men</h6>
+                            <p>Rs 6900</p>
+                            <button> Place Order</button>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+
+    </div>
+
+    
+    <script>
+        
+        let loop = true;
+        let productindex = 2;
+        let time = 0
+        let highlights = [
+        {
+            name : "protein",
+            path : "/images/product/highlights/1.png",
+            link : "/category?name=gym"
+            },
+            {
+                name : "jeansmen",
+                path : "/images/product/highlights/2.png",
+                link : "/category?name=men"
+                },
+                {
+                    name : "jeanswomen",
+                    path : "/images/product/highlights/3.png",
+                    link : "/category?name=women"
+                    },
+                    ]
+                    
+                    for (products in highlights){
+                        console.log(highlights[productindex])
+                        }
+                        function show(){
+                            document.getElementById("highlights").innerHTML = 
+                            `
+                            <div id="left">
+                                <img src=${highlights[productindex]["path"]} alt="" srcset="">
+                            </div>
+                            <div id="right">
+                    <h1>13% OFF</h1>
+                    <h6>At First Purchase</h6>
+                    <a href=${highlights[productindex]["link"]}>See More</a>
+                </div>
+                `
+                
+                
+                }
+                setInterval(show,1500)
+                
+                
+                
+            </script>
+            -->
+
+<div id="video">
+    <video autoplay loop muted preload="auto" id="landscape" >
+        <source src="/videos/intro.mp4" type="video/mp4">
+        <source src="/videos/intro.mp4" type="audio/mpeg">
+    </video>
+</div>
+
+<div id="intro">
+
+    <h1>EMBRACE YOUR WARDROBE!></h1>
+    <h2>LUKI.OUTFITS</h2>
+    <a href="/home"><p>Explore More</p></a>
+
+</div>
+            
+ <div id="footer">
+</div>
+<script src="/scripts/navbar.js"></script>
+<script src="/scripts/footer.js"></script>
+</body>
+</html>
+

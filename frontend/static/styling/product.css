@@ -1,0 +1,225 @@
+
+#upperproduct {
+    background-image: url("/images/landscape/greystreet.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 1em;
+    width: 80%;
+    margin: auto;
+    margin-top: 5em;
+    box-shadow: 0px 0.1em 1em 0px rgb(172, 172, 172);
+    padding: 5em;
+    margin-bottom: 5em;
+}
+
+
+#upperproduct #outerproduct {
+    margin:auto;
+    border-radius: 1em;
+    width: 80%;
+    padding: 2em;
+    background-color: rgba(255, 255, 255, 0.534);
+    box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
+}
+
+#upperproduct #outerproduct #innerproduct #top {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-size: 2em;
+    padding-top: 0.5em;
+}
+#upperproduct #outerproduct #innerproduct{
+    background-color: white;
+    padding: 0.5em;
+    display: flex;
+}
+
+#innerproduct #left {
+    position: relative;
+    max-width: 100%;
+    width: 70%;
+    margin-left: 5%;
+    margin-top: 5%;
+
+}
+
+
+#innerproduct #left #images {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns:75%;
+    overflow-x: auto;
+    padding: 0px;
+    gap: 2px;
+    scroll-snap-type: x;
+    scroll-padding-inline: 24px;
+    scroll-behavior: smooth;
+    scroll-behavior: none;
+    width: 75%;
+    overflow-y: auto;
+    padding: 2em;
+    gap: 24px;
+    height: 80%;
+}
+#innerproduct #left #images img {
+    object-fit: cover;
+
+}
+#innerproduct #left #images::-webkit-scrollbar  {
+    display: none;
+}
+#innerproduct #bottom #left #images.grab {
+    cursor: grabbing;
+    user-select: none;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+#innerproduct #left #images .image {
+    scroll-snap-align: start;
+    border-radius: 6px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: 2px solid black;
+    overflow: hidden;
+
+    margin: 0px;
+    padding-left: 0px;
+    margin: 0px;
+    scroll-snap-align: start;
+    overflow: hidden;
+    box-shadow: 8px 8px 24px rgba(0, 0, 0, .1);
+}
+#innerproduct #left #images .image img {
+    object-fit:cover;
+    width: 100%;
+    margin: 0px;
+
+}
+
+#innerproduct #right {
+    width: 30%;
+    background-color: rgb(255, 255, 255);
+    padding: 1em;
+}
+
+#innerproduct #right h1 {
+    text-align: center;
+    font-size: 2vw;
+    margin-bottom: 0.5em;
+}
+#innerproduct #right #price {
+    border-top: 1px solid rgba(66, 66, 66, 0.384);
+    font-size: 1.3vw;
+    font-weight: 1000;
+    padding-top: 1em;
+    color: rgb(34, 34, 34);
+}
+
+#innerproduct #right #sizesbox {
+    display: grid;
+    gap: 0.5em;
+    font-size: 1vw;
+    grid-auto-flow: column;
+    justify-content: center;
+
+}
+#innerproduct #right #sizesbox input {
+    display: none;
+}
+#innerproduct #right #sizesbox input:checked + label {
+    background-color: black;
+    color: white;
+}
+
+#innerproduct #right #sizesbox label {
+    border: 1px solid black;
+    padding: 0.5em;
+    width: 2em;
+    text-align: center;
+}
+#innerproduct #right #sizesbox label:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+
+}
+#innerproduct #right #sizesbox label:checked{
+    border: 1px solid black;
+    padding: 1em;
+    background-color: black;
+    color: white;
+}
+
+
+#innerproduct #right #quantity {
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 2em;
+    padding: 0.5em;
+    padding-bottom: 0em;
+    display: flex;
+    border-bottom: 2px solid black;
+}
+
+#innerproduct #right #quantity p{
+    font-size: 1vw;
+    margin: 0px;
+    padding: 0px;
+}
+
+#innerproduct #right #quantity input {
+    font-size: 1vw;
+    margin-top: 0px;
+    border: 0px;
+    font-weight: 600;
+    padding: 0px;
+}
+
+
+#innerproduct #right button {
+
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid black;
+    font-size: 1vw;
+    font-weight: 600;
+    margin: auto;
+    margin-top: 1em;
+    padding: 1em;
+    padding-top: 0.5em;
+    padding-bottom:0.5em;
+    width: 50%;
+    margin-left: 25%;
+}
+
+
+#innerproduct #right #desc {
+    padding: 1em;
+    font-weight: 500;
+    padding: 2em;
+    font-size: 0.7vw;
+    padding-top: 0px;
+    margin-top: 2em;
+    border-top: 1px solid rgb(192, 192, 192);
+}
+#innerproduct #right #desc h3 {
+    font-size: 1.5vw;
+    margin: 0px;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+
+}
+
+#innerproduct #right #desc ul {
+    list-style-type: circle;
+    text-indent: 0px;
+    font-size: 0.5vw;
+
+}
+
+
+#loginerror {
+    text-align: center;
+}

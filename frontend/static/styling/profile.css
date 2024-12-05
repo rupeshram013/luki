@@ -1,0 +1,155 @@
+
+#upperprofile {
+    margin-top: 1em;
+    background-image: url("/images/landscape/boudha.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: auto;
+    margin-top: 5em;
+    box-shadow: 0px 0.1em 1em 0px rgb(158, 158, 158);
+    margin-bottom: 5em;
+    width: 80%;
+    padding: 5%;
+}
+
+
+#outerprofile {
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    margin: auto;
+    padding: 5%;
+}
+#outerprofile h1 {
+    text-align: center;
+    font-size: 3vw;
+    margin: 0px;
+    margin-bottom: 1em;
+}
+
+#outerprofile #profile {
+    display: flex;
+    border-bottom: 2px solid rgba(134, 134, 134, 0.527);
+    margin-bottom: 3em;
+    padding-bottom: 2em;
+}
+
+#outerprofile #profile div{
+    width: 50%;
+}
+
+#outerprofile #profile #left{
+    text-align: left;
+}
+#outerprofile #profile #left h1{
+    text-align: left;
+    font-size: 2vw;
+    margin: 0px;
+}
+#outerprofile #profile #left h4{
+    text-align: left;
+    margin: 0px;
+    font-size: 1vw;
+    text-decoration: underline;    
+}
+
+#outerprofile #profile #right{
+    text-align: right;
+}
+
+#outerprofile #profile #right h4{
+    text-align: right;
+    font-size: 0.8vw;
+    margin: 0px;
+}
+#outerprofile #profile #right h2{
+    margin: 0px;
+    font-size: 0.8vw;
+    margin-top: 0.5em;
+    border: 1px solid black;
+    padding: 0.8em;
+    width: 25%;
+    margin-left: auto;
+    text-align: center;;
+}
+
+
+
+/* #upperdash #dashproducts {
+    background-color: white;
+    padding: 5%;
+    width: 90%;
+    box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
+}
+
+#upperdash #dashproducts h1 {
+    text-align: center;
+    font-size: 4vw;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1em;
+    border-bottom: 2px solid rgb(179, 179, 179);
+    padding-bottom: 0.5em;
+} */
+
+#upperprofile #outerprofile h6{
+    text-align: left;
+    font-size: 1.5vw;
+    margin: 0px;
+    margin-bottom: 0.5em;
+    text-indent: 1em;
+}
+
+#upperprofile #outerprofile table {
+    box-shadow: 0px 0.1em 1em 0px rgb(158, 158, 158);
+} 
+
+#upperprofile #outerprofile table ,td ,th {
+    margin: auto;
+    
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 1em;
+}
+
+#upperprofile #outerprofile table th {
+    font-size: 0.8vw;
+    padding: 0.5em;
+    width: 5em;
+    background-color: black;
+    color: white;
+    padding: 1em;
+    text-transform: uppercase;
+}
+
+#upperprofile #outerprofile table td {
+    font-size: 0.8vw;
+    padding: 0.5em;
+    text-align: center;
+}
+#upperprofile #outerprofile table td a {
+    text-decoration: none;
+    color: rgb(131, 131, 131);
+}
+#upperprofile #outerprofile table td a:hover {
+    text-decoration: underline;
+    color: rgb(15, 15, 15);
+}
+
+#upperprofile #outerprofile table td button{
+    background-color: rgba(255, 0, 0, 0);
+    border: 0px;
+
+    border-bottom: 2px solid rgb(136, 136, 136);
+    font-size: 0.8vw;
+    font-weight: 1000;
+    padding: 0.5em;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(20, 19, 19);
+    width: 100%;
+
+}
+#upperprofile #outerprofile table td button:hover{
+    border-bottom: 2px solid  rgb(15, 15, 15);
+
+}
+

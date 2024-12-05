@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+</head>
+<body>
+    
+    <div id="navbar"></div>
+    
+    <div id="uppersite">
+        
+        
+        <div id="mostouterform">
+            <div id="rightform">
+                <h2>REGISTER</h2>
+
+                <form method="post" autocomplete="off" class="form" id="registerform" onsubmit=" return formvalidation()" >
+                    
+                    <input type="text" name="fullname" id="fullname"  required placeholder="Full Name">
+                    <p id="usernametext" class="formerrortext">Enter your name</p>
+
+                    <input type="text" name="username" id="username"  required placeholder="Username">
+                    <p id="usernametext" class="formerrortext">Enter your name</p>
+                    
+                    <input type="email" name="usermail" id="usermail"  required placeholder="Email">
+                    <p id="usermailtext" class="formerrortext">Enter a valid Email</p>
+                    
+                    <!-- <input type="tel" name="phone" id="userphone"  placeholder="Phone Number"> -->
+                    <!-- <p id="usermailtext" class="formerrortext">Enter a valid Email</p> -->
+                    
+                    <input type="password" name="userpass" id="userpass"  required placeholder="Password">
+                    <p id="userpasstext" class="formerrortext">Password didn't match</p>
+                    
+                    <input type="password" name="userrepass" id="userrepass"  required placeholder="Re-Password">
+                    <p id="userrepasstext" class="formerrortext">Password didn't match</p>
+                    <div id="errors">
+                        
+                        <h6 id="error1"></h6>
+                    </div>
+                    
+                    <div id="options">
+                        <a href="/login"><h4>Already Have an account?</h4></a>
+                    </div>
+                    
+                    <button type="submit" value="submit">Submit</button>
+                </form>
+                
+                <!-- <div id="info">
+                    <a href=".">
+                        <img src="images/icon/github-sign.png" alt="no-img" srcset="">
+                    </a>
+                    <a href=".">
+                        <img src="images/icon/facebook.png" alt="no-img" srcset="">
+                    </a>
+                    <a href=".">
+                        <img src="images/icon/instagram.png" alt="no-img" srcset="">
+                    </a>
+                </div> -->
+            </div>
+            
+        </div>
+
+    </div>
+    <div id="footer">
+    </div>
+    <script>
+        let error = location.search.split("=")[1]
+        console.log(error)
+        if (error == 1){
+            document.getElementById("errors").style.display = "block"
+            document.getElementById('error1').innerHTML =`User Exists <a href="/login">Login</a>`
+        }else{
+            document.getElementById("errors").style.display = "none"
+            
+        }
+            
+    </script>
+    
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/formcheck.js"></script>
+    <link rel="stylesheet" href="/styling/form.css">
+    <script src="/scripts/footer.js"></script>
+    
+</body>
+</html>
