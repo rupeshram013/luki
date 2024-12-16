@@ -25,7 +25,10 @@ const backend = expressjs()
 const port = 80
 backend.use('/',expressjs.static(frontendstatic))
 const databaseconnection = database.createPool({
-    
+    connectionLimit : 1000,
+    connectTimeout  : 60 * 60 * 1000,
+    acquireTimeout  : 60 * 60 * 1000,
+    timeout : 60 * 60 * 1000,
     host : 'localhost',
     user : 'root',
     password : 'sqldata123!@#',
@@ -55,8 +58,7 @@ async function productdata(category) {
     try {
   
         conn = await databaseconnection.getConnection();
-        const res = await conn.query(`select * from products where productcategory = '?' ` ,[category]);
-
+        const res = await conn.query(`select * from products where productcategory = ? ` ,[category]);
         return (res)
   
     } finally {
@@ -93,6 +95,9 @@ bodyparser.json()
 // Index / Home page indexing to the user ;
 backend.get('/' , (req, res) => {
     res.sendFile(path.join(frontendtemplates, "index.html"))
+})
+backend.get('/home' , (req, res) => {
+    res.sendFile(path.join(frontendtemplates, "home.html"))
 })
 
 
@@ -398,7 +403,7 @@ async function readinglogindata(usermail) {
     //   const rows = await conn.query("SELECT 1 as val");
     //   // rows: [ {val: 1}, meta: ... ]
         const res = await conn.query(`select * from users where usermail = ?` , [usermail]);
-        console.log("The data queried:",res)
+        // console.log("The data queried:",res)
 
         return res
 
@@ -428,11 +433,11 @@ backend.post("/login", urlencodedparser , (req , res) => {
         }else {
 
         if(userpassword != checkdata[0]["userpass"]){
-            console.log(userpassword , checkdata[0]["userpass"])
+            // console.log(userpassword , checkdata[0]["userpass"])
             res.redirect("/login?error=2")
         }else if(checkdata != null){
-            console.log("Inserted the data");    
-            console.log("The check Data " ,checkdata)  
+            // console.log("Inserted the data");    
+            // console.log("The check Data " ,checkdata)  
             res.cookie('token',checkdata[0]["token"]);
             res.cookie('username',checkdata[0]["username"]);
             res.cookie.expires = false;

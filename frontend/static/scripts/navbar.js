@@ -137,7 +137,7 @@ if(webcookie == "" || webcookie == null) {
                         
                     </a>
                 
-                    <button onclick='logout()'>Logout</button>
+                    <button onclick='logout()' id="logout">Logout</button>
                     `
 
                 }else {
@@ -148,7 +148,7 @@ if(webcookie == "" || webcookie == null) {
                         
                     </a>
                 
-                    <button onclick='logout()'>Logout</button>
+                    <button onclick='logout()' id="logout">Logout</button>
                     `
 
                 }

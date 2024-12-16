@@ -120,6 +120,9 @@
 }
  */
 
+html {
+    scroll-behavior: smooth;
+}
 
  #video {
 
@@ -154,7 +157,7 @@
 }
 #intro a p {
     margin-top: 1.5em;
-
+    font-weight: bold;
 }
 
 /* 

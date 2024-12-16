@@ -2,21 +2,27 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-
-    <link rel="stylesheet" href="/styling/dashboard.css">
-</head>
-<body>
-
-    <div id="navbar">
-    </div>
-
-    <div id="upperdash" >
-        <div id="dashproducts">
-            <h1>Products</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LUKI Store</title>
+        
+        <link rel="stylesheet" href="/styling/dashboard.css">
+    </head>
+    <body>
+        
+        <div id="navbar">
+        </div>
+        
+        <div id="upperdash" >
+        <h3>Sections</h3>
+        <div id="section">
+            <button type="button" onclick="section('products')">Products</button>
+            <button type="button" onclick="section('orders')">Orders</button>
+            <button type="button" onclick="section('upload')">Upload</button>
+        </div>
+        <div id="dashproducts" >
+            <h1 >Products</h1>
             
             <div id="products" >
                 
@@ -85,7 +91,7 @@
         <div id="upload" style="display: none;" >
 
             <div id="outerform">
-                <h1>Product-Upload</h1>
+                <h1>Upload</h1>
                 <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="return formcheck()">
                     <input name="section" type="hidden" value="upload">
                     <input type="text" name="productname" id="productname" placeholder="Name" required>
@@ -124,17 +130,10 @@
                 </form>
             </div>
         </div>
-
-        
-
-        <div id="section">
-            <button type="button" onclick="section('products')">Products</button>
-            <button type="button" onclick="section('orders')">Orders</button>
-            <button type="button" onclick="section('upload')">Upload</button>
-        </div>
-        
         
     </div>
+
+    <div id="footer" style="margin-top: 5em;"></div>
 
     <script>
         function formcheck(){
@@ -168,18 +167,10 @@
                     tabledata += 
                     `
                     <tr>
-                        <td>${product[i]["productid"]}</td>
-                        <td>${product[i]["customername"]}</td>
-                        <td>${product[i]["email"]}</td>
-                        <td>${product[i]["phonenum"]}</td>
-                        <td>${product[i]["city"]}</td>
-                        <td>${product[i]["address"]}</td>
                         <td>${product[i]["productname"]}</td>
-                        <td>${product[i]["size"]}</td>
-                        <td>${product[i]["quantity"]}</td>
-                        <td>${product[i]["payment"]}</td>
+                        <td>${product[i]["phonenum"]}</td>
                         <td>${product[i]["total"]}</td>
-                        <td><a href="/product?category=${product[i]["productcategory"]}?id=${product[i]["productid"]}">View</a></td>
+                        <td><a href="/orderdetails?category=${product[i]["productcategory"]}?id=${product[i]["productid"]}">View</a></td>
                         <td><form method="post" action="/deleteorder">
                             <input name="productid" type="hidden" value="${product[i]["productid"]}">
                             <button type="submit">Yes</button>
@@ -190,16 +181,8 @@
                     producttable = `
 
                     <tr>
-                        <th>ID</th>
-                        <th>CustomerName</th>
-                        <th>CustomerEmail</th>
-                        <th>Phone</th>
-                        <th>City</th>
-                        <th>Address</th>
                         <th>Product</th>
-                        <th>Size</th>
-                        <th>Quantity</th>
-                        <th>Payment</th>
+                        <th>Phone</th>
                         <th>Total</th>
                         <th>View</th>
                         <th>Delete</th>
@@ -235,7 +218,6 @@
                     tabledata += 
                     `
                     <tr>
-                        <td>${product[i]["productid"]}</td>
                         <td>${product[i]["productname"]}</td>
                         <td>${product[i]["productprice"]}</td>
                         <td>${product[i]["productquantity"]}</td>
@@ -250,7 +232,6 @@
                     producttable = `
 
                     <tr>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
@@ -305,6 +286,7 @@
 
     
     <script src="/scripts/navbar.js"></script>
+    <script src="/scripts/footer.js"></script>
 </body>
 
 </html>

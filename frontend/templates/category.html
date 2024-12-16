@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>LUKI Store</title>
 
     <link rel="stylesheet" href="/styling/category.css">
 </head>
@@ -63,14 +63,13 @@
                     producthtml += 
                     `
                         <div class="indiproduct" id="${product[i]["productid"]}">
-                            <div id="imagebox">
                                 <img src="${imagedir}/1.png" alt="" />
-                            </div>
                             <div id="des">
-                                <h1>${product[i]["productname"]}</h1>
-                                <p>Rs : ${product[i]["productprice"]}</p>
+                                <h3>${product[i]["productname"]}</h3>
+                                <p>Rs.${product[i]["productprice"]}</p>
+                                <h6>${product[i]["description"]}</h6>
                                 <a href="/product?category=${category}?id=${product[i]["productid"]}">
-                                    <button> Place Order</button>
+                                    <button> Shop Now</button>
                                 </a>
                             </div>
 

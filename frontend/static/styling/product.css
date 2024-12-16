@@ -1,15 +1,6 @@
 
 #upperproduct {
-    background-image: url("/images/landscape/greystreet.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    padding: 1em;
-    width: 80%;
-    margin: auto;
-    margin-top: 5em;
-    box-shadow: 0px 0.1em 1em 0px rgb(172, 172, 172);
-    padding: 5em;
-    margin-bottom: 5em;
+
 }
 
 
@@ -20,6 +11,8 @@
     padding: 2em;
     background-color: rgba(255, 255, 255, 0.534);
     box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
+    margin-top: 5em;
+    margin-bottom: 5em;
 }
 
 #upperproduct #outerproduct #innerproduct #top {
@@ -33,15 +26,25 @@
     background-color: white;
     padding: 0.5em;
     display: flex;
+    flex-direction: column;
+}
+
+#upperproduct #outerproduct #innerproduct h1 {
+    text-align: center;
+    letter-spacing: 0.5em;
+    font-weight: 100;
+    font-size: 3vw;
 }
 
 #innerproduct #left {
     position: relative;
     max-width: 100%;
-    width: 70%;
-    margin-left: 5%;
-    margin-top: 5%;
-
+    margin: 0px;
+    width: 100%;
+    margin-left: auto;
+    margin-top: 1em;
+    padding: 0px;
+    padding: auto;
 }
 
 
@@ -56,7 +59,7 @@
     scroll-padding-inline: 24px;
     scroll-behavior: smooth;
     scroll-behavior: none;
-    width: 75%;
+    width: 90%;
     overflow-y: auto;
     padding: 2em;
     gap: 24px;
@@ -77,10 +80,8 @@
 }
 #innerproduct #left #images .image {
     scroll-snap-align: start;
-    border-radius: 6px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-bottom: 2px solid black;
+    /* border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px; */
     overflow: hidden;
 
     margin: 0px;
@@ -88,7 +89,6 @@
     margin: 0px;
     scroll-snap-align: start;
     overflow: hidden;
-    box-shadow: 8px 8px 24px rgba(0, 0, 0, .1);
 }
 #innerproduct #left #images .image img {
     object-fit:cover;
@@ -98,22 +98,30 @@
 }
 
 #innerproduct #right {
-    width: 30%;
+    width: 100;
     background-color: rgb(255, 255, 255);
     padding: 1em;
 }
 
-#innerproduct #right h1 {
-    text-align: center;
-    font-size: 2vw;
-    margin-bottom: 0.5em;
-}
 #innerproduct #right #price {
-    border-top: 1px solid rgba(66, 66, 66, 0.384);
-    font-size: 1.3vw;
-    font-weight: 1000;
-    padding-top: 1em;
-    color: rgb(34, 34, 34);
+    font-size: 2.5 vw;
+    font-weight: 100;
+    color: rgb(129, 129, 129);
+    margin: 0px;
+    padding: 0px;
+    text-indent: 1vw;
+}
+
+#innerproduct #right #desc {
+    border: 0px;
+    width: 75%;
+    margin: auto;
+    text-align: center;
+    margin-top: 2em;
+    color: grey;
+    font-weight: 100;
+    margin-bottom: 2em;
+    font-size: 2.5vw;
 }
 
 #innerproduct #right #sizesbox {
@@ -124,7 +132,33 @@
     justify-content: center;
 
 }
+
+#innerproduct #right #buyform #details {
+    display: flex;
+    flex-direction: row;
+}
+
+#innerproduct #right #buyform #details .boxes {
+    width: 50%;
+}
+
+
+
+
+#innerproduct #right #sizequantity  h4{
+    font-size: 3vw;
+    font-weight: 100;
+}
+
+#innerproduct #right #sizesbox {
+    width: 50%;
+    margin: 0px;
+    margin-right: auto;
+    padding-left: 0px;
+}
+
 #innerproduct #right #sizesbox input {
+    padding-left: 0px;
     display: none;
 }
 #innerproduct #right #sizesbox input:checked + label {
@@ -137,6 +171,8 @@
     padding: 0.5em;
     width: 2em;
     text-align: center;
+    font-size: 1.5vw;
+    border-radius: 1vw;
 }
 #innerproduct #right #sizesbox label:hover {
     cursor: pointer;
@@ -151,11 +187,58 @@
     color: white;
 }
 
+#innerproduct #right #details #colors h4 {
+    font-size: 3vw;
+    text-align: right;
+    font-weight: 100;
+}
+
+
+#innerproduct #right #colorbox {
+    width: 50%;
+    margin: 0px;
+    margin-left: auto;
+    padding-right: 0px;
+    display: flex;
+    margin: auto;
+    gap: 1vw;
+}
+
+#innerproduct #right #colorbox input {
+    padding: 0px;
+    display: none;
+}
+#innerproduct #right #colorbox input:checked + label {
+    background-color: black;
+    color: white;
+}
+
+#innerproduct #right #colorbox label {
+    border: 1px solid black;
+    padding: 1vw;
+    text-align: center;
+    font-size: 1.5vw;
+    margin: auto;
+    border-radius: 1vw;
+}
+#innerproduct #right #colorbox label:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+
+}
+#innerproduct #right #colorbox label:checked{
+    border: 1px solid black;
+    padding: 1em;
+    background-color: black;
+    color: white;
+}
+
 
 #innerproduct #right #quantity {
-    width: 50%;
-    justify-content: center;
-    text-align: center;
+    width: 80%;
+    justify-content: left;
+    text-align: left;
     margin: auto;
     margin-top: 2em;
     padding: 0.5em;
@@ -165,13 +248,13 @@
 }
 
 #innerproduct #right #quantity p{
-    font-size: 1vw;
+    font-size: 3vw;
     margin: 0px;
     padding: 0px;
 }
 
 #innerproduct #right #quantity input {
-    font-size: 1vw;
+    font-size: 3vw;
     margin-top: 0px;
     border: 0px;
     font-weight: 600;
@@ -181,42 +264,19 @@
 
 #innerproduct #right button {
 
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0);
     border: 1px solid black;
-    font-size: 1vw;
+    font-size: 2.5vw;
     font-weight: 600;
     margin: auto;
-    margin-top: 1em;
+    margin-top: 10vw;
     padding: 1em;
     padding-top: 0.5em;
     padding-bottom:0.5em;
     width: 50%;
     margin-left: 25%;
-}
-
-
-#innerproduct #right #desc {
-    padding: 1em;
-    font-weight: 500;
-    padding: 2em;
-    font-size: 0.7vw;
-    padding-top: 0px;
-    margin-top: 2em;
-    border-top: 1px solid rgb(192, 192, 192);
-}
-#innerproduct #right #desc h3 {
-    font-size: 1.5vw;
-    margin: 0px;
-    margin-bottom: 1em;
-    margin-top: 0.5em;
-
-}
-
-#innerproduct #right #desc ul {
-    list-style-type: circle;
-    text-indent: 0px;
-    font-size: 0.5vw;
-
+    color: white;
+    border-radius: 2vw;
 }
 
 

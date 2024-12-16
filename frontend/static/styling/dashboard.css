@@ -1,15 +1,16 @@
 
-#upperdash {
-    padding: 5em;
-    margin-top: 1em;
-    width: 80%;
-    background-image: url("/images/landscape/bridge.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    margin: auto;
-    margin-top: 5em;
-    box-shadow: 0px 0.1em 1em 0px rgb(158, 158, 158);
-    margin-bottom: 5em;
+
+*{
+    font-family: "copperplate";
+}
+
+#upperdash h3{
+    text-align: center;
+    font-weight: 100;
+    letter-spacing: 1vw;
+    font-size: 6vw;
+    color: grey;
+    margin-top: 2em;
 }
 
 #upperdash #section {
@@ -23,45 +24,44 @@
     justify-content: center;
     padding: 1em;
     width: 70%;
-    box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
+    border-bottom: 1px solid rgb(144, 144, 144);
+    margin-bottom: 3em;
 }
 
 #upperdash #section button {
     background-color: rgba(206, 0, 0, 0);
     border: 0px;
-    border: 1px solid rgba(255, 255, 255, 0);
-    border-bottom: 2px solid rgb(194, 194, 194);
-    font-size: 1.2em;
+    border: 1px solid rgb(19, 18, 18);
+    font-size: 2.5vw;
     font-weight: 1000;
-    padding: 0.5em;
-    
+    padding: 2vw;
     color: rgb(14, 13, 13);
-    font-size: 1vw;
 }
 #upperdash #section button:hover {
-    border-bottom: 2px solid rgb(12, 12, 12);
-
-
+    background-color: black;
+    color: white;
+}
+#upperdash #section button:checked {
+    background-color: black;
+    color: white;
 }
 
 #outerform {
-    width: 35%;
+    width: 80%;
     margin: auto;
     background-color: rgb(255, 255, 255);
-    padding: 4em;
-    margin-top: auto;
+    margin-top: 5em;
+    padding: 5%;
     border-radius: 2em;
     box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
 }
 
 #outerform h1 {
     text-align: center;
-    font-size: 3vw;
+    font-size: 6vw;
     margin: 0px;
-    margin-bottom: 0.5em;
- 
-    padding: 0.5em;
-    padding-top: 0px;
+    margin-bottom: 1em;
+
 }
 #outerform p{
     text-align: center;
@@ -87,7 +87,7 @@
 #outerform form input {
     width: 70%;
     margin: auto;
-    font-size: 1vw;
+    font-size: 2.5vw;
     font-weight: 700;
     color: black;
     background-color: rgba(255, 0, 0, 0);
@@ -108,7 +108,6 @@
 #outerform form input::placeholder {
     color: black;
     opacity: 0.5;
-    font-size: 0.8em;
 }
 
 #outerform form #category {
@@ -116,12 +115,11 @@
     margin: auto;
     display: flex;
 
-
 }
 
 #outerform form #category h6 {
     margin: 0px;
-    font-size: 1.3vw;
+    font-size: 2vw;
     width: 50%;
     text-align: right;
     padding: 0px;
@@ -132,7 +130,7 @@
     border: 0px;
     margin: auto;
     background-color: rgba(255, 255, 255, 0);
-    font-size: 1vw;
+    font-size: 1.5vw;
     width: 30%;
     border-bottom: 1px solid rgb(175, 175, 175);
     margin-bottom: 1em;
@@ -143,6 +141,7 @@
 #outerform form #category option {
     border: 0px ;
     background-color: white;
+
 }
 #outerform form #category select:hover {
     cursor: pointer;
@@ -156,14 +155,12 @@
     margin-top: 1em;
     display: flex;
     flex-direction: column;
-
 }
 #outerform form #outerdesc #buttons {
     margin: auto;
     background-color: rgba(255, 0, 0, 0);
     display: grid;
     grid-auto-flow: column;
-    gap: 1em;
     margin: auto;
     margin-bottom: 0px;
     width: 100%;
@@ -175,8 +172,8 @@
     border: 0px;
     border: 1px solid rgb(255, 255, 255);
     border-bottom: 0px;
-    font-size: 1vw;
-    font-weight: 1000;
+    font-size: 1.5vw;
+    font-weight: bold;
     padding: 0.5em;
     background-color: black;
     color: white;
@@ -203,7 +200,7 @@
     text-indent: 1em;
     padding: 1em;
     outline: none;
-
+    font-size: 2vw;
 }
 
 
@@ -232,13 +229,13 @@
 
 #outerform form #submit{
     width: 30%;
-    font-size: 1vw;
+    font-size: 1.5vw;
     background-color: rgba(255, 255, 255, 0);
     border: 1px solid black;
     padding: 0.5em;
     margin: auto;
     margin-top: 1em;
-    font-weight: 1000;
+    font-weight: bold;
     background-color: black;
     color: white;
 }
@@ -254,7 +251,9 @@
 #upperdash #dashproducts {
     background-color: white;
     padding: 5%;
-    width: 90%;
+    width: 80%;
+    margin: auto;
+    margin-top: 1em;
     box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
 }
 
@@ -277,7 +276,7 @@
 }
 
 #upperdash #dashproducts table th {
-    font-size: 1.3vw;
+    font-size: 2vw;
     padding: 0.5em;
     width: 5em;
     background-color: black;
@@ -287,7 +286,7 @@
 }
 
 #upperdash #dashproducts table td {
-    font-size: 1vw;
+    font-size: 2vw;
     padding: 0.5em;
     text-align: center;
 }
@@ -305,7 +304,7 @@
     border: 0px;
 
     border-bottom: 2px solid rgb(136, 136, 136);
-    font-size: 1vw;
+    font-size: 2vw;
     font-weight: 1000;
     padding: 0.5em;
     background-color: rgba(0, 0, 0, 0);
@@ -333,7 +332,7 @@
 
 #upperdash #orders h1 {
     text-align: center;
-    font-size: 4vw;
+    font-size: 3vw;
     width: 50%;
     margin: auto;
     margin-bottom: 1em;
@@ -350,7 +349,7 @@
 }
 
 #upperdash #orders table th {
-    font-size: 0.6vw;
+    font-size: 2vw;
     padding: 0em;
     width: 5em;
     background-color: black;
@@ -360,7 +359,7 @@
 }
 
 #upperdash #orders table td {
-    font-size: 0.8vw;
+    font-size: 2vw;
     padding: 0.5em;
     text-align: center;
 }
@@ -376,9 +375,8 @@
 #upperdash #orders table td button{
     background-color: rgba(255, 0, 0, 0);
     border: 0px;
-
     border-bottom: 2px solid rgb(136, 136, 136);
-    font-size: 0.9vw;
+    font-size: 2vw;
     font-weight: 1000;
     padding: 0.5em;
     background-color: rgba(0, 0, 0, 0);

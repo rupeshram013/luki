@@ -1,0 +1,131 @@
+
+
+#latest {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 5em;
+    margin-top: 5em;
+}
+
+#latest h3 {
+    font-weight:700;
+}
+
+#latest #products {
+    display: flex;
+    gap: 1em;
+}
+#latest #products :nth-child(1)  {
+    flex-grow: 1;
+}
+#latest #products :nth-child(3) {
+    flex-grow: 2;
+}
+
+#latest #products #product {
+    display: inline;
+}
+
+#latest #products #product img {
+    width: 100%;
+    display: inline;
+}
+
+#limited {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 5em;
+}
+#limited h3 {
+    font-weight: 700;
+}
+
+#limited #products {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+#limited #products :nth-child(2) {
+}
+
+#limited #products #product  {
+    width: auto;
+}
+
+#limited #products #textedimg {
+    margin: auto;
+    
+}
+
+#limited #products #textedimg #text * {
+    margin: 0px;
+    text-align: center;
+}
+#limited #products #textedimg #text h4 {
+    font-size: 5vw;
+    text-align: center;
+    font-family: "copperplate bold";
+    font-weight: 1000;
+}
+
+#limited #products #textedimg #text {
+    margin: 0px;
+}
+
+#limited #products #textedimg #product  {
+    width: 75%;
+    margin: auto;
+    margin-top: auto;
+}
+#limited #products #textedimg #product img {
+    width: 100%;
+}
+#limited #products #product img {
+    width: 100%;
+}
+
+
+#trending {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 5em;
+}
+#trending h3 {
+    font-weight: 700;
+}
+
+#trending #products {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 3em;
+}
+#trending #products :nth-child(1) {
+    margin-top:  1em;
+}
+#trending #products :nth-child(3) {
+    margin-top:  1em;
+}
+
+#trending #products #product {
+    width: auto;
+}
+#trending #products #product img {
+    width: 100%;
+}
+
+#intro {
+    text-align: center;
+    margin-bottom: 5em;
+}
+
+#intro a {
+    color: red;
+    font-family: "copperplate";
+    font-size: 3vw;
+
+}
+#intro a p {
+    margin-top: 1.5em;
+    font-weight: bold;
+}

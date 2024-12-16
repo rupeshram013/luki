@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>LUKI Store</title>
 
     <link rel="stylesheet" href="/styling/profile.css">
 </head>
@@ -29,7 +29,7 @@
                 </div>
                 <div id="right">
                     <h4>Token</h4>
-                    <h2>Total</h2>
+                    <h2></h2>
                 </div>
 
             </div>
@@ -38,17 +38,14 @@
             <h6>Your Order</h6>
             <table id="orders">
                 <tr>
-                    <th>ID</th>
                     <th>Product</th>
-                    <th>CustomerName</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Size</th>
                     <th>Quantity</th>
                     <th>Total</th>
                     <th>View</th>
                     <th>Cancel</th>
                 </tr>
+
+
                 <!-- <div id="innerorder">
                     <div id="titleandimg">
                         <h1>TITLE</h1>
@@ -91,16 +88,11 @@
                     `
 
                     <tr>
-                        <td>${orders[i]["productid"]}</td>
                         <td>${orders[i]["productname"]}</td>
-                        <td>${orders[i]["customername"]}</td>
-                        <td>${orders[i]["phonenum"]}</td>
-                        <td>${orders[i]["address"]}</td>
-                        <td>${orders[i]["size"]}</td>
                         <td>${orders[i]["quantity"]}</td>
                         <td>${orders[i]["total"]}</td>
                         <td><a href="/product?category=${orders[i]["productcategory"]}?id=${orders[i]["productid"]}">View</a></td>
-                        <td><form method="post" action="/deleteproduct">
+                        <td><form method="post" action="/deleteorder">
                             <input name="productid" type="hidden" value="${orders[i]["productid"]}">
                             <button type="submit">Yes</button>
                             </form>
@@ -155,7 +147,7 @@
                         </div>
                         <div id="right">
                             <h4>ID:${token}</h4>
-                            <h2>Spending : Rs.${users[i]['spending']}</h2>
+                            <h4>Spending<br> Rs.${users[i]['spending']}</h4>
                         </div>
                     `
 
