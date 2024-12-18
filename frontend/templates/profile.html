@@ -41,25 +41,8 @@
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Total</th>
-                    <th>View</th>
                     <th>Cancel</th>
                 </tr>
-
-
-                <!-- <div id="innerorder">
-                    <div id="titleandimg">
-                        <h1>TITLE</h1>
-                        <img src="" alt="" srcset="">
-                    </div>
-                    <p id="receiver">Receicer</p>
-                    <p id="address">Address</p>
-                    <p id="number">Number</p>
-                    <p id="size">XL</p>
-                    <p id="quantity">100</p>
-                    <form method="post">
-                        <button type="submit">Cancel Order</button>
-                    </form>
-                </div> -->
 
             </table>
         </div>
@@ -88,12 +71,11 @@
                     `
 
                     <tr>
-                        <td>${orders[i]["productname"]}</td>
+                        <td><a href="/placedorder">${orders[i]["productname"]}</a></td>
                         <td>${orders[i]["quantity"]}</td>
                         <td>${orders[i]["total"]}</td>
-                        <td><a href="/product?category=${orders[i]["productcategory"]}?id=${orders[i]["productid"]}">View</a></td>
                         <td><form method="post" action="/deleteorder">
-                            <input name="productid" type="hidden" value="${orders[i]["productid"]}">
+                            <input name="ordercode" type="hidden" value="${orders[i]["ordercode"]}">
                             <button type="submit">Yes</button>
                             </form>
                         </td>
@@ -108,23 +90,6 @@
 
             }
         })
-
-        
-//         <div id="profile">
-
-// <div id="left">
-    
-//     <h1>Full Name</h1>
-//     <h4>UserName</h4>
-//     <p>Email</p>
-//     <p>Phone</p>
-// </div>
-// <div id="right">
-//     <h4>Token</h4>
-//     <h2>Total</h2>
-// </div>
-
-// </div>
 
         let profilebox = document.getElementById("profile")
         let innerprofile = ``

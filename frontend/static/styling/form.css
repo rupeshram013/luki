@@ -1,58 +1,35 @@
 
-    
-
-
-/* #mostouterform {
-    
-    background-color: rgba(255, 255, 255, 0.459);
-    padding: 2em;
-    margin-top: 5em;
-    width: 70%;
-    margin: auto;
-    margin-top: 2vw;
-    opacity: 1;
-    padding: 3em;
-    border-radius: 2em;
-
-} */
-
-#rightform form p{
+#mostouterform form h5{
     display: none;
-    font-weight: 1000;
-
-    color: red;
+    font-weight: 100;
+    color: rgb(207, 27, 27);
     margin-top: 0px;
-    width: 40%;
+    width: 100%;
     margin-right: 30%;
-    border: 1px solid red;
-    border-top: 0px;
-    border-right: 0px;
-
 
 }
 
-#rightform form #options {
+#mostouterform form #options {
     
     margin: auto;
     margin-top: 3em;
 }
 
-#rightform form #errors{
+#mostouterform form #errors{
     display: none;
     text-align: center;
     margin: 0px;
     margin-top: 1em;
 }
-#rightform form #errors h6{
+#mostouterform form #errors h6{
     margin: 0px;
-    font-size: 1vw;
+    font-size: 2.5vw;
+    font-weight: 100;
 }
-
-
-
-
-
-
+#mostouterform form #errors h5{
+    margin: 0px;
+    font-size: 9vw;
+}
 
 #mostouterform {
     border: 1px solid black;
@@ -69,20 +46,21 @@
 
 #mostouterform h3 {
     font-family: "copperplate";
-    font-size: 5vw;
+    font-size: 4.5vw;
     text-align: center;
     letter-spacing: 0.5em;
     font-weight: 100;
+    margin-top: 8vw;
+    margin-bottom: 16vw;
 }
 #mostouterform h2 {
     font-family: "copperplate";
-    font-size: 5vw;
+    font-size: 4vw;
     text-align: center;
     letter-spacing: 0.5em;
     font-weight: 100;
-    margin-bottom: 2em;
-
-
+    margin-bottom: 10vw;
+    margin-top: 16vw;
 }
 
 #mostouterform form {
@@ -95,33 +73,22 @@
 
 #mostouterform form input {
     font-size: 3vw;
-    margin-bottom: 2em;
+    margin-bottom: 2vw;
     border: 0px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(166, 166, 166);
     outline: none;
-    
+    padding-bottom: 0.5vw;
 }
 
-
-
-#mostouterform form #options a {
-    font-size: 3vw;
-    font-family: "copperplate";
+#mostouterform form a {
     text-decoration: none;
+}
+#mostouterform form a p {
     color: black;
-    margin: 0px;
-}
-#mostouterform form #options a p{
-    margin: 0px;
+    font-size: 2vw;
     text-align: right;
-}
-#mostouterform form #options a h4{
     margin: 0px;
-    font-size: 3vw;
-    font-family: "copperplate";
-    font-weight: 100;
-
-    
+    margin-top: 2vw;
 }
     
 #mostouterform form button {

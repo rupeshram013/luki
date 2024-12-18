@@ -13,37 +13,60 @@
     </div>
 
     <div id="upperbuy" >
-        
-
         <div id="innerbuy">
-            <h1>CheckOut</h1>
             <h3 id="producttitle">ProductName</h3>
             <div id="images">
 
             </div>
-            <div id="outerform">
+            <h4>Costing</h4>
+            <div id="cost">
+                
+                <table id="left">
+                    <tr>
+                        <Td>Price:</Td>
+                    </tr>
+                    <tr>
+                        <Td>Quantity:</Td>
+                    </tr>
+                    <tr>
+                        <Td>Delivery:</Td>
+                    </tr>
+                    <tr>
+                        <Td>Tax:</Td>
+                    </tr>
+                    <tr>
+                        <Td>Total Cost:</Td>
+                    </tr>
+                </table>
 
-                <form method="post">
+                <table id="rightdetails">
+                    
+                    <tr>
+                        <Td>Rs.5600</Td>
+                    </tr>
+                    <tr>
+                        <Td>5</Td>
+                    </tr>
+                    <tr>
+                        <Td>Rs.1300</Td>
+                    </tr>
+                    <tr>
+                        <Td>Rs.1300000</Td>
+                    </tr>
+                </table>
+
+            </div>
+
+            
+            <h4>Details</h4>
+            <div id="outerform">
+                
+                <form method="post" id="checkout">
                     <input type="hidden" id="id" name="id" value="" required>
                     <input type="text" name="name" id="name" placeholder="Full Name" required>
                     <input type="email" name="email" id="email" placeholder="Email Address" required>
                     <input type="number" name="number" id="number" placeholder="Phone Number" required>
-                    <select name="city" id="" required>
-                        <option value="kathmandu">Kathmandu</option>
-                        <option value="lalitpur">Lalitpur</option>
-                        <option value="bharatpur">Bharatpur</option>
-                        <option value="pokhara">Pokhara</option>
-                    <option value="janakpur">Janakpur</option>
-                    <option value="dharan">Dharan</option>
-                    <option value="dhangadi">Dhangadhi</option>
-                    <option value="biratnagar">Biratnagar</option>
-                    </select>
-                    <select name="method" id="" required>
-                        <option value="cash">Cash On delivery</option>
-                        <option value="esewa" disabled>Esewa</option>
-                    </select>
                     <input type="text" name="address" id="address" placeholder="Full Address" required>
-                    <p id="pricetext">Total:Rs</p>
                     <input type="hidden" id="token" name="token" value="0">
                     <input type="hidden" id="quantity" name="quantity" value="1">
                     <input type="hidden" id="price" name="price" value="" required>
@@ -56,6 +79,8 @@
         </div>
     </div>
 
+    <div id="footer"></div>
+
     <script>
         const pagelocation = location.search
 
@@ -63,62 +88,94 @@
         const category = pagelocation.split("category=")[1]
         const quantity = pagelocation.split("quantity=")[1].split("&")[0]
         const sizevalue = pagelocation.split("sizes=")[1].split("&")[0]
-        console.log(id)
-        console.log(sizevalue)
-        console.log(quantity)
-        console.log("category" , category)
         
         if (category == "women" || category == "men" || category == "gym"){
             fetch(category)
             .then (response => response.json())
             .then (product => {
-                console.log(product)
                 for(i in product){
-                    console.log(i)
                     if(product[i]["productid"] == id){
 
 
-                        let finalprice = product[i]["productprice"] * quantity
                         let productid = document.getElementById("id")
-                        let price = document.getElementById("price")
                         let pricetext = document.getElementById("pricetext")
                         let title = document.getElementById("producttitle")
                         let imagebox = document.getElementById("images")
-                        let token = document.getElementById("token")
                         let categoryform = document.getElementById("categoryform")
                         let size = document.getElementById("size")
                         let productquantity = document.getElementById("quantity")
-                        token.value = document.cookie.split(";")[0].split("=")[1]
+                        let detailsbox = document.getElementById("rightdetails");
                         
-
-                        console.log(finalprice , product[i]["productname"])
                         title.innerHTML = `${product[i]["productname"]}`
                         productid.value = id 
-                        price.value = `${finalprice}`
-                        pricetext.innerHTML = `Total :Rs.${finalprice}`
-                        console.log("category:" , category)
-                        console.log("category form:" , categoryform.value)
+                        // price.value = `${finalprice}`
+                        // pricetext.innerHTML = `Total :Rs.${finalprice}`
                         categoryform.value = `${category}`
                         size.value = `${sizevalue}`
-                        console.log("category form:" , categoryform.value)
                         productquantity.value = quantity
+                        imagespath = "/" + product[i]["path"].split("../frontend/static/")[1] + "/";
+                        let price = product[i]["productprice"]
+                        let delivery = 150
+                        let taxprice = product[i]["productprice"] * 13/100  * quantity
+                        let finalprice = (price * quantity) + taxprice+ delivery
+                        
+                        imagebox.innerHTML = 
+                        `
+                        <img src="${imagespath}/1.png" >
+                        `
 
-                        let imagespath = ''
-                        let imagedir = "/"+product[i]["path"].split("../frontend/static/")[1]+"/"
-                        console.log(imagedir , product[i]["imagenumber"] )
-                        for(let j = 1 ; j < product[i]["imagenumber"] ; j++){
-                            images = j+".png"
-                            console.log("image and number" ,images , j)
-                            console.log(images)
-                            imagespath += `                        
+                        detailsbox.innerHTML = 
+                        `
+                            <tr>
+                                <Td>Rs.${price}</Td>
+                            </tr>
+                            <tr>
+                                <Td>Rs.${quantity}</Td>
+                            </tr>
+                            <tr>
+                                <Td>Rs.${delivery}</Td>
+                            </tr>
+                            <tr>
+                                <Td>Rs.${taxprice}</Td>
+                            </tr>
+                            <tr>
+                                <Td>Rs.${finalprice}</Td>
+                            </tr>
+
+                        `
+                        
+                    let token = document.cookie.split(";")[0].split("token=")[1]
+                    fetch("/users")
+                    .then(response => response.json())
+                    .then(users => {
+                        console.log(users)
+                        for (i in users){
+                            if (users[i]["token"] == token){
+                                console.log(users[i]["token"],"Token matched",token , finalprice)
+                                
+                                let detailsform = document.getElementById("checkout");
+                                detailsform.innerHTML = 
+                                `
+                                <input type="hidden" id="id" name="id" value="${id}" required>
+                                <input type="text" name="name" id="name" placeholder="Full Name" required value="${users[i]["firstname"]} ${users[i]["secondname"]}">
+                                <input type="email" name="email" id="email" placeholder="Email Address" required value="${users[i]["usermail"]}">
+                                <input type="number" name="number" id="number" placeholder="Phone Number" required value="${users[i]["phone"]}">
+                                <input type="text" name="address" id="address" placeholder="Full Address" required >
+                                <input type="hidden" id="token" name="token" value="${users[i]["token"]}">
+                                <input type="hidden" id="quantity" name="quantity" value="${quantity}">
+                                <input type="hidden" id="price" name="price" value="${finalprice}" required>
+                                <input type="hidden" id="categoryform" name="categoryform" value="${category}">
+                                <input type="hidden" id="size" name="size" value="${sizevalue}">
+                                <button>Buy</button>
+                                    
+                                `
+                            }
                             
-                            <div class="image">
-                                <img src="${imagedir}/${images}" alt="" srcset="">
 
-                            </div>`
                         }
+                    })
 
-                        imagebox.innerHTML = imagespath
+
                     }
                 }
             })
@@ -127,8 +184,12 @@
             
             document.getElementById("upperproduct").innerHTML = `Page not Found`
         }
+
+
+  
     </script>
 
     <script src="/scripts/navbar.js"></script>
+    <script src="/scripts/footer.js"></script>
 </body>
 </html>

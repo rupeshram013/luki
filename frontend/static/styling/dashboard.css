@@ -1,5 +1,3 @@
-
-
 *{
     font-family: "copperplate";
 }
@@ -96,11 +94,7 @@
     margin-bottom: 1em;
     padding: 0.3em;
     outline: none;
-    
 }
-
-
-
 
 #outerform form input::-webkit-inner-spin-button {
     -webkit-appearance: none;

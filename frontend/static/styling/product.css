@@ -33,7 +33,7 @@
     text-align: center;
     letter-spacing: 0.5em;
     font-weight: 100;
-    font-size: 3vw;
+    font-size: 3.5vw;
 }
 
 #innerproduct #left {
@@ -104,9 +104,9 @@
 }
 
 #innerproduct #right #price {
-    font-size: 2.5 vw;
+    font-size: 2.5vw;
     font-weight: 100;
-    color: rgb(129, 129, 129);
+    color: rgb(26, 25, 25);
     margin: 0px;
     padding: 0px;
     text-indent: 1vw;
@@ -245,6 +245,8 @@
     padding-bottom: 0em;
     display: flex;
     border-bottom: 2px solid black;
+    margin-left: 0px;
+    font-weight: 100;
 }
 
 #innerproduct #right #quantity p{
@@ -257,7 +259,7 @@
     font-size: 3vw;
     margin-top: 0px;
     border: 0px;
-    font-weight: 600;
+    font-weight: 100;
     padding: 0px;
 }
 
@@ -282,4 +284,5 @@
 
 #loginerror {
     text-align: center;
+    font-size: 2vw;
 }

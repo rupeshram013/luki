@@ -1,7 +1,3 @@
-
-
-// Libraries and modules for the website
-
 const expressjs = require('express')
 const bodyparser = require('body-parser')
 const database = require('mariadb')
@@ -10,16 +6,11 @@ const path = require('path')
 console.log("Libraries loaded ;")
 const multer = require('multer')
 const fs = require('fs')
-
-// frontend directories path definition 
+const { sign } = require('crypto')
 
 const frontendtemplates = path.join(__dirname , "../frontend/templates")
 const frontendstatic = path.join(__dirname , "../frontend/static")
 console.log("Paths were defined ; " + "Template : " + frontendtemplates , "Static : " + frontendstatic)
-
-
-
-// Backend Connection building 
 
 const backend = expressjs()
 const port = 80
@@ -32,26 +23,23 @@ const databaseconnection = database.createPool({
     host : 'localhost',
     user : 'root',
     password : 'sqldata123!@#',
-    database : 'nkfancywears',
+    database : 'luki',
     connectionLimit : 100,
 });
 
 
-async function signup( token, firstname , secondname, username, usermail , userpassword) {
+async function signup( token, firstname , secondname, username, usermail , phone, userpassword) {
     let conn;
     try {
   
         conn = await databaseconnection.getConnection();
         var insertquery ;
-        const res = await conn.query(`insert into users (token,firstname,secondname,username, usermail , userpass ) VALUES (?,?,?,?,?,?)`,[token , firstname , secondname , username , usermail , userpassword]);
+        const res = await conn.query(`insert into users (token,firstname,secondname,username, usermail , phone, userpass ) VALUES (?,?,?,?,?,?,?)`,[token , firstname , secondname , username , usermail , phone,userpassword]);
 
     } finally {
-      if (conn) conn.release(); //release to pool
+      if (conn) conn.release(); 
     }
 }
-
-
-
 
 async function productdata(category) {
     let conn;
@@ -74,14 +62,9 @@ async function productupload( id, name , price, quantity , desc , path , imagenu
         const res = await conn.query(`insert into products (productid,productname,productprice,productquantity, description , path , imagenumber , productcategory) VALUE (? ,?,?, ?,?, ? , ? , ?)`, [id , name , price , quantity , desc , path , imagenumber , category] )
   
     } finally {
-      if (conn) conn.release(); //release to pool
+      if (conn) conn.release();
     }
 }
-
-
-
-
-// Encryption breaker for the webpage
 
 const urlencodedparser = bodyparser.urlencoded( {
     extended:false
@@ -89,10 +72,6 @@ const urlencodedparser = bodyparser.urlencoded( {
 
 bodyparser.json()
 
-
-
-
-// Index / Home page indexing to the user ;
 backend.get('/' , (req, res) => {
     res.sendFile(path.join(frontendtemplates, "index.html"))
 })
@@ -107,9 +86,6 @@ backend.get('/product' , (req, res) => {
     res.sendFile(path.join(frontendtemplates, "product.html"))
 })
 backend.post('/product',urlencodedparser , (req, res) => {
-    
-    console.log("quantity:",req.body.quantity)
-    console.log("quantity:",req.body.sizes)
     let id = req.body.id
     let quantity = req.body.quantity
     let category = req.body.category
@@ -132,7 +108,7 @@ async function users() {
     try {
   
         conn = await databaseconnection.getConnection();
-        const res = await conn.query(`select token , firstname , secondname , username , usermail , spending , admin  from users`);
+        const res = await conn.query(`select token , firstname , secondname , username , usermail , phone, spending , admin  from users`);
         return (res)
 
   
@@ -207,15 +183,15 @@ backend.get("/gym" , (req, res) => {
     senddata()
 })
 
-async function orderupload( id, name , email,phonenum, city , payment , address , total , token ,category , size , ordercode , quantity) {
+async function orderupload( id, name , email,phonenum, address , total , token ,category , size , ordercode , quantity) {
     let conn;
     try {
   
         conn = await databaseconnection.getConnection();
-        const res = await conn.query(`insert into productorder (id,customername,email,phonenum, city , payment , address , total , token , category , size , ordercode , quantity) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`,[id ,name ,email , phonenum , city, payment , address, total , token , category, size ,ordercode,quantity]);
+        const res = await conn.query(`insert into productorder (id,customername,email,phonenum  , address , total , token , category , size , ordercode , quantity) VALUES (?,?,?,?,?,?,?,?,?,?,?)`,[id ,name ,email , phonenum , address, total , token , category, size ,ordercode,quantity]);
   
     } finally {
-      if (conn) conn.release(); //release to pool
+      if (conn) conn.release();
     }
 }
 async function orderdelete( ordercode) {
@@ -227,7 +203,7 @@ async function orderdelete( ordercode) {
 
   
     } finally {
-      if (conn) conn.release(); //release to pool
+      if (conn) conn.release();
     }
 }
 
@@ -250,13 +226,10 @@ backend.get("/buy" , (req, res) => {
 })
 
 backend.post("/buy" ,urlencodedparser, (req,res) => {
-    console.log(req.body)
     var id = req.body.id
     var name = req.body.name
     var email = req.body.email
     var number = req.body.number
-    var city = req.body.city
-    var method = req.body.method
     var address = req.body.address
     var price = req.body.price
     var token = req.body.token
@@ -265,9 +238,22 @@ backend.post("/buy" ,urlencodedparser, (req,res) => {
     var quantity = req.body.quantity
     let ordercode = Math.ceil(Math.random() * 13131313);
 
-    orderupload(id , name , email , number , city , method , address, price , token , category , size , ordercode , quantity)
+    console.log("product details");
+    console.log(id,name,email,number, address , price, token , category , size , quantity , ordercode)
+
+
+    orderupload(id , name , email , number ,  address, price , token , category , size , ordercode , quantity)
     res.redirect("/profile")
 
+})
+
+backend.post("/deleteorder" , urlencodedparser ,(req,res) => {
+
+    let ordercode = req.body.ordercode
+
+    orderdelete(ordercode)
+    res.redirect("/profile")
+    
 })
 
 
@@ -308,11 +294,8 @@ let id = Math.ceil(Math.random()*13131313)
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        console.log("Destination :",file["originalname"])
-        console.log(id)
         let category = req.body.productcategory
         const productpath = "frontend/static/images/product/" + category +"/" + id +"/"
-        console.log(productpath)
         fs.mkdir(productpath,
         (err) => {
             if (err) {
@@ -336,12 +319,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// const upload = multer({ dest: './uploads' })
-
 backend.post("/upload",urlencodedparser , upload.array('productimages' , 13)  , (req,res) => {
-
-
-
 
         let name = req.body.productname
         let category = req.body.productcategory
@@ -349,11 +327,6 @@ backend.post("/upload",urlencodedparser , upload.array('productimages' , 13)  , 
         let quantity = Math.ceil(req.body.productquantity)
         let desc = req.body.productdesc
         let path = "../frontend/static/images/product/" + category+"/" + id 
-        
-        console.log( "DESCRIPTION:",desc)
-        console.log(id , name , category , price , quantity , desc , path  , imageindex)
-        // console.log("Images :" ,images)
-        
         productupload(id , name , price , quantity , desc, path , imageindex , category)
         
         imageindex = 1
@@ -364,7 +337,6 @@ backend.post("/upload",urlencodedparser , upload.array('productimages' , 13)  , 
 async function productdelete(id) {
     let conn;
     try {
-  
         conn = await databaseconnection.getConnection();
         const res = await conn.query(`delete from products where productid = ?` , [id]);
 
@@ -385,13 +357,7 @@ backend.post("/deleteproduct" , urlencodedparser ,(req,res) => {
     
 })
 
-
-
-
-// Login page indexing to the user ;
-
 backend.get('/login' , (req,res) => {
-    // console.log("Get request : /Login")
     res.sendFile(path.join(frontendtemplates, "login.html"))
 })
 
@@ -400,11 +366,7 @@ async function readinglogindata(usermail) {
     try {
   
         conn = await databaseconnection.getConnection();
-    //   const rows = await conn.query("SELECT 1 as val");
-    //   // rows: [ {val: 1}, meta: ... ]
         const res = await conn.query(`select * from users where usermail = ?` , [usermail]);
-        // console.log("The data queried:",res)
-
         return res
 
   
@@ -413,19 +375,13 @@ async function readinglogindata(usermail) {
     }
 }
 
-// Login page data reading from the user ;
 backend.post("/login", urlencodedparser , (req , res) => {
-    // console.log('Post request : /Login')
-    
-    // let username = req.body.username;
     let usermail = req.body.usermail 
     let userpassword = req.body.userpass 
     
     
     async function login(req,res){
-        
         const checkdata = await readinglogindata( usermail)
-        console.log("function output:", checkdata)
 
         if(checkdata == null || checkdata == ""){
             res.redirect("/login?error=1")
@@ -433,11 +389,8 @@ backend.post("/login", urlencodedparser , (req , res) => {
         }else {
 
         if(userpassword != checkdata[0]["userpass"]){
-            // console.log(userpassword , checkdata[0]["userpass"])
             res.redirect("/login?error=2")
         }else if(checkdata != null){
-            // console.log("Inserted the data");    
-            // console.log("The check Data " ,checkdata)  
             res.cookie('token',checkdata[0]["token"]);
             res.cookie('username',checkdata[0]["username"]);
             res.cookie.expires = false;
@@ -448,42 +401,36 @@ backend.post("/login", urlencodedparser , (req , res) => {
         }
     }
     login(req,res)
-    
-
-            
             
 })
         
-        
-        // registration page for this website 
-        
-        
 backend.get("/register" , (req, res) => {
-    console.log("Get request : /register");
     res.sendFile(path.join(frontendtemplates, 'register.html'));
 })
 
 
 backend.post("/register" , urlencodedparser , (req , res) => {
-    console.log("Post request : /register")
     
     let Fullusername = req.body.fullname.split(" ")
     var firstname = Fullusername[0]
     var secondname = Fullusername[1]
     var username = req.body.username
     let usermail = req.body.usermail 
+    let phone = req.body.phone 
     let userpassword = req.body.userpass 
     let token = Math.ceil(Math.random() * 13131313)
     
     async function checklogin(res){
         
         const checkdata = await readinglogindata( usermail)
-        console.log("function output:", checkdata)
         
         if(checkdata == null || checkdata == ''){
-            signup(token , firstname , secondname,username , usermail , userpassword)
-            res.cookie('token',token);
-            res.cookie('username',username);
+            var signinsucess = signup(token , firstname , secondname,username , usermail , phone, userpassword)
+            console.log(signinsucess);
+            if(signinsucess){
+                res.cookie('token',token);
+                res.cookie('username',username);
+            }
             res.redirect('/');
             
         }else {
@@ -504,14 +451,13 @@ backend.get("/password" , (req,res) => {
     
 })
 
-
-// Final server listening ;
 backend.get("*" , (req,res) => {
     
     res.send("<h1>404 Error , Page not found ;</h1>");
 } )
 
 backend.listen(port, () => {
-    console.log(`server is listening ${port}`)
+    console.log(`\n`)
+    console.log(`SERVER is LISTENING at PORT ${port}`)
 } )
 

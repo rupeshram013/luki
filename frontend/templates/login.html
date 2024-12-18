@@ -13,46 +13,23 @@
     <div id="navbar"></div>
     
     <div id="uppersite">
-        
-        
-        
         <div id="mostouterform">
-            <!-- <div id="leftform">
-                <img src="images/landscape/town.jpg" alt="" srcset="">
-            </div> -->
-
-            
             <h3 id="login">LOGIN</h3>
             
             <form method="post" autocomplete="off" >
-                <!-- <input type="text" name="username" id="username"   placeholder="Name"> -->
                 <input type="email" name="usermail" id="usermail" required  placeholder="Email">
                 <input type="password" name="userpass" id="userpass"  required  placeholder="Password">
                 <div id="errors">
-                    <h6 id="error2"></h6>
-                    <h6 id="error1"></h6>
+                    <p id="error4"></p>
+                    <p id="error3"></p>
                     
                 </div>
-                <div id="options">
-                    <a href="/register"><p>Create an account</p></a>
-                     <a href="/password"><p>Forgot Password?</p></a>
-                    </div>
+                <a href="/register" id="link"><p>Create an account</p></a>
+                <!-- <a href="/password" id="link"><p>Forgot Password?</p></a> -->
+
                     <button type="submit">Login</button>
                 </form>
-                
-                <!-- <div id="info">
-                    <a href=".">
-                        <img src="images/icon/github-sign.png" alt="no-img" srcset="">
-                    </a>
-                    <a href=".">
-                        <img src="images/icon/facebook.png" alt="no-img" srcset="">
-                    </a>
-                    <a href=".">
-                        <img src="images/icon/instagram.png" alt="no-img" srcset="">
-                    </a>
-                </div> -->
-                
-                
+
             </div>
             
     </div>
@@ -66,11 +43,11 @@
         
         if (error == 1){
             document.getElementById("errors").style.display = "block"
-            document.getElementById('error1').innerHTML =`Email Not Found`
+            document.getElementById('error3').innerHTML =`Email Not Found`
         }
         else if (error == 2){
             document.getElementById("errors").style.display = "block"
-            document.getElementById('error2').innerHTML =`Password didn't match`
+            document.getElementById('error4').innerHTML =`Password didn't match`
         }else {
             
             document.getElementById("errors").style.display = "none"

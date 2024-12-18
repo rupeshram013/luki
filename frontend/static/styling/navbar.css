@@ -1,4 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap'); */
 @font-face {
     font-family: "copperplate";
     src: url("../fonts/copperplatelight.otf");
@@ -8,21 +7,6 @@
     font-family: "copperplate bold";
     src: url("../fonts/copperplategothic_bold.ttf");
 }
-
-/* @font-face {
-    font-family: "Amsterdam";
-    src: url("../fonts/NewAmsterdam-Regular.ttf");
-}
-
-@font-face {
-    font-family: "Archivo";
-    src: url("../fonts/ArchivoBlack-Regular.ttf");
-} */
-
-/* @font-face {
-    font-family: "copperplate bold";
-    src: url("../fonts/copperplategothic_bold.ttf");
-} */
 
 *{
 
@@ -53,7 +37,6 @@ body {
     display: flex;
     padding-top: 2em;
     padding-bottom: 2em;
-    /* box-shadow: 0px 0.1em 1em 0px rgb(158, 158, 158); */
 
 }
 
@@ -71,7 +54,7 @@ body {
 }
 
 #innernav #menu img {
-    width: 2em;
+    width: 5vw;
     margin-top: 0.5em;
 }
 #innernav #title {
@@ -83,7 +66,7 @@ body {
 
 #innernav #title p {
     font-family: "copperplate";
-    font-size: 2rem;
+    font-size: 5vw;
     color: rgb(22, 21, 21);
     text-decoration: none;
     letter-spacing: 0.5em;
@@ -107,81 +90,33 @@ body {
     border: 0px;
     background-color: rgba(0,0,0,0);
     font-weight: 1000;
-    /* background-color: black; */
     color: rgb(0, 0, 0);
     padding: 0.5em;
     margin: auto;
-    font-size: 1em;
+    font-size: 3vw;
     text-decoration: underline;
     text-align: center;
-}
-/* 
-#innernav #category {
-    width: 50%;
-    margin: auto;
-    text-align: center;
-}
-
-#innernav #category a {
-    color: black;
-    margin-left: 1em;
-    font-size: 1.5em;
     text-decoration: none;
-    color: rgba(8, 8, 8, 0.397)  ;
+    margin-top: 0px;
 }
-#innernav #category a:hover {
-    color: rgb(8, 8, 8)  ;
-} */
-/* 
-#innernav #search {
-    padding: 0.5em;
-    margin-top: auto;
-    margin-bottom: auto;
-    display: flex;
-    border: 1px solid black;
-    margin: auto;
-    margin-left: 25%;
-}
-
-#innernav #search input {
-    border: none;
-    border-bottom: 0px solid black;
-    background-color: rgba(22, 21, 21, 0);
-    outline: none;
-    font-size: 1em;
-}
-
-#innernav #search button  {
-    background-color: rgba(255, 0, 0, 0);
-    border:0px solid black;
-    
-}
-#innernav #search button:hover  {
-    cursor: pointer;
-    
-}
-#innernav #search button img {
-    width: 2em;
-
-    
-} */
 
 
 #innernav #options {
-    width: 25%;
+    width: 50%;
     margin: auto;
     text-align: right;
     margin-right: 0px;
     padding-right: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0px;
 }
 #innernav #options #search {
-    width: auto;
     border: 0px;
     background-color: white;
     margin-right: 1em;
 }
 #innernav #options #search img {
-    width: 1.5rem;
+    width: 4vw;
 }
 
 #innernav #options a {
@@ -189,97 +124,13 @@ body {
     margin-right: 1em;
 }
 
-#innernav #options a:hover{
-    
-}
 
 #innernav #options a img {
-    width: 1.5rem;
+    width: 4vw;
 
 }
 
-#innernav #options p{
-
-}
-#innernav #options button{
-
-}
 #innernav #options button:hover{
     border-bottom: 2px solid rgb(0, 0, 0);
     cursor: pointer;
 }
-
-/* 
-
-@media screen and (max-width:600px) {
-    #outernav {
-        margin-top: 0em;
-    }
-    
-    #innernav {
-        display: flex;
-    
-        box-shadow: 0px 0.1em 1em 0px ;
-    }
-    
-    #innernav #title {
-        margin-left: 2em;
-        width: 50%;
-     
-    }
-    
-    
-    
-    #innernav #title h1 {
-        font-size: 3.5em;
-        color: rgb(22, 21, 21);
-        text-decoration: none;
-    }
-    
-    #innernav #title a {
-        color: rgb(22, 21, 21);
-        text-decoration: none;
-    
-    }
-    #innernav #title a img {
-        width: 10em;
-        margin: auto;
-        padding: 2em;
-    }
-    #innernav #category {
-        display: none;
-        width: 50%;
-        margin: auto;
-        text-align: center;
-    }
-    
-    #innernav #category a {
-        color: black;
-        margin-left: 1em;
-        font-size: 1.5em;
-        text-decoration: none;
-        color: rgba(8, 8, 8, 0.397)  ;
-    }
-    #innernav #category a:hover {
-        color: rgb(8, 8, 8)  ;
-    }
-
-    #innernav #options {
-        width: 50%;
-        margin: auto;
-        margin-right: 2em;
-        padding: 0px;
-        margin-right: 1em;
-    }
-    #innernav #options a {
-
-        text-align: right;
- 
-        margin-left: auto;
-        margin-right: 2em;
-    }
-    #innernav #options a img {
-
-        width: 2em;
-    }
-} */

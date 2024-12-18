@@ -1,67 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LUKI Store</title>
 
-    <link rel="stylesheet" href="/styling/category.css">
-</head>
-<body>
-
-    <div id="navbar">
-    </div>
+    <link rel="stylesheet" href="/styling/category.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
 
     <div id="uppercategory">
-        <div id="innercategory">
-            <h1 id="categorytitle"></h1>
-            
-            <!-- <div id="sorting">
-                <h3>Sort BY:</h3>
-                <div id="select">
-                    <select name="sort" id="sort">
-                        <option value="name">A-Z</option>
-                        <option value="price">Price</option>
-                    </select>
-                </div>
+      <div id="innercategory">
+        <h1 id="categorytitle"></h1>
 
-            </div> -->
-    
-            <div id="products">
-    
-    
-    
-    
-            </div>
-    
-        </div>
+        <div id="products"></div>
+      </div>
     </div>
-    <div id="footer">
-    </div>
+    <div id="footer"></div>
 
     <script>
+      const pagelocation = location.search;
 
-            
-        const pagelocation = location.search
-            
-        const category = pagelocation.split("=")[1]
-        // const id = pagelocation.split("category=")[1].split("?id=")[1] 
-        console.log(category)
-        // console.log(id)
+      const category = pagelocation.split("=")[1];
+      console.log(category);
 
-        if (category == "women" || category == "men" || category == "gym"){
-            fetch(category)
-            .then (response => response.json())
-            .then (product => {
-                let producthtml = ``
-                console.log(product)
-                for(i in product){
-                    // console.log( product[i])
-                    let imagedir = "/"+product[i]["path"].split("../frontend/static/")[1]+"/"
-                    console.log(imagedir)
 
-                    producthtml += 
-                    `
+      if (category == "women" || category == "men" || category == "gym") {
+        fetch(category)
+          .then((response) => response.json())
+          .then((product) => {
+            let producthtml = ``;
+            console.log(product);
+            for (i in product) {
+              let imagedir =
+                "/" + product[i]["path"].split("../frontend/static/")[1] + "/";
+              console.log(imagedir);
+
+              producthtml += `
                         <div class="indiproduct" id="${product[i]["productid"]}">
                                 <img src="${imagedir}/1.png" alt="" />
                             <div id="des">
@@ -74,32 +50,21 @@
                             </div>
 
                         </div>
-                    `
-                    console.log(category)
-                    document.getElementById("categorytitle").innerHTML = `${category}`
-                    // console.log(document.getElementById("categorytitle"))
-                    
-
-                        
-
-                }
-
-                document.getElementById("products").innerHTML = producthtml
-            })
-        }
-        else {
-            
-            document.getElementById("innercategory").innerHTML = `Page not Found`
-        }
-
-
-        console.log("The page location" , pagelocation)
-
+                    `;
+              console.log(category);
+              document.getElementById(
+                "categorytitle"
+              ).innerHTML = `${category}`;
+            }
+            document.getElementById("products").innerHTML = producthtml;
+          });
+      } else {
+        document.getElementById("innercategory").innerHTML = `Page not Found`;
+      }
+      console.log("The page location", pagelocation);
     </script>
 
     <script src="/scripts/navbar.js"></script>
     <script src="/scripts/footer.js"></script>
-
-</body>
-
+  </body>
 </html>
