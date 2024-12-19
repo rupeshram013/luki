@@ -23,7 +23,7 @@
       const pagelocation = location.search;
       const category = pagelocation.split("=")[1];
 
-      if (category == "women" || category == "men" || category == "gym") {
+      if (category == "women" || category == "men" || category == "unisex") {
         fetch(category)
           .then((response) => response.json())
           .then((product) => {

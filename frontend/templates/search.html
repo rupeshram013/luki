@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LUKI Store</title>
+    <link rel="icon" href="/images/logo/lukismall.jpg" >
+    <link rel="stylesheet" href="/styling/search.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <div id="uppercategory">
+      <div id="innercategory">
+        <h1 id="categorytitle"></h1>
+
+        <div id="products"></div>
+      </div>
+    </div>
+    <div id="footer"></div>
+
+    <script>
+
+    const pagelocation = location.search;
+    const splitedname = pagelocation.split("=")[1].split("+");
+    var name = "";
+    for(r in splitedname){
+        name = name + splitedname[r].toLowerCase() + " ";
+    }
+    name = name.trim()
+    console.log(name)
+    fetch("/products")
+          .then((response) => response.json())
+          .then((products) => {
+            console.log(products)
+            let producthtml = ``;
+            for(i in products){
+                var productname = products[i]["productname"].toLowerCase()
+                console.log(products[i]["productname"]);
+                if(name == productname){
+                    console.log("Product found",products[i]["productname"]);
+                    let imagedir ="/" + products[i]["path"].split("../frontend/static/")[1] + "/";
+
+
+                    producthtml += `
+                            <div class="indiproduct" id="${products[i]["productid"]}">
+                                    <img src="${imagedir}/1.png" alt="" />
+                                <div id="des">
+                                    <h3>${products[i]["productname"]}</h3>
+                                    <p>Rs.${products[i]["productprice"]}</p>
+                                    <h6>${products[i]["description"]}</h6>
+                                    <a href="/product?category=${products[i]["productcategory"]}?id=${products[i]["productid"]}">
+                                        <button> Shop Now</button>
+                                    </a>
+                                </div>
+
+                            </div>
+                        `;
+                    document.getElementById("categorytitle").innerHTML = `Search Results`;
+                }else if (name != productname){
+
+                }else{
+
+                    document.getElementById("categorytitle").innerHTML = `Search Results`;
+                }
+                document.getElementById("products").innerHTML = producthtml;
+            }
+
+          });
+ 
+    </script>
+
+    <script src="/scripts/navbar.js"></script>
+    <script src="/scripts/footer.js"></script>
+  </body>
+</html>

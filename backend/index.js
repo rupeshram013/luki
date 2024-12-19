@@ -80,6 +80,17 @@ backend.get('/home' , (req, res) => {
 })
 
 
+backend.get("/search" ,  (req , res) => {
+    res.sendFile(path.join(frontendtemplates, "search.html"))
+})
+
+backend.post('/search',urlencodedparser , (req, res) => {
+    let name = req.body.name
+    res.redirect(`/search?name=${name}`);
+})
+
+
+
 
 
 backend.get('/product' , (req, res) => {
@@ -152,6 +163,8 @@ backend.get("/order" , (req,res) => {
     }
     senddata()
 })
+
+
       
 backend.get("/women" , (req, res) => {
 
@@ -184,12 +197,12 @@ backend.get("/gym" , (req, res) => {
     senddata()
 })
 
-async function orderupload( id, name , email,phonenum, address , total , token ,category , size , ordercode , quantity) {
+async function orderupload( id, name , email,phonenum, address , total , token ,category , size , ordercode , quantity , color) {
     let conn;
     try {
   
         conn = await databaseconnection.getConnection();
-        const res = await conn.query(`insert into productorder (id,customername,email,phonenum  , address , total , token , category , size , ordercode , quantity) VALUES (?,?,?,?,?,?,?,?,?,?,?)`,[id ,name ,email , phonenum , address, total , token , category, size ,ordercode,quantity]);
+        const res = await conn.query(`insert into productorder (id,customername,email,phonenum  , address , total , token , category , size , ordercode , quantity , color) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,[id ,name ,email , phonenum , address, total , token , category, size ,ordercode,quantity,color]);
   
     } finally {
       if (conn) conn.release();
@@ -237,9 +250,10 @@ backend.post("/buy" ,urlencodedparser, (req,res) => {
     var category = req.body.categoryform
     var size = req.body.size
     var quantity = req.body.quantity
+    var color = req.body.color
     let ordercode = Math.ceil(Math.random() * 13131313);
 
-    orderupload(id , name , email , number ,  address, price , token , category , size , ordercode , quantity)
+    orderupload(id , name , email , number ,  address, price , token , category , size , ordercode , quantity , color)
     res.redirect("/profile")
 
 })

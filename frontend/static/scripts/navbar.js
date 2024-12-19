@@ -9,7 +9,7 @@ navbar.innerHTML = `
 <div id="innernav">
 
     <div id="menu">
-         <button>
+         <button onclick="menu()">
             <img src="/images/icon/menu.png"
          </button>
     </div>
@@ -29,7 +29,7 @@ navbar.innerHTML = `
     
 
     <div id="options">
-        <button id="search">
+        <button id="search" onclick="searchbox()">
             <img src="/images/icon/search.png" alt="no img" srcset="" />
         </button>
         <a href="/cart" id="cart">
@@ -40,6 +40,25 @@ navbar.innerHTML = `
         </a>
 
     </div>
+</div>
+
+<div id="bottomnav">
+
+    <div id="menubox" style="display: none;">
+        <a href="/category?name=men">Mens</a>
+        <a href="/category?name=women">Women</a>
+        <a href="/category?name=unisex">Unisex</a>
+    </div>
+    <div id="outsearchbox" style="display: none;">
+        <form action="/search" method="get" id="searchbox" required >
+            <input type="text" id="searchbutton" name="name" value="" placeholder="search">
+            <button type="submit">
+                <img src="/images/icon/search.png">
+            </button>
+        </form>
+        
+    </div>
+
 </div>
 
 
@@ -55,7 +74,7 @@ let profile = document.getElementById("options");
 if(webcookie == "" || webcookie == null) {
     
     profile.innerHTML = `
-        <button id="search">
+        <button id="search" onclick="searchbox()">
             <img src="/images/icon/search.png" alt="no img" srcset="" />
         </button>
         <a href="/cart" id="cart">
@@ -79,7 +98,7 @@ if(webcookie == "" || webcookie == null) {
             if (users[i]["token"] == token){
                 if(users[i]["admin"] == 1){
                     profile.innerHTML = `
-                    <button id="search">
+                    <button id="search" onclick="searchbox()">
                         <img src="/images/icon/search.png" alt="no img" srcset="" />
                     </button>
                     <a href="/dashboard" id="login">
@@ -92,7 +111,7 @@ if(webcookie == "" || webcookie == null) {
 
                 }else {
                     profile.innerHTML = `
-                    <button id="search">
+                    <button id="search" onclick="searchbox()">
                         <img src="/images/icon/search.png" alt="no img" srcset="" />
                     </button>
                     <a href="/profile" id="login">
@@ -114,6 +133,35 @@ if(webcookie == "" || webcookie == null) {
 }
 
 
+function searchbox(){
+    if(document.getElementById("outsearchbox").style.display == "block" ){
+        document.getElementById("outsearchbox").style.display = "none";
+    }else{
+        if(document.getElementById("menubox").style.display == "block"){
+            document.getElementById("menubox").style.display = "none";
+            document.getElementById("outsearchbox").style.display = "block";
+        }else{
+            document.getElementById("outsearchbox").style.display = "block";
+        }
+    }
+
+}
+function menu(){
+    if(document.getElementById("menubox").style.display == "block"){
+        document.getElementById("menubox").style.display = "none";
+    }else{
+        if(document.getElementById("outsearchbox").style.display == "block"){
+            document.getElementById("outsearchbox").style.display = "none";
+            document.getElementById("menubox").style.display = "block";
+        }else{
+            document.getElementById("menubox").style.display = "block";
+        }
+
+    }
+
+}
+
+
 
 const logout = function() {
     var Cookies = document.cookie.split(';');
@@ -124,4 +172,3 @@ const logout = function() {
     }
     location.href = "/"
 }
-

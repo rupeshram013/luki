@@ -1,0 +1,87 @@
+*{
+    font-family: "copperplate";
+}
+
+#uppercategory #innercategory {
+    width: 90%;
+    background-color: white;
+    margin: auto;
+    padding: 1em;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
+}
+
+#uppercategory #innercategory h1 {
+    text-align: center;
+    letter-spacing: 0.5em;
+    font-size: 3vw;
+    font-weight: 100;
+    margin-bottom: 1.5em;
+}
+
+#products {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3em;
+}
+
+#products .indiproduct {
+    width: 40%;
+}
+
+#products .indiproduct  img {
+    width: 100%;
+    object-fit:cover;
+    height: 35vw;
+}
+
+#products .indiproduct #des {
+    border: 1px solid rgb(226, 226, 226);
+    text-align: center;
+}
+
+#products .indiproduct #des h3 {
+    font-size: 2.5vw;
+    font-weight: 500;
+    padding: 0px;
+    width: 90%;
+    margin: auto;
+    font-family: "copperplate bold";
+    margin-top: 0.5em;
+}
+#products .indiproduct #des h6 {
+    font-size: 1.5vw;
+    font-weight: 100;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 0em;
+    
+    overflow: hidden;
+    padding:1em;
+    color: grey;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    
+}
+#products .indiproduct #des p {
+    margin: 0px;
+    padding: 0px;
+    font-size: 1.5vw;
+    color: grey;
+    font-weight: lighter;
+
+}
+#products .indiproduct #des button {
+    width: 100%;
+    background-color: black;
+    border: 0px;
+    font-size: 2vw;
+    color: white;
+    padding: 0.5em;
+    font-weight: 1000;
+    margin-top: 2em;
+}
