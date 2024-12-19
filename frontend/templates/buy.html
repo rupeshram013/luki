@@ -89,17 +89,13 @@
         const sizevalue = pagelocation.split("sizes=")[1].split("&")[0]
         const category = pagelocation.split("category=")[1].split("&")[0]
         const color = pagelocation.split("color=")[1].split("&")[0]
-
-        console.log(id , category, quantity, sizevalue, color)
         
-        if (category == "women" || category == "men" || category == "gym"){
+        if (category == "women" || category == "men" || category == "unisex"){
             fetch(category)
             .then (response => response.json())
             .then (product => {
                 for(i in product){
                     if(product[i]["productid"] == id){
-
-
                         let productid = document.getElementById("id")
                         let pricetext = document.getElementById("pricetext")
                         let title = document.getElementById("producttitle")

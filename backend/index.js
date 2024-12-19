@@ -90,6 +90,9 @@ backend.post('/search',urlencodedparser , (req, res) => {
 })
 
 
+backend.get("/orderdetails" ,  (req , res) => {
+    res.sendFile(path.join(frontendtemplates, "order.html"))
+})
 
 
 
@@ -186,11 +189,11 @@ backend.get("/men" , (req, res) => {
 
     senddata()
 })
-backend.get("/gym" , (req, res) => {
+backend.get("/unisex" , (req, res) => {
 
     async function senddata(){
 
-        const data = await productdata("gym")
+        const data = await productdata("unisex")
         res.json(data)
     } 
 
@@ -362,7 +365,17 @@ async function productdelete(id) {
 backend.post("/deleteproduct" , urlencodedparser ,(req,res) => {
 
     let productid = req.body.productid
+    let productdir = path.join(__dirname ,req.body.productpath)
+    console.log(productdir)
 
+    fs.rm(productdir, { recursive: true, force: true }, err => {
+    if (err) {
+        throw err;
+    }
+    
+    console.log(`${productdir} is deleted!`);
+    });
+      
     productdelete(productid)
     res.redirect("/dashboard")
     

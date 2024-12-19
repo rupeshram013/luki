@@ -22,6 +22,7 @@
     <script>
       const pagelocation = location.search;
       const category = pagelocation.split("=")[1];
+      console.log(category)
 
       if (category == "women" || category == "men" || category == "unisex") {
         fetch(category)
@@ -31,7 +32,7 @@
             for (i in product) {
               let imagedir =
                 "/" + product[i]["path"].split("../frontend/static/")[1] + "/";
-
+              console.log(imagedir)
               producthtml += `
                         <div class="indiproduct" id="${product[i]["productid"]}">
                                 <img src="${imagedir}/1.png" alt="" />

@@ -1,0 +1,126 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUKI Store</title>
+    <link rel="icon" href="/images/logo/lukismall.jpg" >
+    <link rel="stylesheet" href="/styling/profile.css">
+</head>
+<body>
+
+    <div id="navbar">
+    </div>
+
+
+    <div id="upperprofile" >
+        <div id="outerprofile">
+            <h1>Order Details</h1>
+            <div id="profile">
+
+                <div id="left">
+                    
+                    <h1>Full Name</h1>
+                    <h4>UserName</h4>
+                    <p>Email</p>
+                    <p>Phone</p>
+                </div>
+                <div id="right">
+                    <h4>Token</h4>
+                    <h2></h2>
+                </div>
+
+            </div>
+
+            
+            <h6>Your Order</h6>
+            <table id="orders">
+                <!-- <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Cancel</th>
+                </tr> -->
+
+            </table>
+        </div>
+        
+    </div>
+    <div id="footer">
+    </div>
+
+    <script>
+
+        let token = document.cookie.split(";")[0].split("token=")[1]
+        let innerorderhtml = ""
+        let outerorder = document.getElementById("orders")
+        let r = 1
+        fetch("/order")
+        .then(response => response.json())
+        .then(orders => {
+            for (i in orders){
+                if (orders[i]["token"] == token){
+                    let imagedir = "/"+orders[i]["path"].split("../frontend/static/")[1]+"/"
+                    innerorderhtml = 
+                    `
+                    <tr>
+                        <td><a href="/orderdetails?ordercode=${orders[i]["ordercode"]}">${orders[i]["productname"]}</a></td>
+                        <td>${orders[i]["quantity"]}.pcs</td>
+                        <td>Rs.${orders[i]["total"]}</td>
+                        <td><form method="post" action="/deleteorder">
+                            <input name="ordercode" type="hidden" value="${orders[i]["ordercode"]}">
+                            <button type="submit">Cancel</button>
+                            </form>
+                        </td>
+                    </tr>
+                    `
+                    
+                    
+                    outerorder.innerHTML += innerorderhtml
+                    
+                }
+                
+
+            }
+        })
+
+        let profilebox = document.getElementById("profile")
+        let innerprofile = ``
+        
+        fetch("/users")
+        .then(response => response.json())
+        .then(users => {
+            for (i in users){
+
+                if (users[i]["token"] == token){
+                    innerprofile = 
+                    `
+                        <div id="left">
+    
+                            <h1>${users[i]['firstname']} ${users[i]['secondname']}</h1>
+                            <h4>${users[i]['username']}</h4>
+                            <p>${users[i]['usermail']}</p>
+                        </div>
+                        <div id="right">
+                            <h4>ID:${token}</h4>
+                            <h4>Spending<br> Rs.${users[i]['spending']}</h4>
+                        </div>
+                    `
+
+                    profilebox.innerHTML = innerprofile
+                }
+                
+
+            }
+        })
+
+    </script>
+
+    
+    <script src="/scripts/navbar.js"></script>
+    <script src="/scripts/footer.js"></script>
+</body>
+
+</html>

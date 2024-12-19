@@ -65,9 +65,8 @@
                     let imagedir = "/"+orders[i]["path"].split("../frontend/static/")[1]+"/"
                     innerorderhtml = 
                     `
-
                     <tr>
-                        <td><a href="/placedorder">${orders[i]["productname"]}</a></td>
+                        <td><a href="/orderdetails?ordercode=${orders[i]["ordercode"]}">${orders[i]["productname"]}</a></td>
                         <td>${orders[i]["quantity"]}.pcs</td>
                         <td>Rs.${orders[i]["total"]}</td>
                         <td><form method="post" action="/deleteorder">

@@ -104,7 +104,7 @@
                         <select name="productcategory" id="product?category" required>
                             <option value="women">Women</option>
                             <option value="men">Men</option>
-                            <option value="gym">Gym</option>
+                            <option value="unisex">Unisex</option>
                         </select>
                     </div>
 
@@ -203,7 +203,6 @@
                 let producttable = ``
                 console.log(product)
                 for(i in product){
-                    // console.log( product[i])
                     let imagedir = "/"+product[i]["path"].split("../frontend/static/")[1]+"/"
                     console.log(imagedir)
 
@@ -215,6 +214,7 @@
                         <td>${product[i]["productquantity"]}</td>
                         <td><form method="post" action="/deleteproduct">
                             <input name="productid" type="hidden" value="${product[i]["productid"]}">
+                            <input name="productpath" type="hidden" value="${product[i]["path"]}">
                             <button type="submit">Yes</button>
                             </form>
                         </td>
