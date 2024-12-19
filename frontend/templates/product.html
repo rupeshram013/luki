@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUKI Store</title>
-
+    <link rel="icon" href="/images/logo/lukismall.jpg" >
     <link rel="stylesheet" href="/styling/product.css">
 </head>
 <body>
@@ -56,22 +56,17 @@
 
         const category = pagelocation.split("category=")[1].split("?id")[0]
         const id = pagelocation.split("category=")[1].split("?id=")[1] 
-        console.log(category)
-        console.log(id)
 
         if (category == "women" || category == "men" || category == "unisex" ){
             fetch(category)
             .then (response => response.json())
             .then (product => {
-                console.log(product)
                 for(i in product){
 
 
                     if(product[i]["productid"] == id){
 
-                        let rightside = document.getElementById("right")
-                        console.log(id)
-                        
+                        let rightside = document.getElementById("right")                        
                         rightside.innerHTML =
                         `
                         <input type="hidden" name="name" id="name"  value=""> 
@@ -103,12 +98,18 @@
                                 <div id="colors" class="boxes">
                                     <h4>Colors</h4>
                                     <div id="colorbox">
-                                    <input type="radio" id="b" name="color" value="b" class="sizesbutton" checked="true">
-                                    <label for="b">Black</label><br>
-                                    <input type="radio" id="w" name="color" value="w" class="sizesbutton">
-                                    <label for="w">White</label><br>
-                                    <input type="radio" id="br" name="color" value="br" class="sizesbutton">
-                                    <label for="br">Brown</label><br> 
+                                        <input type="radio" id="black" name="color" value="black" class="sizesbutton" checked="true">
+                                        <label for="black">Black</label><br>
+                                        <input type="radio" id="white" name="color" value="white" class="sizesbutton">
+                                        <label for="white">White</label><br>
+                                        <input type="radio" id="brown" name="color" value="brown" class="sizesbutton">
+                                        <label for="brown">Brown</label><br> 
+                                        <input type="radio" id="red" name="color" value="red" class="sizesbutton" checked="true">
+                                        <label for="red">Red</label><br>
+                                        <input type="radio" id="blue" name="color" value="blue" class="sizesbutton">
+                                        <label for="blue">Blue</label><br>
+                                        <input type="radio" id="yellow" name="color" value="yellow" class="sizesbutton">
+                                        <label for="yellow">Yellow</label><br> 
                                     </div>
                                 </div>
                             </div>
@@ -122,8 +123,7 @@
                         let imagebox = document.getElementById("images")
                         let name = document.getElementById("name")
                         let desc = document.getElementById("desc")
-                        
-                        console.log(title.innerHTML )
+                    
                         title.innerHTML = `${product[i]["productname"]}`
                         name.value = `${product[i]["productname"]}`
                         price.innerHTML = `Rs.${product[i]["productprice"]}`
@@ -133,11 +133,8 @@
                                 
                         let imagespath = ''
                         let imagedir = "/"+product[i]["path"].split("../frontend/static/")[1]+"/"
-                        console.log(imagedir , product[i]["imagenumber"] )
                         for(let j = 1 ; j < product[i]["imagenumber"] ; j++){
                             images = j+".png"
-                            console.log("image and number" ,images , j)
-                            console.log(images)
                             imagespath += `                        
                             
                             <div class="image">
@@ -158,8 +155,6 @@
             document.getElementById("upperproduct").innerHTML = `Page not Found`
         }
 
-
-        console.log("The page location" , pagelocation)
     </script>
     <script src="scripts/formcheck.js"></script>
     <script src="/scripts/navbar.js"></script>

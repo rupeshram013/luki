@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUKI Store</title>
-
+    <link rel="icon" href="/images/logo/lukismall.jpg" >
     <link rel="stylesheet" href="/styling/buy.css">
 </head>
 <body>
@@ -85,9 +85,12 @@
         const pagelocation = location.search
 
         const id = pagelocation.split("id=")[1].split("&")[0]
-        const category = pagelocation.split("category=")[1]
         const quantity = pagelocation.split("quantity=")[1].split("&")[0]
         const sizevalue = pagelocation.split("sizes=")[1].split("&")[0]
+        const category = pagelocation.split("category=")[1].split("&")[0]
+        const color = pagelocation.split("color=")[1].split("&")[0]
+
+        console.log(id , category, quantity, sizevalue, color)
         
         if (category == "women" || category == "men" || category == "gym"){
             fetch(category)
@@ -148,10 +151,8 @@
                     fetch("/users")
                     .then(response => response.json())
                     .then(users => {
-                        console.log(users)
                         for (i in users){
                             if (users[i]["token"] == token){
-                                console.log(users[i]["token"],"Token matched",token , finalprice)
                                 
                                 let detailsform = document.getElementById("checkout");
                                 detailsform.innerHTML = 
@@ -182,7 +183,7 @@
         }
         else {
             
-            document.getElementById("upperproduct").innerHTML = `Page not Found`
+            document.getElementsByTagName("body").innerHTML = `Page not Found`
         }
 
 

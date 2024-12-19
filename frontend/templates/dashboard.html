@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LUKI Store</title>
-        
+        <link rel="icon" href="/images/logo/lukismall.jpg" >
         <link rel="stylesheet" href="/styling/dashboard.css">
     </head>
     <body>
@@ -110,19 +110,27 @@
 
                     <div id="outerdesc">
                         
-                        <div id="buttons">
+                        <!-- <div id="buttons">
                             
                             <button onclick="format(`<h3>   </h3>`)">Heading</button>
                             <button onclick="format(`<br>`)">LineBreak</button>
                             <button onclick="format(`<li>  </li>`)">List</button>
                             <button onclick="format(`<b>   </b>`)">bold</button>
-                        </div>
+                        </div> -->
+<!-- 
+                        <div id="colors">
+                                <button value="red" type="button" >RED</button>
+                                <button value="black" type="button">BLACK</button>
+                                <button value="white" type="button">WHITE</button>
+                                <button value="brown" type="button">BROWN</button>
+                                <button value="yellow" type="button">YELLOW</button>
+                                <button value="blue" type="button">BLUE</button>
+                                <button value="green" type="button">GREEN</button>
+                        </div> -->
                         <textarea name="productdesc" id="productdesc" cols="30" rows="10" placeholder="Description" required></textarea>
                     </div>
                     <input type="file" name="productimages" id="productimages" multiple required placeholder="Select Images">
-                    <button id="submit" type="submit">
-                    Upload
-                    </button>
+                    <button id="submit" type="submit">Upload</button>
                 
                 </form>
             </div>
@@ -153,9 +161,8 @@
                 let producttable = ``
                 console.log(product)
                 for(i in product){
-                    // console.log( product[i])
+                    console.log( "Ordercode " , product[i]["ordercode"])
                     let imagedir = "/"+product[i]["path"].split("../frontend/static/")[1]+"/"
-                    console.log(imagedir)
 
                     tabledata += 
                     `
@@ -164,7 +171,7 @@
                         <td>${product[i]["phonenum"]}</td>
                         <td>${product[i]["total"]}</td>
                         <td><form method="post" action="/deleteorder">
-                            <input name="productid" type="hidden" value="${product[i]["productid"]}">
+                            <input name="ordercode" type="hidden" value="${product[i]["ordercode"]}">
                             <button type="submit">Yes</button>
                             </form>
                         </td>

@@ -1,6 +1,6 @@
 #footer {
     background-color: rgb(0, 0, 0);
-    padding: 1rem;
+    padding: 1vw;
 }
 
 #footer #topfooter {
@@ -10,8 +10,14 @@
     font-style: normal;
     font-family: "copperplate";
     font-size: 2vw;
-    letter-spacing: 0.3em;
     margin-bottom: 0px;
+    margin-top: 8vw;
+}
+#footer #topfooter p {
+    font-size: 1.5vw;
+    color: rgb(231, 231, 231);
+    font-weight: 100;
+    letter-spacing: 0.1vw;
 }
 
 #footer #middlefooter  {
@@ -37,14 +43,14 @@
     text-decoration: none;
 }
 #footer #bottomfooter div a  {
-    width: 50%;
+    width: 100%;
     font-size: 2vw;
     color: white;
     text-decoration: none;
     letter-spacing: 0.3em;
     font-family: "copperplate";
     text-decoration: underline;
-    font-weight: 400;
+    font-weight: 100;
 }
 #footer #bottomfooter #left   {
     text-align: left;

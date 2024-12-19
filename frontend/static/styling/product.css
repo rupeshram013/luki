@@ -1,12 +1,6 @@
 
-#upperproduct {
-
-}
-
-
 #upperproduct #outerproduct {
     margin:auto;
-    border-radius: 1em;
     width: 80%;
     padding: 2em;
     background-color: rgba(255, 255, 255, 0.534);
@@ -69,9 +63,7 @@
     object-fit: cover;
 
 }
-#innerproduct #left #images::-webkit-scrollbar  {
-    display: none;
-}
+
 #innerproduct #bottom #left #images.grab {
     cursor: grabbing;
     user-select: none;
@@ -195,13 +187,17 @@
 
 
 #innerproduct #right #colorbox {
-    width: 50%;
+    width: 100%;
     margin: 0px;
-    margin-left: auto;
     padding-right: 0px;
     display: flex;
     margin: auto;
+    margin-left: auto;
+    flex-direction:row ;
     gap: 1vw;
+    flex-wrap: wrap;
+    border-left: 1px solid rgb(183, 183, 183);
+    padding-left: 2vw;
 }
 
 #innerproduct #right #colorbox input {
@@ -220,6 +216,7 @@
     font-size: 1.5vw;
     margin: auto;
     border-radius: 1vw;
+    width: 20%;
 }
 #innerproduct #right #colorbox label:hover {
     cursor: pointer;
@@ -240,27 +237,28 @@
     justify-content: left;
     text-align: left;
     margin: auto;
-    margin-top: 2em;
+    margin-top: 1em;
     padding: 0.5em;
     padding-bottom: 0em;
     display: flex;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid rgb(231, 221, 221);
     margin-left: 0px;
     font-weight: 100;
 }
 
 #innerproduct #right #quantity p{
-    font-size: 3vw;
+    font-size: 2vw;
     margin: 0px;
     padding: 0px;
 }
 
 #innerproduct #right #quantity input {
-    font-size: 3vw;
+    font-size: 2vw;
     margin-top: 0px;
     border: 0px;
     font-weight: 100;
     padding: 0px;
+
 }
 
 

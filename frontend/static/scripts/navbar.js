@@ -1,7 +1,6 @@
 
 
 const navbar = document.getElementById('navbar')
-console.log("start of the navbar")
 navbar.innerHTML = `
 
 <link rel="stylesheet" href="/styling/navbar.css">
@@ -50,7 +49,6 @@ cookiehtml = document.getElementById('sign')
 let dataarray = document.cookie.split('; ')
 
 const webcookie = document.cookie
-console.log("End of the navbar ")
 
 let profile = document.getElementById("options");
 
@@ -73,16 +71,12 @@ if(webcookie == "" || webcookie == null) {
     
     let token = webcookie.split(";")[0].split("=")[1]
     let username = webcookie.split("username=")[1]
-
-    console.log(token)
-  
     fetch("/users")
     .then(response => response.json())
     .then(users => {
         for (i in users){
 
             if (users[i]["token"] == token){
-                console.log(users[i]['admin'])
                 if(users[i]["admin"] == 1){
                     profile.innerHTML = `
                     <button id="search">
@@ -129,7 +123,5 @@ const logout = function() {
         document.cookie = Cookies[i] + "=;expires=" + new Date(0).toUTCString();
     }
     location.href = "/"
-    
-    console.log(document.cookie)
 }
 

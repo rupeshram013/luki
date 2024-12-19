@@ -1,19 +1,4 @@
 
-#upperprofile {
-    margin-top: 1em;
-    background-image: url("/images/landscape/boudha.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    margin: auto;
-    margin-top: 5em;
-    box-shadow: 0px 0.1em 1em 0px rgb(158, 158, 158);
-    margin-bottom: 5em;
-    width: 80%;
-    padding: 5%;
-    padding-bottom: 20%;
-
-    margin-bottom: 50%;
-}
 
 *{
     font-family: "copperplate";
@@ -24,6 +9,9 @@
     width: 80%;
     margin: auto;
     padding: 5%;
+    box-shadow: 0px 0.1em 1em 0px rgb(158, 158, 158);
+    margin-top: 4em;
+    margin-bottom: 4em;
 }
 #outerprofile h1 {
     text-align: center;
@@ -85,63 +73,42 @@
     margin-left: auto;
 }
 
-
-
-/* #upperdash #dashproducts {
-    background-color: white;
-    padding: 5%;
-    width: 90%;
-    box-shadow: 0px 0.1em 1em 0px rgb(17, 17, 17);
-}
-
-#upperdash #dashproducts h1 {
-    text-align: center;
-    font-size: 4vw;
-    width: 50%;
-    margin: auto;
-    margin-bottom: 1em;
-    border-bottom: 2px solid rgb(179, 179, 179);
-    padding-bottom: 0.5em;
-} */
-
 #upperprofile #outerprofile h6{
     text-align: left;
-    font-size: 2vw;
+    font-size: 3vw;
     margin: 0px;
-    margin-bottom: 0.5em;
+    margin-bottom: 3vw;
 }
 
 #upperprofile #outerprofile table {
     box-shadow: 0px 0.1em 1em 0px rgb(158, 158, 158);
     margin: auto;
-    width: 50%;
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 10vw;
+
 } 
 
 #upperprofile #outerprofile table ,td ,th {
     margin: auto;
-    border: 1px solid black;
+    border-rightn: 1px solid rgb(234, 228, 228);
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     border-collapse: collapse;
     padding: 0.5em;
 }
 
-#upperprofile #outerprofile table th {
-    font-size: 1.5vw;
-    padding: 0.3em;
-    width: 5em;
-    background-color: black;
-    color: white;
-    padding: 1em;
-    text-transform: uppercase;
-}
 
 #upperprofile #outerprofile table td {
-    font-size: 0.8vw;
-    padding: 0.5em;
+    font-size: 1.5vw;
+    padding: 3vw;
     text-align: center;
 }
 #upperprofile #outerprofile table td a {
     text-decoration: none;
-    color: rgb(131, 131, 131);
+    color: rgb(15, 15, 15);
+    font-size: 2vw;
+    text-decoration: underline;
 }
 #upperprofile #outerprofile table td a:hover {
     text-decoration: underline;
@@ -149,15 +116,14 @@
 }
 
 #upperprofile #outerprofile table td button{
-    background-color: rgba(255, 0, 0, 0);
+    background-color: rgba(12, 12, 12);
     border: 0px;
 
-    border-bottom: 2px solid rgb(136, 136, 136);
-    font-size: 0.8vw;
-    font-weight: 1000;
+    border: 1px solid rgb(18, 17, 17);
+    font-size: 1.5vw;
+    font-weight: 100;
     padding: 0.5em;
-    background-color: rgba(0, 0, 0, 0);
-    color: rgb(20, 19, 19);
+    color: rgb(255, 255, 255);
     width: 100%;
 
 }

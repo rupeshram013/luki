@@ -89,9 +89,10 @@ backend.post('/product',urlencodedparser , (req, res) => {
     let id = req.body.id
     let quantity = req.body.quantity
     let category = req.body.category
+    let color = req.body.color
     let sizes = ""
     sizes = req.body.sizes
-    res.redirect(`/buy?quantity=${quantity}&sizes=${sizes}&id=${id}&category=${category}`)
+    res.redirect(`/buy?quantity=${quantity}&sizes=${sizes}&id=${id}&category=${category}&color=${color}`);
 })
 
 
@@ -238,10 +239,6 @@ backend.post("/buy" ,urlencodedparser, (req,res) => {
     var quantity = req.body.quantity
     let ordercode = Math.ceil(Math.random() * 13131313);
 
-    console.log("product details");
-    console.log(id,name,email,number, address , price, token , category , size , quantity , ordercode)
-
-
     orderupload(id , name , email , number ,  address, price , token , category , size , ordercode , quantity)
     res.redirect("/profile")
 
@@ -252,7 +249,7 @@ backend.post("/deleteorder" , urlencodedparser ,(req,res) => {
     let ordercode = req.body.ordercode
 
     orderdelete(ordercode)
-    res.redirect("/profile")
+    res.redirect("/")
     
 })
 

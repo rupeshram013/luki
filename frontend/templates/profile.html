@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUKI Store</title>
-
+    <link rel="icon" href="/images/logo/lukismall.jpg" >
     <link rel="stylesheet" href="/styling/profile.css">
 </head>
 <body>
@@ -37,12 +37,12 @@
             
             <h6>Your Order</h6>
             <table id="orders">
-                <tr>
+                <!-- <tr>
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Total</th>
                     <th>Cancel</th>
-                </tr>
+                </tr> -->
 
             </table>
         </div>
@@ -54,7 +54,6 @@
     <script>
 
         let token = document.cookie.split(";")[0].split("token=")[1]
-        console.log(token)
         let innerorderhtml = ""
         let outerorder = document.getElementById("orders")
         let r = 1
@@ -62,21 +61,18 @@
         .then(response => response.json())
         .then(orders => {
             for (i in orders){
-                console.log(orders[i]["token"] , token)
-                console.log(i)
                 if (orders[i]["token"] == token){
-                    console.log(orders)
                     let imagedir = "/"+orders[i]["path"].split("../frontend/static/")[1]+"/"
                     innerorderhtml = 
                     `
 
                     <tr>
                         <td><a href="/placedorder">${orders[i]["productname"]}</a></td>
-                        <td>${orders[i]["quantity"]}</td>
-                        <td>${orders[i]["total"]}</td>
+                        <td>${orders[i]["quantity"]}.pcs</td>
+                        <td>Rs.${orders[i]["total"]}</td>
                         <td><form method="post" action="/deleteorder">
                             <input name="ordercode" type="hidden" value="${orders[i]["ordercode"]}">
-                            <button type="submit">Yes</button>
+                            <button type="submit">Cancel</button>
                             </form>
                         </td>
                     </tr>
@@ -100,8 +96,6 @@
             for (i in users){
 
                 if (users[i]["token"] == token){
-                    console.log(users)
-                    
                     innerprofile = 
                     `
                         <div id="left">
