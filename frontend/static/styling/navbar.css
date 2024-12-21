@@ -139,7 +139,7 @@ body {
 
 
 #outsearchbox {
-    box-shadow: 1px 15px 14px 0.5px rgb(203, 200, 200);
+    box-shadow: 1px 10px 10px 1px rgb(233, 233, 233);
     padding-bottom: 4vw;
     margin-bottom: 5vw;
     margin-top: 2vw;
@@ -187,7 +187,7 @@ body {
     margin: auto;
     padding: 3vw;
     background-color: rgb(255, 255, 255);
-    box-shadow: 1px 15px 14px 0.5px rgb(203, 200, 200);
+    box-shadow: 1px 10px 10px 1px rgb(233, 233, 233);
     margin-bottom: 6vw;
     margin-top: 0px;
 }

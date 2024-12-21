@@ -77,7 +77,7 @@
                         <form  id="buyform" method="post" onsubmit=" return loginvalidation()">
                             <div id="details" > 
                                 <div id="sizequantity" class="boxes"> 
-                                    <h4>Sizes</h4>
+                                    <h4>SIZES</h4>
                                     <div id="sizesbox">
                                         <input type="radio" id="m" name="sizes" value="m" class="sizesbutton" checked="true">
                                         <label for="m">M</label><br>
@@ -90,26 +90,26 @@
                                     </div>
 
                                     <div id="quantity">
-                                        <p>Quantity:</p>
+                                        <p>QUANTITY:</p>
                                         <input type="number" min="1" max="${product[i]["productquantity"]}" name="quantity" id="quantity" value="1">
                                     </div>
                                 </div>
                                 
                                 <div id="colors" class="boxes">
-                                    <h4>Colors</h4>
+                                    <h4>COLORS</h4>
                                     <div id="colorbox">
                                         <input type="radio" id="black" name="color" value="black" class="sizesbutton" checked="true">
-                                        <label for="black">Black</label><br>
+                                        <label for="black">black</label><br>
                                         <input type="radio" id="white" name="color" value="white" class="sizesbutton">
-                                        <label for="white">White</label><br>
+                                        <label for="white">white</label><br>
                                         <input type="radio" id="brown" name="color" value="brown" class="sizesbutton">
-                                        <label for="brown">Brown</label><br> 
+                                        <label for="brown">brown</label><br> 
                                         <input type="radio" id="red" name="color" value="red" class="sizesbutton">
-                                        <label for="red">Red</label><br>
+                                        <label for="red">red</label><br>
                                         <input type="radio" id="blue" name="color" value="blue" class="sizesbutton">
-                                        <label for="blue">Blue</label><br>
+                                        <label for="blue">blue</label><br>
                                         <input type="radio" id="yellow" name="color" value="yellow" class="sizesbutton">
-                                        <label for="yellow">Yellow</label><br> 
+                                        <label for="yellow">yellow</label><br> 
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                         let name = document.getElementById("name")
                         let desc = document.getElementById("desc")
                     
-                        title.innerHTML = `${product[i]["productname"]}`
+                        title.innerHTML = `${product[i]["productname"].toUpperCase()}`
                         name.value = `${product[i]["productname"]}`
                         price.innerHTML = `Rs.${product[i]["productprice"]}`
                         desc.innerHTML = `${product[i]["description"]}`

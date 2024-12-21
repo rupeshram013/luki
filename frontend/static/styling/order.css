@@ -1,0 +1,124 @@
+
+
+*{
+    font-family: "copperplate";
+}
+
+#outerorder {
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    margin: auto;
+    padding: 5%;
+    box-shadow: 0px 0.1em 1em 0px rgb(158, 158, 158);
+    margin-top: 4em;
+    margin-bottom: 4em;
+}
+#outerorder h1 {
+    text-align: center;
+    font-size: 4vw;
+    margin: 0px;
+    font-weight: 100;
+    margin-bottom: 1em;
+    letter-spacing: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 0px;
+}
+#outerorder h2 {
+    text-align: center;
+    font-size: 2.5vw;
+    margin: 0px;
+    margin-bottom: 1em;
+    margin-top: 0em;
+    text-decoration: none;
+    color: rgb(187, 187, 187);
+}
+
+#outerorder h2 a ,  #outerorder h2 a p{
+
+    text-decoration: none;
+    color: rgb(175, 175, 175);
+    letter-spacing: 0.1em;
+}
+
+
+#outerorder #order {
+    margin-bottom: 3em;
+    padding-bottom: 2em;
+}
+
+#outerorder #order #productimg {
+    width: 75%;
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 8vw;
+}
+
+#outerorder #order #productimg img {
+    width: 100%;
+    object-fit: cover;
+    height: 25vw;
+}
+
+#outerorder #order h3{
+    font-size: 2.5vw;
+    letter-spacing: 1vw;
+    margin-bottom: 3vw;
+    margin-top: 3vw;
+}
+
+
+#outerorder #order #details {
+    width: 80%;
+    margin: auto;
+}
+
+#outerorder #order #userdetails {
+    display: flex;
+    width: 80%;
+}
+
+#outerorder #order #userdetails #left {
+    font-size: 2vw;
+    background-color: black;
+    color: white;
+    padding: 2vw;
+    font-weight: 300;
+}
+#outerorder #order #userdetails #right  {
+    font-size: 2vw;
+    padding: 2vw;
+    border: 1px solid rgb(173, 173, 173);
+}
+
+#outerorder #order #orderdetails {
+    display: flex;
+}
+
+
+
+#outerorder #order #orderdetails {
+    display: flex;
+    width: 75%;
+    border:1px solid rgb(179, 179, 179);
+}
+
+#outerorder #order #orderdetails #left {
+    font-size: 2vw;
+    text-align: left;
+    background-color: black;
+    color: white;
+    padding: 2vw;
+    font-weight: 300;
+}
+#outerorder #order #orderdetails #right  {
+    width: 80%;
+    text-align: left;
+    font-size: 2vw;
+    border-left:1px solid rgb(179, 179, 179);
+    padding: 2vw;
+    padding-right: 0px;
+}
+
+#outerorder #order #orderdetails {
+    display: flex;
+}

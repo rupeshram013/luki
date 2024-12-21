@@ -20,22 +20,22 @@ footer.innerHTML =
             <div id="bottomfooter">
                 <div id="leftfooter">
                     <div id="left">
-                        <a href="/about" target="_blank">
-                            <p>About Us</p>
+                        <a href="/about" >
+                            <p>about us</p>
                         </a>
-                        <a href="/policy" target="_blank">
-                            <p>Privacy Policy</p>
+                        <a href="/policy" >
+                            <p>privacy policy</p>
                         </a>
                     </div>
                 </div>
 
 
                 <div id="right">
-                        <a href="/medias" target="_blank">
-                            <p>Social Media</p>
+                        <a href="/social" >
+                            <p>social media</p>
                         </a>
-                        <a href="/contact" target="_blank">
-                            <p>Contact Us</p>
+                        <a href="/contact" >
+                            <p>contact us</p>
                         </a>
                 </div>
 

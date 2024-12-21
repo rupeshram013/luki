@@ -35,7 +35,7 @@
             </div>
 
             
-            <h6>Your Order</h6>
+            <h6>orders</h6>
             <table id="orders">
                 <!-- <tr>
                     <th>Product</th>
@@ -66,8 +66,8 @@
                     innerorderhtml = 
                     `
                     <tr>
-                        <td><a href="/orderdetails?ordercode=${orders[i]["ordercode"]}">${orders[i]["productname"]}</a></td>
-                        <td>${orders[i]["quantity"]}.pcs</td>
+                        <td><a href="/orderdetails?ordercode=${orders[i]["ordercode"]}">${orders[i]["productname"].toUpperCase()}</a></td>
+                        <td id="quantity">${orders[i]["quantity"]}.pcs</td>
                         <td>Rs.${orders[i]["total"]}</td>
                         <td><form method="post" action="/deleteorder">
                             <input name="ordercode" type="hidden" value="${orders[i]["ordercode"]}">
@@ -99,13 +99,13 @@
                     `
                         <div id="left">
     
-                            <h1>${users[i]['firstname']} ${users[i]['secondname']}</h1>
+                            <h1>${users[i]['firstname'].toUpperCase()} ${users[i]['secondname'].toUpperCase()}</h1>
                             <h4>${users[i]['username']}</h4>
                             <p>${users[i]['usermail']}</p>
                         </div>
                         <div id="right">
                             <h4>ID:${token}</h4>
-                            <h4>Spending<br> Rs.${users[i]['spending']}</h4>
+                            
                         </div>
                     `
 

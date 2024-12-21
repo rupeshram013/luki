@@ -75,8 +75,17 @@ bodyparser.json()
 backend.get('/' , (req, res) => {
     res.sendFile(path.join(frontendtemplates, "index.html"))
 })
-backend.get('/home' , (req, res) => {
-    res.sendFile(path.join(frontendtemplates, "home.html"))
+backend.get('/about' , (req, res) => {
+    res.sendFile(path.join(frontendtemplates, "about.html"))
+})
+backend.get('/policy' , (req, res) => {
+    res.sendFile(path.join(frontendtemplates, "policy.html"))
+})
+backend.get('/contact' , (req, res) => {
+    res.sendFile(path.join(frontendtemplates, "contact.html"))
+})
+backend.get('/social' , (req, res) => {
+    res.sendFile(path.join(frontendtemplates, "social.html"))
 })
 
 

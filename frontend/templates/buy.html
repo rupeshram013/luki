@@ -18,24 +18,24 @@
             <div id="images">
 
             </div>
-            <h4>Costing</h4>
+            <h4>COSTING</h4>
             <div id="cost">
                 
                 <table id="left">
                     <tr>
-                        <Td>Price:</Td>
+                        <Td>PRICE:</Td>
                     </tr>
                     <tr>
-                        <Td>Quantity:</Td>
+                        <Td>QUANTITY:</Td>
                     </tr>
                     <tr>
-                        <Td>Delivery:</Td>
+                        <Td>DELIVERY:</Td>
                     </tr>
                     <tr>
-                        <Td>Tax:</Td>
+                        <Td>TAX:</Td>
                     </tr>
                     <tr>
-                        <Td>Total Cost:</Td>
+                        <Td>TOTAL:</Td>
                     </tr>
                 </table>
 
@@ -58,7 +58,7 @@
             </div>
 
             
-            <h4>Details</h4>
+            <h4>DETAILS</h4>
             <div id="outerform">
                 
                 <form method="post" id="checkout">
@@ -105,7 +105,7 @@
                         let productquantity = document.getElementById("quantity")
                         let detailsbox = document.getElementById("rightdetails");
                         
-                        title.innerHTML = `${product[i]["productname"]}`
+                        title.innerHTML = `${product[i]["productname"].toUpperCase()}`
                         productid.value = id 
                         // price.value = `${finalprice}`
                         // pricetext.innerHTML = `Total :Rs.${finalprice}`

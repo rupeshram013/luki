@@ -27,14 +27,11 @@ navbar.innerHTML = `
     -->
     </div>
     
-
     <div id="options">
         <button id="search" onclick="searchbox()">
             <img src="/images/icon/search.png" alt="no img" srcset="" />
         </button>
-        <a href="/cart" id="cart">
-            <img src="/images/icon/cart.png" alt="" />
-        </a>
+
         <a href="/register" id="login">
             <img src="/images/icon/user.png" alt="" />
         </a>
@@ -45,9 +42,9 @@ navbar.innerHTML = `
 <div id="bottomnav">
 
     <div id="menubox" style="display: none;">
-        <a href="/category?name=men">Mens</a>
-        <a href="/category?name=women">Women</a>
-        <a href="/category?name=unisex">Unisex</a>
+        <a href="/category?name=men">mens</a>
+        <a href="/category?name=women">women</a>
+        <a href="/category?name=unisex">unisex</a>
     </div>
     <div id="outsearchbox" style="display: none;">
         <form action="/search" method="get" id="searchbox" required >
@@ -77,9 +74,6 @@ if(webcookie == "" || webcookie == null) {
         <button id="search" onclick="searchbox()">
             <img src="/images/icon/search.png" alt="no img" srcset="" />
         </button>
-        <a href="/cart" id="cart">
-            <img src="/images/icon/cart (2).png" alt="" />
-        </a>
         <a href="/register" id="login">
             <img src="/images/icon/user.png" alt="" />
         </a>
@@ -106,7 +100,7 @@ if(webcookie == "" || webcookie == null) {
                         
                     </a>
                 
-                    <button onclick='logout()' id="logout">Logout</button>
+                    <button onclick='logout()' id="logout">logout</button>
                     `
 
                 }else {

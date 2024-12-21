@@ -15,14 +15,9 @@
         </div>
         
         <div id="upperdash" >
-        <h3>Sections</h3>
-        <div id="section">
-            <button type="button" onclick="section('products')">Products</button>
-            <button type="button" onclick="section('orders')">Orders</button>
-            <button type="button" onclick="section('upload')">Upload</button>
-        </div>
+
         <div id="dashproducts" >
-            <h1 >Products</h1>
+            <h1 >PRODUCTS</h1>
             
             <div id="products" >
                 
@@ -51,8 +46,8 @@
 
         </div>
 
-        <div id="orders" style="display: none;">
-            <h1>Order</h1>
+        <div id="dashorders" style="display: none;">
+            <h1>ORDER</h1>
             <div id="orders" >
                 
                 <table id="ordertable">
@@ -89,22 +84,22 @@
         <div id="upload" style="display: none;" >
 
             <div id="outerform">
-                <h1>Upload</h1>
+                <h1>UPLOAD</h1>
                 <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="return formcheck()">
                     <input name="section" type="hidden" value="upload">
-                    <input type="text" name="productname" id="productname" placeholder="Name" required>
+                    <input type="text" name="productname" id="productname" placeholder="name" required>
                     <div id="numbers">
                         
-                        <input type="number" name="productprice" id="productprice" min="1" max="99999999999999" placeholder="Price" required>
-                        <input type="number" name="productquantity" id="productquantity"  min="1" max="9999999999" placeholder="Quantity" required>
+                        <input type="number" name="productprice" id="productprice" min="1" max="99999999999999" placeholder="price" required>
+                        <input type="number" name="productquantity" id="productquantity"  min="1" max="9999999999" placeholder="quantity" required>
                         
                     </div>
                     <div id="category">
-                        <h6>Category :</h6>
+                        <h6>category :</h6>
                         <select name="productcategory" id="product?category" required>
-                            <option value="women">Women</option>
-                            <option value="men">Men</option>
-                            <option value="unisex">Unisex</option>
+                            <option value="women">women</option>
+                            <option value="men">men</option>
+                            <option value="unisex">unisex</option>
                         </select>
                     </div>
 
@@ -127,14 +122,19 @@
                                 <button value="blue" type="button">BLUE</button>
                                 <button value="green" type="button">GREEN</button>
                         </div> -->
-                        <textarea name="productdesc" id="productdesc" cols="30" rows="10" placeholder="Description" required></textarea>
+                        <textarea name="productdesc" id="productdesc" cols="30" rows="10" placeholder="description" required></textarea>
                     </div>
                     <input type="file" name="productimages" id="productimages" multiple required placeholder="Select Images">
-                    <button id="submit" type="submit">Upload</button>
+                    <button id="submit" type="submit">UPLOAD</button>
                 
                 </form>
             </div>
         </div>
+            <div id="section">
+                <button type="button" onclick="section('products')">PRODUCTS</button>
+                <button type="button" onclick="section('orders')">ORDERS</button>
+                <button type="button" onclick="section('upload')">UPLOAD</button>
+            </div>
         
     </div>
 
@@ -167,12 +167,12 @@
                     tabledata += 
                     `
                     <tr>
-                        <td><a href="/orderdetails?category=${product[i]["productcategory"]}?id=${product[i]["productid"]}">${product[i]["productname"]}</a></td>
-                        <td>${product[i]["phonenum"]}</td>
+                        <td><a href="/orderdetails?ordercode=${product[i]["ordercode"]}">${product[i]["productname"].toLowerCase()}</a></td>
+                        <td>${product[i]["customername"].toLowerCase()}</td>
                         <td>${product[i]["total"]}</td>
                         <td><form method="post" action="/deleteorder">
                             <input name="ordercode" type="hidden" value="${product[i]["ordercode"]}">
-                            <button type="submit">Yes</button>
+                            <button type="submit">YES</button>
                             </form>
                         </td>
                     </tr>
@@ -181,7 +181,7 @@
 
                     <tr>
                         <th>Product</th>
-                        <th>Phone</th>
+                        <th>Customer</th>
                         <th>Total</th>
                         <th>Delete</th>
                     </tr>
@@ -209,13 +209,13 @@
                     tabledata += 
                     `
                     <tr>
-                        <td><a href="/product?category=${product[i]["productcategory"]}?id=${product[i]["productid"]}">${product[i]["productname"]}</a></td>
+                        <td><a href="/product?category=${product[i]["productcategory"]}?id=${product[i]["productid"]}">${product[i]["productname"].toLowerCase()}</a></td>
                         <td>${product[i]["productprice"]}</td>
                         <td>${product[i]["productquantity"]}</td>
                         <td><form method="post" action="/deleteproduct">
                             <input name="productid" type="hidden" value="${product[i]["productid"]}">
                             <input name="productpath" type="hidden" value="${product[i]["path"]}">
-                            <button type="submit">Yes</button>
+                            <button type="submit">YES</button>
                             </form>
                         </td>
                     </tr>
@@ -242,7 +242,7 @@
         function section(section){
 
             let products = document.getElementById("dashproducts")
-            let orders = document.getElementById("orders")
+            let orders = document.getElementById("dashorders")
             let upload = document.getElementById("upload")
             
             if (section == "products"){

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUKI Store</title>
     <link rel="icon" href="/images/logo/lukismall.jpg" >
-    <link rel="stylesheet" href="/styling/profile.css">
+    <link rel="stylesheet" href="/styling/order.css">
 </head>
 <body>
 
@@ -15,36 +15,63 @@
     </div>
 
 
-    <div id="upperprofile" >
-        <div id="outerprofile">
+    <div id="upperorder" >
+        <div id="outerorder">
             <h1>Order Details</h1>
-            <div id="profile">
-
-                <div id="left">
-                    
-                    <h1>Full Name</h1>
-                    <h4>UserName</h4>
-                    <p>Email</p>
-                    <p>Phone</p>
+            <div id="order">
+                <h2 id="productname">Product Name</h2>
+                <div id="productimg">
+                    <img src="" alt="">
                 </div>
-                <div id="right">
-                    <h4>Token</h4>
-                    <h2></h2>
+                <div id="details">
+                    <h3>Customer</h3>
+                    <div id="userdetails">
+                        <table id="left">
+                            <tr>
+                                <td><p>Name :</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Email : </p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Phone :</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Address :</p></td>
+                            </tr>
+                            
+                        </table>
+                            
+                        <table id="right">
+                            <tr>
+                                <td> <p>${orders[i]["customername"]}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>${orders[i]["email"]}</p></td>
+                            </tr>
+                            <tr>
+                                <td> <p>${orders[i]["phone"]}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>${orders[i]["address"]}</p></td>
+                            </tr>
+                          
+                        </table>
+                        
+                    </div>
+                    <h3>Order</h3>
+                    <div id="orderdetails">
+                        <table id="left">
+    
+                        </table>
+                        <table id="right">
+    
+                        </table>
+                        
+                    </div>
                 </div>
-
             </div>
 
-            
-            <h6>Your Order</h6>
-            <table id="orders">
-                <!-- <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                    <th>Cancel</th>
-                </tr> -->
-
-            </table>
         </div>
         
     </div>
@@ -53,32 +80,121 @@
 
     <script>
 
-        let token = document.cookie.split(";")[0].split("token=")[1]
-        let innerorderhtml = ""
-        let outerorder = document.getElementById("orders")
-        let r = 1
+        const url = location.search
+        const ordercode = url.split("ordercode=")[1].split("?id")[0]
         fetch("/order")
         .then(response => response.json())
         .then(orders => {
             for (i in orders){
-                if (orders[i]["token"] == token){
+                if (orders[i]["ordercode"] == ordercode){
                     let imagedir = "/"+orders[i]["path"].split("../frontend/static/")[1]+"/"
-                    innerorderhtml = 
+
+                    var productname = document.getElementById("productname")
+                    var productimg = document.getElementById("productimg")
+                    var userdetails = document.getElementById("userdetails")
+                    var orderdetails = document.getElementById("orderdetails")
+                    var tax = (orders[i]["quantity"] * orders[i]["productprice"]) * 13/100
+
+                    productname.innerHTML = `
+                     <a href="/product?category=${orders[i]["category"]}?id=${orders[i]["productid"]}">${orders[i]["productname"]}</a>`
+                    productimg.innerHTML = 
                     `
-                    <tr>
-                        <td><a href="/orderdetails?ordercode=${orders[i]["ordercode"]}">${orders[i]["productname"]}</a></td>
-                        <td>${orders[i]["quantity"]}.pcs</td>
-                        <td>Rs.${orders[i]["total"]}</td>
-                        <td><form method="post" action="/deleteorder">
-                            <input name="ordercode" type="hidden" value="${orders[i]["ordercode"]}">
-                            <button type="submit">Cancel</button>
-                            </form>
-                        </td>
-                    </tr>
+                        <img src="${imagedir}1.png" alt="">
                     `
-                    
-                    
-                    outerorder.innerHTML += innerorderhtml
+
+                    userdetails.innerHTML = 
+                    `   
+                        <table id="left">
+                            <tr>
+                                <td>Name</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                            </tr>
+                            <tr>
+                                <td>Phone</td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                            </tr>
+                            
+                        </table>
+                            
+                        <table id="right">
+                            <tr>
+                                <td> ${orders[i]["customername"]}</td>
+                            </tr>
+                            <tr>
+                                <td>${orders[i]["email"]}</td>
+                            </tr>
+                            <tr>
+                                <td>${orders[i]["phone"]}</td>
+                            </tr>
+                            <tr>
+                                <td>${orders[i]["address"]}</td>
+                            </tr>
+                          
+                        </table>
+                    `
+                    orderdetails.innerHTML = 
+                    `
+                <table id="left">
+                        <tr>
+                            <td>Price</td>
+                        </tr>
+                        <tr>
+                            <td>Quantity</td>
+                        </tr>
+                        <tr>
+                            <td>Size</td>
+                        </tr>
+                        <tr>
+                            <td>Color</td>
+                        </tr>
+                        <tr>
+                            <td>Category</td>
+                        </tr>
+                        <tr>
+                            <td>Tax</td>
+                        </tr>
+                        <tr>
+                            <td>Delivery</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                        </tr>
+                        
+                    </table>
+                        
+                    <table id="right">
+                        <tr>
+                            <td>${orders[i]["productprice"]}</td>
+                        </tr>
+                        <tr>
+                            <td>${orders[i]["quantity"]}</td>
+                        </tr>
+                        <tr>
+                            <td>${orders[i]["size"]}</td>
+                        </tr>
+                        <tr>
+                            <td>${orders[i]["color"]}</td>
+                        </tr>
+                        <tr>
+                            <td>${orders[i]["category"]}</td>
+                        </tr>
+                        <tr>
+                            <td>${tax}</td>
+                        </tr>
+                        <tr>
+                            <td>${150}</td>
+                        </tr>
+                        <tr>
+                            <td>${orders[i]["total"]}</td>
+                        </tr>
+                        
+                    </table>
+                        
+                    `
                     
                 }
                 
@@ -86,35 +202,6 @@
             }
         })
 
-        let profilebox = document.getElementById("profile")
-        let innerprofile = ``
-        
-        fetch("/users")
-        .then(response => response.json())
-        .then(users => {
-            for (i in users){
-
-                if (users[i]["token"] == token){
-                    innerprofile = 
-                    `
-                        <div id="left">
-    
-                            <h1>${users[i]['firstname']} ${users[i]['secondname']}</h1>
-                            <h4>${users[i]['username']}</h4>
-                            <p>${users[i]['usermail']}</p>
-                        </div>
-                        <div id="right">
-                            <h4>ID:${token}</h4>
-                            <h4>Spending<br> Rs.${users[i]['spending']}</h4>
-                        </div>
-                    `
-
-                    profilebox.innerHTML = innerprofile
-                }
-                
-
-            }
-        })
 
     </script>
 
