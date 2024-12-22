@@ -53,6 +53,8 @@
     color: white;
 }
 
+
+/* 
 #outerform {
     width: 80%;
     margin: auto;
@@ -75,23 +77,18 @@
 }
 
 #outerform form {
-    display: flex;
     flex-direction: column;
     margin: auto;
     width: 100%;
+    background-color: red;
 }
 
-#outerform #numbers {
-    display: flex;
-    width: 50%;
-    margin: auto;
-    gap: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
+#outerform .numbers {
+    width: 100%;
 }
 
 #outerform form input {
-    width: 70%;
+    width: 100%;
     margin: auto;
     font-size: 2.5vw;
     font-weight: 700;
@@ -150,6 +147,44 @@
 }
 
 
+#outerform form #index {
+    width: 50%;
+    margin: auto;
+    display: flex;
+
+}
+
+#outerform form #index h6 {
+    margin: 0px;
+    font-size: 2vw;
+    width: 50%;
+    text-align: right;
+    padding: 0px;
+    color: rgb(17, 16, 16);
+    opacity: 1;
+}
+#outerform form #index select {
+    border: 0px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1.5vw;
+    width: 30%;
+    border-bottom: 1px solid rgb(175, 175, 175);
+    margin-bottom: 1em;
+    padding: 0px;
+    
+    text-align: center;
+}
+#outerform form #index option {
+    border: 0px ;
+    background-color: white;
+
+}
+#outerform form #index select:hover {
+    cursor: pointer;
+}
+
+
 #outerform form #outerdesc {
     margin: auto;
     width: 80%;
@@ -175,7 +210,7 @@
     border: 1px solid rgb(255, 255, 255);
     border-bottom: 0px;
     font-size: 1.5vw;
-    font-weight: bold;
+    font-weight: 100;
     padding: 0.5em;
     background-color: black;
     color: white;
@@ -245,8 +280,151 @@
 
     background-color: rgba(0, 0, 0, 0);
     color: rgb(5, 5, 5);
+} */
+
+
+#outerform {
+    width: 80%;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    margin-top: 5em;
+    padding: 5%;
+    box-shadow: 0px 0.1em 1em 0px rgb(153, 153, 153);
 }
 
+#outerform h1 {
+    text-align: center;
+    font-size: 6vw;
+}
+
+#outerform form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    margin-top: 4em;
+}
+
+#outerform form input {
+    border: 0px ;
+    border-bottom: 1px solid rgb(178, 178, 178);
+    font-size: 3.5vw;
+    margin-bottom: 1em;
+    outline: none;
+}
+
+#outerform form .numbers {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1em;
+}
+
+#outerform form p{
+    font-size: 3.5vw;
+    margin: 0px;
+    color: rgb(49, 49, 49);
+}
+
+#outerform #category {
+    margin-top: 2vw;
+    display: flex;
+}
+#outerform #category select {
+    border: 0px;
+    background-color: rgba(206, 0, 0, 0);
+    padding: 0px;
+    padding-top: 0.5em;
+    padding-left: 1em;
+    font-size: 2.5vw;
+    outline: none;
+}
+#outerform #index {
+    margin-top: 2vw;
+    display: flex;
+}
+#outerform #index select {
+    padding: 0px;
+    padding-top: 0.5em;
+    border: 0px;
+    background-color: rgba(206, 0, 0, 0);
+    padding-left: 1em;
+    font-size: 2.5vw;
+    outline: none;
+}
+
+#outerform #outerdesc {
+    margin-top: 5vw;
+}
+
+#outerform form textarea{
+    width: 100%;
+    margin: auto;
+    padding: 0px;
+    resize: none;
+    text-indent: 1em;
+    padding-top: 1em;
+    outline: none;
+}
+
+#outerform #outerdesc #buttons {
+    width: 50%;
+    margin: auto;
+}
+
+#outerform #outerdesc #buttons button {
+    width: 100%;
+    font-size: 2.5vw;
+    border: 0px;
+    background-color: black;
+    color: white;
+    font-weight: 100;
+    padding: 0.5em;
+    width: 100%;
+}
+
+
+
+#outerform form #productimages {
+    border: 0px solid black;
+    text-align: left;
+    width: 80%;
+    margin: auto;
+    margin-top: 1em;
+}
+
+#outerform form #productimages::file-selector-button {
+    border: 1px solid black;
+    font-size: 0.7em;
+    padding: 0.5em;
+    background-color: rgba(255, 255, 255, 0);
+}
+#outerform form #productimages::file-selector-button:hover {
+    border: 1px solid black;
+    font-size: 0.7em;
+    padding: 0.5em;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    cursor: pointer;
+}
+
+
+#outerform form #submit{
+    width: 30%;
+    font-size: 2vw;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid black;
+    padding: 1em;
+    margin: auto;
+    margin-top: 4em;
+    font-weight: 100;
+    background-color: black;
+    color: white;
+}
+#outerform form #submit:hover{
+
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(5, 5, 5);
+} 
 
 
 

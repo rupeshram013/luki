@@ -54,12 +54,12 @@ async function productdata(category) {
     }
 }
 
-async function productupload( id, name , price, quantity , desc , path , imagenumber, category) {
+async function productupload( id, name , price, quantity , desc , path , imagenumber, category , productindex) {
     let conn;
     try {
   
         conn = await databaseconnection.getConnection();
-        const res = await conn.query(`insert into products (productid,productname,productprice,productquantity, description , path , imagenumber , productcategory) VALUE (? ,?,?, ?,?, ? , ? , ?)`, [id , name , price , quantity , desc , path , imagenumber , category] )
+        const res = await conn.query(`insert into products (productid,productname,productprice,productquantity, description , path , imagenumber , productcategory , productindex) VALUE (? ,?,?, ?,?, ? , ? , ? , ?)`, [id , name , price , quantity , desc , path , imagenumber , category ,productindex] )
   
     } finally {
       if (conn) conn.release();
@@ -347,10 +347,11 @@ backend.post("/upload",urlencodedparser , upload.array('productimages' , 13)  , 
         let name = req.body.productname
         let category = req.body.productcategory
         let price = req.body.productprice
+        let index = req.body.productindex
         let quantity = Math.ceil(req.body.productquantity)
         let desc = req.body.productdesc
         let path = "../frontend/static/images/product/" + category+"/" + id 
-        productupload(id , name , price , quantity , desc, path , imageindex , category)
+        productupload(id , name , price , quantity , desc, path , imageindex , category , index)
         
         imageindex = 1
         id = Math.ceil(Math.random()*13131313)
@@ -458,12 +459,8 @@ backend.post("/register" , urlencodedparser , (req , res) => {
         const checkdata = await readinglogindata( usermail)
         
         if(checkdata == null || checkdata == ''){
-            var signinsucess = signup(token , firstname , secondname,username , usermail , phone, userpassword)
-            console.log(signinsucess);
-            if(signinsucess){
-                res.cookie('token',token);
-                res.cookie('username',username);
-            }
+            res.cookie('token',token);
+            res.cookie('username',username);
             res.redirect('/');
             
         }else {

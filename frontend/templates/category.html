@@ -37,11 +37,11 @@
                         <div class="indiproduct" id="${product[i]["productid"]}">
                                 <img src="${imagedir}/1.png" alt="" />
                             <div id="des">
-                                <h3>${product[i]["productname"]}</h3>
+                                <h3>${product[i]["productname"].toUpperCase()}</h3>
                                 <p>Rs.${product[i]["productprice"]}</p>
-                                <h6>${product[i]["description"]}</h6>
+                                <h6>${product[i]["description"].toLowerCase()}</h6>
                                 <a href="/product?category=${category}?id=${product[i]["productid"]}">
-                                    <button> Shop Now</button>
+                                    <button> shop now</button>
                                 </a>
                             </div>
 

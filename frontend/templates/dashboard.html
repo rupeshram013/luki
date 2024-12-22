@@ -16,7 +16,7 @@
         
         <div id="upperdash" >
 
-        <div id="dashproducts" >
+        <div id="dashproducts"   style="display: none;">
             <h1 >PRODUCTS</h1>
             
             <div id="products" >
@@ -81,39 +81,38 @@
 
         </div>
 
-        <div id="upload" style="display: none;" >
+        <div id="upload" style="display: block;" >
 
             <div id="outerform">
                 <h1>UPLOAD</h1>
                 <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="return formcheck()">
                     <input name="section" type="hidden" value="upload">
-                    <input type="text" name="productname" id="productname" placeholder="name" required>
-                    <div id="numbers">
-                        
-                        <input type="number" name="productprice" id="productprice" min="1" max="99999999999999" placeholder="price" required>
-                        <input type="number" name="productquantity" id="productquantity"  min="1" max="9999999999" placeholder="quantity" required>
-                        
-                    </div>
+                    <input type="text" name="productname" id="productname" placeholder="name" required>                        
+                    <input type="number" name="productprice" id="productprice" min="1" max="99999999999999" placeholder="price" required class="numbers">
+                    <input type="number" name="productquantity" id="productquantity"  min="1" max="9999999999" placeholder="quantity" required class="numbers">
+                    <br>
+                    <br>
                     <div id="category">
-                        <h6>category :</h6>
+                        <p>category :</p>
                         <select name="productcategory" id="product?category" required>
                             <option value="women">women</option>
                             <option value="men">men</option>
                             <option value="unisex">unisex</option>
                         </select>
                     </div>
-
+                    <div id="index">
+                        <p>index :</p>
+                        <select name="productindex" id="product?productindex" required>
+                            <option value="normal">normal</option>
+                            <option value="latest">latest</option>
+                            <option value="trending">trending</option>
+                            <option value="offer">offer</option>
+                        </select>
+                    </div>                    
                     <div id="outerdesc">
                         
-                        <!-- <div id="buttons">
-                            
-                            <button onclick="format(`<h3>   </h3>`)">Heading</button>
-                            <button onclick="format(`<br>`)">LineBreak</button>
-                            <button onclick="format(`<li>  </li>`)">List</button>
-                            <button onclick="format(`<b>   </b>`)">bold</button>
-                        </div> -->
-<!-- 
-                        <div id="colors">
+                        <!-- 
+                            <div id="colors">
                                 <button value="red" type="button" >RED</button>
                                 <button value="black" type="button">BLACK</button>
                                 <button value="white" type="button">WHITE</button>
@@ -121,8 +120,15 @@
                                 <button value="yellow" type="button">YELLOW</button>
                                 <button value="blue" type="button">BLUE</button>
                                 <button value="green" type="button">GREEN</button>
-                        </div> -->
-                        <textarea name="productdesc" id="productdesc" cols="30" rows="10" placeholder="description" required></textarea>
+                            </div> -->
+                    <textarea name="productdesc" id="productdesc" cols="30" rows="10" placeholder="description" required></textarea>
+                    <div id="buttons">
+<!--                             
+                        <button onclick="format(`<h3>   </h3>`)">Heading</button> -->
+                        <button onclick="format(`<br>`)">linebreak</button>
+                        <!-- <button onclick="format(`<li>  </li>`)">List</button>
+                        <button onclick="format(`<b>   </b>`)">bold</button> -->
+                    </div>
                     </div>
                     <input type="file" name="productimages" id="productimages" multiple required placeholder="Select Images">
                     <button id="submit" type="submit">UPLOAD</button>

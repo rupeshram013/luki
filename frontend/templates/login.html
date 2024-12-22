@@ -18,17 +18,17 @@
             <h3 id="login">LOGIN</h3>
             
             <form method="post" autocomplete="off" >
-                <input type="email" name="usermail" id="usermail" required  placeholder="Email">
-                <input type="password" name="userpass" id="userpass"  required  placeholder="Password">
+                <input type="email" name="usermail" id="usermail" required  placeholder="email">
+                <input type="password" name="userpass" id="userpass"  required  placeholder="password">
                 <div id="errors">
                     <p id="error4"></p>
                     <p id="error3"></p>
                     
                 </div>
-                <a href="/register" id="link"><p>Create an account</p></a>
+                <a href="/register" id="link"><p>create an account</p></a>
                 <!-- <a href="/password" id="link"><p>Forgot Password?</p></a> -->
 
-                    <button type="submit">Login</button>
+                    <button type="submit">login</button>
                 </form>
 
             </div>
@@ -44,11 +44,11 @@
         
         if (error == 1){
             document.getElementById("errors").style.display = "block"
-            document.getElementById('error3').innerHTML =`Email Not Found`
+            document.getElementById('error3').innerHTML =`email not found`
         }
         else if (error == 2){
             document.getElementById("errors").style.display = "block"
-            document.getElementById('error4').innerHTML =`Password didn't match`
+            document.getElementById('error4').innerHTML =`password didn't match`
         }else {
             
             document.getElementById("errors").style.display = "none"

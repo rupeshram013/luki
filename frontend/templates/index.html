@@ -7,7 +7,6 @@
     <title>LUKI Store</title>
     <link rel="stylesheet" href="/styling/index_style.css">
     <link rel="icon" href="/images/logo/lukismall.jpg" >
-    <link rel="stylesheet" href="/styling/home.css">
     <!-- <link rel="stylesheet" href="/styling/index_style.css"> -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
@@ -36,22 +35,24 @@
 
     <div id="latest">
 
-        <h3>latest</h3>
+        <h3>LATEST</h3>
 
         <div id="products">
             
             <a href="/category?name=women">
-                <div id="product">
-                    <img src="/images/product/highlights/1.jpg" alt="" srcset="">            
+                <div class="product" id="side" >
+                    <img src="/images/product/highlights/1.jpg" alt="" srcset="">      
+                    <div id="ontop">
+                    </div>
                 </div>
             </a>
             <a href="/category?name=women">
-                <div id="product">
+                <div class="product" id="middle">
                     <img src="/images/product/highlights/2.jpg" alt="" srcset="">            
                 </div>
             </a>
             <a href="/category?name=women">
-                <div id="product">
+                <div class="product" id="side">
                     <img src="/images/product/highlights/3.jpg" alt="" srcset="">            
                 </div>
             </a>
@@ -62,7 +63,7 @@
 
     <div id="limited">
 
-        <h3>limited</h3>
+        <h3>LIMITED</h3>
         <div id="products">
 
             <div id="textedimg">
@@ -70,23 +71,25 @@
                     <h4>75% OFF</h4>
                     <h5>at first purchase</h5>
                 </div>
-                <a href="/category?name=women">
-                    <div id="product">
+
+                <div id="product" id="left">
+                    <a href="/category?name=women">
                         <img src="/images/product/highlights/4.jpg" alt="" srcset="">     
-                    </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="product" id="middle" >
+                <a href="/category?name=women">
+                    <img src="/images/product/highlights/5.jpg" alt="" srcset="">            
                 </a>
             </div>
 
-            <a href="/category?name=women">
-                <div id="product">
-                    <img src="/images/product/highlights/5.jpg" alt="" srcset="">            
-                </div>
-            </a>
-            <a href="/category?name=women">
-                <div id="product">
+            <div class="product" id="right">
+                <a href="/category?name=women">
                     <img src="/images/product/highlights/6.jpg" alt="" srcset="">            
-                </div>
-            </a>
+                </a>
+            </div>
             
         </div>
 
@@ -97,21 +100,40 @@
 
         <h3>trending</h3>
         <div id="products">
-            <a href="/category?name=women">
-                <div id="product">
-                    <img src="/images/product/highlights/5.jpg" alt="" srcset="">            
+            
+
+                <div class="product" id="left" class="side">
+                    <img src="/images/product/highlights/1.jpg" alt="" srcset="">      
+                    <div id="bottom">
+                        <h3>PRODUCT NAME</h3>
+                        <h4>$1500</h4>
+                        <p>description of the product is that is written on this page .</p>
+                        <button>SHOP NOW</button>
+                    </div>
                 </div>
-            </a>
-            <a href="/category?name=women">
-                <div id="product">
-                    <img src="/images/product/highlights/1.jpg" alt="" srcset="">            
+
+
+                <div class="product" id="middle">
+                    <img src="/images/product/highlights/2.jpg" alt="" srcset="">            
+                    <div id="bottom">
+                        <h3>PRODUCT NAME</h3>
+                        <h4>$1500</h4>
+                        <p>description of the product is that is written on this page .</p>
+                        <button>SHOP NOW</button>
+                    </div>
                 </div>
-            </a>
-            <a href="/category?name=women">
-                <div id="product">
-                    <img src="/images/product/highlights/4.jpg" alt="" srcset="">            
+                
+                <div class="product" id="right" class="side">
+                    <img src="/images/product/highlights/3.jpg" alt="" srcset="">       
+                    <div id="bottom">
+                        <h3>PRODUCT NAME</h3>
+                        <h4>$1500</h4>
+                        <p>description of the product is that is written on this page .</p>
+                        <button>SHOP NOW</button>
+                    </div>     
                 </div>
-            </a>
+
+
             
         </div>
 

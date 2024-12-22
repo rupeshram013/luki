@@ -28,6 +28,7 @@
     letter-spacing: 0.5em;
     font-weight: 100;
     font-size: 3.5vw;
+    margin-bottom: 0px;
 }
 
 #innerproduct #left {
@@ -36,7 +37,7 @@
     margin: 0px;
     width: 100%;
     margin-left: auto;
-    margin-top: 1em;
+    margin-top: 0em;
     padding: 0px;
     padding: auto;
 }
@@ -58,6 +59,11 @@
     padding: 2em;
     gap: 24px;
     height: 80%;
+}
+
+#innerproduct #left #images::-webkit-scrollbar{
+    background-color: white;
+    border: 0px;
 }
 #innerproduct #left #images img {
     object-fit: cover;
@@ -102,6 +108,7 @@
     margin: 0px;
     padding: 0px;
     text-indent: 1vw;
+    font-weight: 100;
 }
 
 #innerproduct #right #desc {
@@ -114,6 +121,8 @@
     font-weight: 100;
     margin-bottom: 2em;
     font-size: 2.5vw;
+    border-bottom: 1px solid rgb(213, 213, 213);
+    padding-bottom: 2em;
 }
 
 #innerproduct #right #sizesbox {
@@ -196,7 +205,6 @@
     flex-direction:row ;
     gap: 1vw;
     flex-wrap: wrap;
-    border-left: 1px solid rgb(183, 183, 183);
     padding-left: 2vw;
 }
 
@@ -242,8 +250,11 @@
     padding-bottom: 0em;
     display: flex;
     border-bottom: 1px solid rgb(231, 221, 221);
+    width: 50%;
     margin-left: 0px;
     font-weight: 100;
+    display: flex;
+    flex-direction: column;
 }
 
 #innerproduct #right #quantity p{
@@ -258,6 +269,9 @@
     border: 0px;
     font-weight: 100;
     padding: 0px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
 
 }
 
@@ -266,15 +280,15 @@
 
     background-color: rgba(0, 0, 0);
     border: 1px solid black;
-    font-size: 2.5vw;
-    font-weight: 600;
+    font-size: 1.5vw;
+    font-weight: 100;
     margin: auto;
     margin-top: 10vw;
     padding: 1em;
-    padding-top: 0.5em;
-    padding-bottom:0.5em;
-    width: 50%;
-    margin-left: 25%;
+    padding-top: 1em;
+    padding-bottom:1em;
+    width: 30%;
+    margin-left: 35%;
     color: white;
     border-radius: 2vw;
 }

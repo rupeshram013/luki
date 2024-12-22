@@ -7,7 +7,7 @@ html {
 
      margin: auto;
      width: 85%;
-     margin-top: 1em;
+     margin-top: 3em;
 
  }
 
@@ -31,6 +31,250 @@ html {
 #intro a {
     color: red;
     font-family: "Amsterdam";
+    font-size: 3vw;
+
+}
+#intro a p {
+    margin-top: 1.5em;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+#latest {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 5em;
+    margin-top: 10em;
+    padding: 2em;
+}
+
+#latest h3 {
+    font-weight:bold;
+    font-size: 3vw;
+    text-indent: 0em;
+}
+
+#latest #products {
+    display: flex;
+    margin-left: -2%;
+}
+
+#latest #products .product {
+    width: 90%;
+}
+
+#latest #products .product img {
+    width: 100%;
+}
+
+#latest #products #middle {
+    width: 100%;
+}
+#latest #products #middle img {
+    width: 100%;
+}
+
+#latest #products #side {
+    margin-left: 5%;
+    margin-top: 7%;
+}
+
+
+#latest #products #ontop {
+    display: inline;
+    margin: 0px;
+}
+
+#latest #products #ontop p {
+    text-align: center;
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+#limited {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 5em;
+}
+#limited h3 {
+    font-weight:bold;
+    font-size: 3vw;
+    text-indent: 0em;
+}
+
+#limited #products {
+    display: flex;
+    gap: 1em;
+}
+
+#limited #products #textedimg {
+    width: 33%;
+}
+
+#limited #products #textedimg #text{
+    text-align: center;
+}
+
+#limited #products #textedimg #text h4{
+    font-weight: 1000;
+    font-size: 3.5vw;
+    margin-bottom: 0px;
+    font-family: "copperplate bold";
+}
+#limited #products #textedimg #text h5{
+    margin-top: 0px;
+    font-size: 2vw;
+    font-family: "copperplate";
+    font-weight: 100;
+
+}
+
+#limited #products #textedimg #product{
+
+}
+
+
+#limited #products #textedimg #product img{
+    width: 100%;
+    object-fit: cover;
+    height: 13vw;
+}
+
+#limited #products .product {
+    width: 33%;
+}
+
+#limited #products #middle {
+    width: 25%;
+    margin-top: 7%;
+}
+
+#limited #products .product img {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+#trending {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 5em;
+}
+#trending h3 {
+    font-weight: 700;
+    font-size: 3vw;
+    margin-bottom: 2em;
+}
+
+#trending #products {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 3em;
+}
+
+#trending #products .side {
+    margin-top: 5em;
+}
+#trending #products #middle {
+    margin-top: -1em;
+}
+
+#trending #products #middle #bottom {
+    margin-bottom: -2em;
+}
+
+#trending #products .product {
+    width: auto;
+}
+#trending #products .product img {
+    width: 100%;
+}
+
+#trending #products .product #bottom {
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+    margin-bottom: 0em;
+    border: 1px solid rgb(221, 217, 217);
+}
+
+#trending #products .product #bottom p{
+    overflow: hidden;
+    padding:1em;
+    color: grey;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: 2vw;
+}
+
+#trending #products .product #bottom h3{
+    font-size: 2vw;
+    margin: 0px;
+    font-weight: 700;
+}
+#trending #products .product #bottom h4{
+    font-size: 2vw;
+    margin: 0px;
+    margin-top: 0.5em;
+    font-weight: 100;
+    
+}
+#trending #products .product #bottom p{
+    font-size: 1.5vw;
+    margin: 0px;
+    margin-top: 0.5em;
+    font-weight: 100;
+    
+}
+#trending #products .product #bottom button{
+    font-size: 2vw;
+    margin: 0px;
+    margin-top: 0.5em;
+    font-weight: 100;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding: 2vw;
+    
+}
+
+
+#intro {
+    text-align: center;
+    margin-bottom: 5em;
+}
+
+#intro a {
+    color: red;
+    font-family: "copperplate";
     font-size: 3vw;
 
 }
