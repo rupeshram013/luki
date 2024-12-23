@@ -112,7 +112,7 @@ html {
 
 
 #limited {
-    width: 90%;
+    width: 85%;
     margin: auto;
     margin-bottom: 5em;
 }
@@ -218,6 +218,7 @@ html {
 }
 #trending #trendingbox .product img {
     width: 100%;
+    object-fit: cover;
 }
 
 #trending #trendingbox .product #bottom {
