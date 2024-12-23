@@ -8,6 +8,7 @@ html {
      margin: auto;
      width: 85%;
      margin-top: 3em;
+    position: relative;
 
  }
 
@@ -15,6 +16,31 @@ html {
     width: 100%;
     margin: auto;
  }
+
+
+#categories {
+    position: absolute;
+    display: flex;
+    margin-left: 25%;
+    text-align: center;
+    width: 50%;
+    margin-top: -10%;
+}
+
+#categories a {
+    text-align: center;
+    text-decoration: none;
+    margin-right: 10%;
+    margin-left: 3.5%;
+    color: red;
+    font-weight: 1000;
+    font-size: 3vw;
+}
+
+#cateogies p {
+    text-align: center;
+    color: red;
+}
 
 #intro {
     font-family: "copperplate";
@@ -38,15 +64,6 @@ html {
     margin-top: 1.5em;
     font-weight: bold;
 }
-
-
-
-
-
-
-
-
-
 
 
 #latest {

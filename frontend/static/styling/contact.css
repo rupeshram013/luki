@@ -2,18 +2,18 @@
 
 #outer {
 
-    width: 75%;
+    width: 90%;
     background-color: rgb(0, 0, 0);
     margin: auto;
     padding: 3vw;
-    margin-top: 5em;
-    margin-bottom: 5em;
     box-shadow: 0px 0.1em 1em 0px rgb(127, 127, 127);
     color: white;
     text-align: center;
     font-weight: 100;
-    padding-bottom: 5em;
-    margin-bottom: 50%;
+    padding-top: 10em;
+    padding-bottom: 20em;
+    margin-bottom: 9em;
+    margin-top: 2em;
 }
 
 #outer h1 {
@@ -21,14 +21,14 @@
     text-align: center;
     margin-bottom: 3em;
     margin-top: 2em;
-    font-size: 3vw;
+    font-size: 6vw;
     color: #f0c106;
     font-weight: 100;
 }
 
 
 #outer p {
-    font-size: 1.5vw;
+    font-size: 3.5vw;
     font-weight: 100;
     text-align: left;
     width: 90%;
@@ -36,7 +36,7 @@
     text-decoration: underline;
 }
 #outer #p2 {
-    font-size: 1.5vw;
+    font-size: 2.5vw;
     font-weight: 100;
     text-align: left;
     width: 90%;

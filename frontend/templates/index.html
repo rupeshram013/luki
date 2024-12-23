@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUKI Store</title>
     <link rel="stylesheet" href="/styling/index_style.css">
+    <link rel="stylesheet" href="/styling/menu.css">
     <link rel="icon" href="/images/logo/lukismall.jpg" >
     <!-- <link rel="stylesheet" href="/styling/index_style.css"> -->
     <style>
@@ -17,24 +18,45 @@
     <div id="navbar">
     </div>
 
-    <div id="video">
-        <video autoplay loop muted preload="auto" id="landscape" >
-            <source src="/videos/intro.mp4" type="video/mp4">
-            <source src="/videos/intro.mp4" type="audio/mpeg">
-        </video>
+    <div id="menubox" style="display: none;">
+            <a href="/category?name=latest"><p>latest</p></a>
+            <a href="/category?name=men"><p>mens</p></a>
+            <a href="/category?name=women"><p>women</p></a>
+            <a href="/category?name=unisex"><p>unisex</p></a>
+            <a href="/contact"><p>contact us</p></a>
+            <a href="/about" ><p style="  border-bottom: 1px solid rgb(189, 189, 189);">about us</p></a>
+            <a href="/register"><button>sign up</button></a>
     </div>
 
-    <div id="intro">
+    <div id="wholebox" style="display: block;">
 
+    <div id="video">
+            <video autoplay loop muted preload="auto" id="landscape" >
+                <source src="/videos/intro.mp4" type="video/mp4">
+                <source src="/videos/intro.mp4" type="audio/mpeg">
+            </video>
+    </div>
+
+    <div id="categories">
+        <a href="/category?name=men"><p>men</p></a>
+        <a href="/category?name=women"><p>women</p></a>
+        <a href="/category?name=unisex"><p>unisex</p></a>
+    </div>
+
+
+
+    
+    <div id="intro">
+        
         <h1>EMBRACE YOUR WARDROBE!></h1>
         <h2>LUKI.OUTFITS</h2>
         <a href="#latest"><p>explore more</p></a>
-
+        
     </div>
-
-
+    
+    
     <div id="latest">
-
+        
         <h3>LATEST</h3>
 
         <div id="latestbox">
@@ -55,21 +77,21 @@
                 </div>
             </a> -->
         </div>
-
+        
     </div>
-
-
+    
+    
     <div id="limited">
-
+        
         <h3>LIMITED</h3>
         <div id="limitedbox">
-
+            
             <!-- <div id="textedimg">
                 <div id="text">
                     <h4>75% OFF</h4>
                     <h5>at first purchase</h5>
                 </div>
-
+                
                 <div id="product" id="left">
                     <a href="/category?name=women">
                         <img src="/images/product/highlights/4.jpg" alt="" srcset="">     
@@ -82,7 +104,7 @@
                     <img src="/images/product/highlights/5.jpg" alt="" srcset="">            
                 </a>
             </div>
-
+            
             <div class="product" id="right">
                 <a href="/category?name=women">
                     <img src="/images/product/highlights/6.jpg" alt="" srcset="">            
@@ -130,21 +152,24 @@
                         <button>SHOP NOW</button>
                     </div>     
                 </div> -->
-
-
+                
+                
+                
+            </div>
             
         </div>
-
-    </div>
-
-    <div id="intro">
         
-        <a href="/category?name=women"><p>more ahead</p></a>
+        <div id="intro">
+            
+            <a href="/category?name=women"><p>more ahead</p></a>
+        </div>
+        <div id="footer">
+        </div>
+        
     </div>
-
-
+    
     <script>
-      
+        
         fetch("/products")
         .then(response => response.json())
         .then(products => {
@@ -153,10 +178,10 @@
             var limitedindex = 0
             for (i in products){
                 if(products[i]["productindex"] == "latest"){
-                        var latestbox = document.getElementById("latestbox")
-                        var sides = ["side" , "middle" , "side" , "none"]
-                        let imagedir = "/" + products[i]["path"].split("../frontend/static/")[1] + "/";
-                        latestbox.innerHTML += 
+                    var latestbox = document.getElementById("latestbox")
+                    var sides = ["side" , "middle" , "side" , "none"]
+                    let imagedir = "/" + products[i]["path"].split("../frontend/static/")[1] + "/";
+                    latestbox.innerHTML += 
                         `
                         <a href="/product?category=${products[i]["productcategory"]}?id=${products[i]["productid"]}">
                             <div class="product" id="${sides[latestindex]}" >
@@ -190,7 +215,6 @@
                                     </div>
                                 </div>
                             `
-                            console.log(sides[limitedindex])
                             
                         }else {
                             limitedbox.innerHTML += 
@@ -205,7 +229,6 @@
                             `
                         }
                         limitedindex += 1;
-                        console.log(limitedbox.innerHTML)
                         
 
                 }
@@ -244,8 +267,6 @@
 
 
                 
-    <div id="footer">
-    </div>
     <script src="/scripts/navbar.js"></script>
     <script src="/scripts/footer.js"></script>
 </body>

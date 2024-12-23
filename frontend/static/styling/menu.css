@@ -1,0 +1,47 @@
+
+
+
+#menubox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4em;
+    background-color: rgb(255, 255, 255);
+    padding-bottom: 2em;
+}
+
+#menubox a {
+    text-decoration: none;
+}
+
+#menubox p {
+    border-top: 1px solid rgb(189, 189, 189);
+    margin: 0px;
+    font-size: 6vw;
+    color: black;
+    padding: 5vw;
+}
+
+#menubox #aboutustext {
+    border-bottom: 1px solid rgb(189, 189, 189);
+}
+
+
+#menubox button {
+    background-color: rgb(0, 0, 0);
+    border: 1px solid white;
+    color: white;
+    border: 0px;
+    width: 50%;
+    font-size:6vw;
+    padding: 2vw;
+    font-weight: 1000;
+    border-radius: 0.2em;
+    margin: auto;
+    margin-top: 1em;
+    margin-left: 25%;
+    font-family: "copperplate bold";
+}
+
+#menubox #logout {
+    padding: 0.2em;
+}

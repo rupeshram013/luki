@@ -6,11 +6,22 @@
     <title>LUKI Store</title>
     <link rel="icon" href="/images/logo/lukismall.jpg" >
     <link rel="stylesheet" href="/styling/buy.css">
+    <link rel="stylesheet" href="/styling/menu.css">
 </head>
 <body>
 
     <div id="navbar">
     </div>
+    <div id="menubox" style="display: none;">
+        <a href="/category?name=latest"><p>latest</p></a>
+        <a href="/category?name=men"><p>mens</p></a>
+        <a href="/category?name=women"><p>women</p></a>
+        <a href="/category?name=unisex"><p>unisex</p></a>
+        <a href="/contact"><p>contact us</p></a>
+        <a href="/about" ><p style="  border-bottom: 1px solid rgb(189, 189, 189);">about us</p></a>
+        <a href="/register"><button>sign up</button></a>
+    </div>
+    <div id="wholebox" style="display: block;">
 
     <div id="upperbuy" >
         <div id="innerbuy">
@@ -80,7 +91,7 @@
     </div>
 
     <div id="footer"></div>
-
+    </div>
     <script>
         const pagelocation = location.search
 

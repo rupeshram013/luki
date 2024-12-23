@@ -41,11 +41,7 @@ navbar.innerHTML = `
 
 <div id="bottomnav">
 
-    <div id="menubox" style="display: none;">
-        <a href="/category?name=men">mens</a>
-        <a href="/category?name=women">women</a>
-        <a href="/category?name=unisex">unisex</a>
-    </div>
+
     <div id="outsearchbox" style="display: none;">
         <form action="/search" method="get" id="searchbox" required >
             <input type="text" id="searchbutton" name="name" value="" placeholder="search">
@@ -67,6 +63,7 @@ let dataarray = document.cookie.split('; ')
 const webcookie = document.cookie
 
 let profile = document.getElementById("options");
+let menubox = document.getElementById("menubox");
 
 if(webcookie == "" || webcookie == null) {
     
@@ -103,19 +100,40 @@ if(webcookie == "" || webcookie == null) {
                     <button onclick='logout()' id="logout">logout</button>
                     `
 
+                    menubox.innerHTML = 
+                    `
+                    <a href="/category?name=latest"><p>latest</p></a>
+                    <a href="/category?name=men"><p>mens</p></a>
+                    <a href="/category?name=women"><p>women</p></a>
+                    <a href="/category?name=unisex"><p>unisex</p></a>
+                    <a href="/contact"><p>contact us</p></a>
+                    <a href="/about" ><p style="  border-bottom: 1px solid rgb(189, 189, 189);">about us</p></a>
+                    <button onclick='logout()' id="logout">logout</button>
+                    `
+                    
                 }else {
                     profile.innerHTML = `
                     <button id="search" onclick="searchbox()">
-                        <img src="/images/icon/search.png" alt="no img" srcset="" />
+                    <img src="/images/icon/search.png" alt="no img" srcset="" />
                     </button>
                     <a href="/profile" id="login">
-                        <img src="/images/icon/user.png" alt="" />
-                        
+                    <img src="/images/icon/user.png" alt="" />
+                    
                     </a>
-                
+                    
                     <button onclick='logout()' id="logout">Logout</button>
                     `
-
+                    menubox.innerHTML = 
+                    `
+                    <a href="/category?name=latest"><p>latest</p></a>
+                    <a href="/category?name=men"><p>mens</p></a>
+                    <a href="/category?name=women"><p>women</p></a>
+                    <a href="/category?name=unisex"><p>unisex</p></a>
+                    <a href="/contact"><p>contact us</p></a>
+                    <a href="/about" ><p style="  border-bottom: 1px solid rgb(189, 189, 189);">about us</p></a>
+                    <button onclick='logout()' id="logout">logout</button>
+                    `
+                    
                 }
 
             }
@@ -133,27 +151,27 @@ function searchbox(){
     }else{
         if(document.getElementById("menubox").style.display == "block"){
             document.getElementById("menubox").style.display = "none";
+            document.getElementById("wholebox").style.display = "block"
             document.getElementById("outsearchbox").style.display = "block";
         }else{
             document.getElementById("outsearchbox").style.display = "block";
         }
     }
-
+    
 }
 function menu(){
     if(document.getElementById("menubox").style.display == "block"){
         document.getElementById("menubox").style.display = "none";
+        document.getElementById("wholebox").style.display = "block";
+        console.log("homebox offline")
     }else{
-        if(document.getElementById("outsearchbox").style.display == "block"){
-            document.getElementById("outsearchbox").style.display = "none";
-            document.getElementById("menubox").style.display = "block";
-        }else{
-            document.getElementById("menubox").style.display = "block";
-        }
-
+        document.getElementById("menubox").style.display = "block"
+        document.getElementById("wholebox").style.display = "none";
+        document.getElementById("outsearchbox").style.display = "none";
+        
     }
-
 }
+
 
 
 
