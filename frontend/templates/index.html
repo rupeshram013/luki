@@ -37,13 +37,11 @@
 
         <h3>LATEST</h3>
 
-        <div id="products">
+        <div id="latestbox">
             
-            <a href="/category?name=women">
+            <!-- <a href="/category?name=women">
                 <div class="product" id="side" >
                     <img src="/images/product/highlights/1.jpg" alt="" srcset="">      
-                    <div id="ontop">
-                    </div>
                 </div>
             </a>
             <a href="/category?name=women">
@@ -55,7 +53,7 @@
                 <div class="product" id="side">
                     <img src="/images/product/highlights/3.jpg" alt="" srcset="">            
                 </div>
-            </a>
+            </a> -->
         </div>
 
     </div>
@@ -64,9 +62,9 @@
     <div id="limited">
 
         <h3>LIMITED</h3>
-        <div id="products">
+        <div id="limitedbox">
 
-            <div id="textedimg">
+            <!-- <div id="textedimg">
                 <div id="text">
                     <h4>75% OFF</h4>
                     <h5>at first purchase</h5>
@@ -89,7 +87,7 @@
                 <a href="/category?name=women">
                     <img src="/images/product/highlights/6.jpg" alt="" srcset="">            
                 </a>
-            </div>
+            </div> -->
             
         </div>
 
@@ -99,10 +97,10 @@
     <div id="trending">
 
         <h3>trending</h3>
-        <div id="products">
+        <div id="trendingbox">
             
 
-                <div class="product" id="left" class="side">
+                <!-- <div class="product" id="left" class="side">
                     <img src="/images/product/highlights/1.jpg" alt="" srcset="">      
                     <div id="bottom">
                         <h3>PRODUCT NAME</h3>
@@ -131,7 +129,7 @@
                         <p>description of the product is that is written on this page .</p>
                         <button>SHOP NOW</button>
                     </div>     
-                </div>
+                </div> -->
 
 
             
@@ -143,6 +141,106 @@
         
         <a href="/category?name=women"><p>more ahead</p></a>
     </div>
+
+
+    <script>
+      
+        fetch("/products")
+        .then(response => response.json())
+        .then(products => {
+            var latestindex = 0
+            var trendingindex = 0
+            var limitedindex = 0
+            for (i in products){
+                if(products[i]["productindex"] == "latest"){
+                        var latestbox = document.getElementById("latestbox")
+                        var sides = ["side" , "middle" , "side" , "none"]
+                        let imagedir = "/" + products[i]["path"].split("../frontend/static/")[1] + "/";
+                        latestbox.innerHTML += 
+                        `
+                        <a href="/product?category=${products[i]["productcategory"]}?id=${products[i]["productid"]}">
+                            <div class="product" id="${sides[latestindex]}" >
+                                <img src="${imagedir}/1.png" alt="" srcset="">      
+                                </div>
+                                </a>
+                                
+                                `
+                                latestindex += 1;
+                                
+                                
+                            }
+                            
+                if(products[i]["productindex"] == "limited"){
+                    var limitedbox = document.getElementById("limitedbox")
+                    var sides = ["left" , "middle" , "right" , "none"]
+                    let imagedir = "/" + products[i]["path"].split("../frontend/static/")[1] + "/";
+                    if(limitedindex == 0){
+                        limitedbox.innerHTML += 
+                            `
+                                <div id="textedimg">
+                                    <div id="text">
+                                        <h4>75% OFF</h4>
+                                        <h5>at first purchase</h5>
+                                    </div>
+
+                                    <div  id="${sides[limitedindex]}">
+                                        <a href="/product?category=${products[i]["productcategory"]}?id=${products[i]["productid"]}">
+                                            <img src="${imagedir}/1.png" alt="" srcset="">     
+                                        </a>
+                                    </div>
+                                </div>
+                            `
+                            console.log(sides[limitedindex])
+                            
+                        }else {
+                            limitedbox.innerHTML += 
+                            `
+                            
+                            
+                            <div class="product" id="${sides[limitedindex]}">
+                                <a href="/product?category=${products[i]["productcategory"]}?id=${products[i]["productid"]}">
+                                    <img src="${imagedir}/1.png" alt="" srcset="">     
+                                    </a>
+                                    </div>
+                            `
+                        }
+                        limitedindex += 1;
+                        console.log(limitedbox.innerHTML)
+                        
+
+                }
+
+                if(products[i]["productindex"] == "trending"){
+                    
+                    var trendingbox = document.getElementById("trendingbox");
+                    var sides = ["left" , "middle" , "right" , "none"]
+                    let imagedir = "/" + products[i]["path"].split("../frontend/static/")[1] + "/";
+                    trendingbox.innerHTML += 
+                    `
+                        <div class="product" id="${sides[trendingindex]}" class="">
+                            <img src="${imagedir}/1.png" alt="" srcset="">      
+                            <div id="bottom">
+                                <h3>${products[i]["productname"]}</h3>
+                                <h4>Rs.${products[i]["productprice"]}</h4>
+                                <p>${products[i]["description"].toLowerCase()}</p>
+
+                                <div id="shop">
+                                    <a href="/product?category=${products[i]["productcategory"]}?id=${products[i]["productid"]}">shop now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    `
+                    trendingindex += 1;
+
+                }
+
+
+            }
+        })
+
+
+    </script>
 
 
                 

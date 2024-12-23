@@ -30,8 +30,7 @@
           .then((product) => {
             let producthtml = ``;
             for (i in product) {
-              let imagedir =
-                "/" + product[i]["path"].split("../frontend/static/")[1] + "/";
+              let imagedir = "/" + product[i]["path"].split("../frontend/static/")[1] + "/";
               console.log(imagedir)
               producthtml += `
                         <div class="indiproduct" id="${product[i]["productid"]}">

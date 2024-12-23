@@ -63,38 +63,41 @@ html {
     text-indent: 0em;
 }
 
-#latest #products {
+#latest #latestbox {
     display: flex;
     margin-left: -2%;
 }
 
-#latest #products .product {
+#latest #latestbox .product {
     width: 90%;
 }
 
-#latest #products .product img {
+#latest #latestbox .product img {
     width: 100%;
 }
 
-#latest #products #middle {
+#latest #latestbox #middle {
     width: 100%;
 }
-#latest #products #middle img {
+#latest #latestbox #middle img {
     width: 100%;
 }
 
-#latest #products #side {
+#latest #latestbox #side {
     margin-left: 5%;
     margin-top: 7%;
 }
 
+#latest #latestbox #none{
+    display: none;
+}
 
-#latest #products #ontop {
+#latest #latestbox #ontop {
     display: inline;
     margin: 0px;
 }
 
-#latest #products #ontop p {
+#latest #latestbox #ontop p {
     text-align: center;
     color: black;
     text-decoration: none;
@@ -119,26 +122,27 @@ html {
     text-indent: 0em;
 }
 
-#limited #products {
+#limited #limitedbox {
     display: flex;
-    gap: 1em;
+    gap: 3vw;
+    margin: auto;
 }
 
-#limited #products #textedimg {
+#limited #limitedbox #textedimg {
     width: 33%;
 }
 
-#limited #products #textedimg #text{
+#limited #limitedbox #textedimg #text{
     text-align: center;
 }
 
-#limited #products #textedimg #text h4{
+#limited #limitedbox #textedimg #text h4{
     font-weight: 1000;
     font-size: 3.5vw;
     margin-bottom: 0px;
     font-family: "copperplate bold";
 }
-#limited #products #textedimg #text h5{
+#limited #limitedbox #textedimg #text h5{
     margin-top: 0px;
     font-size: 2vw;
     font-family: "copperplate";
@@ -146,27 +150,27 @@ html {
 
 }
 
-#limited #products #textedimg #product{
+#limited #limitedbox #textedimg #left{
 
 }
 
 
-#limited #products #textedimg #product img{
+#limited #limitedbox #textedimg #left img{
     width: 100%;
     object-fit: cover;
     height: 13vw;
 }
 
-#limited #products .product {
+#limited #limitedbox .product {
     width: 33%;
 }
 
-#limited #products #middle {
+#limited #limitedbox #middle {
     width: 25%;
     margin-top: 7%;
 }
 
-#limited #products .product img {
+#limited #limitedbox .product img {
     width: 100%;
 }
 
@@ -191,39 +195,40 @@ html {
     margin-bottom: 2em;
 }
 
-#trending #products {
+#trending #trendingbox {
     display: flex;
     justify-content: center;
     gap: 1em;
     margin-bottom: 3em;
 }
 
-#trending #products .side {
+#trending #trendingbox .side {
     margin-top: 5em;
 }
-#trending #products #middle {
+#trending #trendingbox #middle {
     margin-top: -1em;
 }
 
-#trending #products #middle #bottom {
+#trending #trendingbox #middle #bottom {
     margin-bottom: -2em;
 }
 
-#trending #products .product {
+#trending #trendingbox .product {
     width: auto;
 }
-#trending #products .product img {
+#trending #trendingbox .product img {
     width: 100%;
 }
 
-#trending #products .product #bottom {
+#trending #trendingbox .product #bottom {
     background-color: rgba(255, 255, 255, 0);
     text-align: center;
     margin-bottom: 0em;
     border: 1px solid rgb(221, 217, 217);
+    padding-top: 2vw;
 }
 
-#trending #products .product #bottom p{
+#trending #trendingbox .product #bottom p{
     overflow: hidden;
     padding:1em;
     color: grey;
@@ -233,37 +238,38 @@ html {
     font-size: 2vw;
 }
 
-#trending #products .product #bottom h3{
+#trending #trendingbox .product #bottom h3{
     font-size: 2vw;
     margin: 0px;
     font-weight: 700;
 }
-#trending #products .product #bottom h4{
-    font-size: 2vw;
+#trending #trendingbox .product #bottom h4{
+
+    text-transform: uppercase;
+    font-size: 1.6vw;
     margin: 0px;
-    margin-top: 0.5em;
+    margin-top: 0.5vw;
     font-weight: 100;
+    color: rgb(66, 66, 66);
     
 }
-#trending #products .product #bottom p{
+#trending #trendingbox .product #bottom p{
     font-size: 1.5vw;
     margin: 0px;
     margin-top: 0.5em;
     font-weight: 100;
     
 }
-#trending #products .product #bottom button{
-    font-size: 2vw;
-    margin: 0px;
-    margin-top: 0.5em;
-    font-weight: 100;
-    border: 0px;
-    background-color: rgba(255, 255, 255, 0);
-    background-color: black;
+#trending #trendingbox .product #bottom #shop{
     color: white;
-    width: 100%;
-    padding: 2vw;
-    
+    background-color: black;
+    padding: 1vw;
+    font-size: 2vw;
+}   
+#trending #trendingbox .product #bottom #shop a{
+    color: white;
+    background-color: black;
+    text-decoration: none;
 }
 
 
